@@ -1,1 +1,16 @@
 /* add your CSS here */
+:root {
+    /* Colors pallet */
+    --color-bg-main: #FDF6EE;
+    --color-bg-alt: #F0EBE3;
+
+    --color-accent-main: #D95F3B;
+    --color-accent-alt: #7BAE6E;
+
+    --color-text-title:#3B2314;
+    --color-text-paragraph: #6B5144;
+
+    --color-extra-main: #F2C4B0;
+    --color-extra-alt: #F5A623;
+}
+
