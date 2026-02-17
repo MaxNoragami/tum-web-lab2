@@ -5,41 +5,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dulcețime - torturi de casă</title>
-  <!-- CHANGE THESE VALUES -->
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Story+Script&display=swap"
+    rel="stylesheet">
+
+  <!-- STYLES -->
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
-  <!-- ADD YOUR CODE HERE -->
 
-  <header class="header">
+  <!-- <header class="header">
 
     <nav class="nav">
-      <a href="#how-it-works">Cum lucrează?</a>
+      <a href="#hiw">Cum lucrează?</a>
       <a href="#build-your-own">Personalizează-ți</a>
       <a href="#gallery">Galerie</a>
       <a href="#about-me">Despre mine</a>
       <a href="#contacts">Contacte</a>
     </nav>
 
-  </header>
+  </header> -->
 
   <main>
 
-    <section class="section hero">
+    <section class="section hero" id="hero">
 
-      <div>
-        <h1>Dulcețime - torturi de casă, pentru tine.</h1>
-        <p>Fructe proaspete, cremă pufoasă și multă dragoste.</p>
-        <a href="#build-your-own">Personalizează-ți tortul</a>
+      <div class="hero__container">
+        <div class="hero__content">
+          <h1 class="hero__title"><span class="hero__title--highlighted">
+              Dulcețime</span> - torturi de casă, <span class="hero__title--highlighted">pentru tine</span>.
+          </h1>
+          <p class="hero__description">Fructe proaspete, cremă pufoasă și multă dragoste.</p>
+          <a href="#build-your-own" class="hero__cta">Personalizează-ți tortul</a>
+        </div>
+
+        <div class="hero__image-wrapper">
+          <img src="public/hero_cake.png" alt="#" class="hero__image">
+        </div>
       </div>
-
-      <img src="#" alt="#">
 
     </section>
 
-    <section class="section how-it-works">
+
+
+
+
+
+
+
+
+    <section class="section hiw" id="hiw">
 
       <h2>Cum lucrează?</h2>
 
@@ -56,19 +78,19 @@
 
     </section>
 
-    <section class="section build-your-own">
+    <section class="section build-your-own" id="build-your-own">
 
       <h2>Personalizează-ți tortul</h2>
 
     </section>
 
-    <section class="section gallery">
+    <section class="section gallery" id="gallery">
 
       <h2>Galerie</h2>
 
     </section>
 
-    <section class="section about-me">
+    <section class="section about-me" id="about-me">
 
       <h2>Despre mine</h2>
 
@@ -86,7 +108,7 @@
 
   <footer>
 
-    <section class="section contacts">
+    <section class="section contacts" id="contacts">
 
       <h2>Contacte</h2>
 
