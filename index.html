@@ -115,9 +115,139 @@
 
     </section>
 
-    <section class="section build-your-own" id="build-your-own">
+    <section class="section byoc" id="build-your-own">
 
       <h2 class="section__title">Personalizează-ți tortul</h2>
+
+      <div class="byoc__container">
+
+        <form action="mailto:contact@dulceti.me" method="POST" enctype="text/plain">
+
+          <!-- Cake Type -->
+          <ul>
+            <li>
+              <input type="radio" name="cake_type" id="number">
+              <label for="number"><span>Număr</span><img src="public/icons/sort-numeric-variant.svg"
+                  alt="tip număr"></label>
+            </li>
+
+            <li>
+              <input type="radio" name="cake_type" id="shape">
+              <label for="shape"><span>Formă</span><img src="public/icons/shape-plus.svg" alt="tip formă"></label>
+            </li>
+          </ul>
+
+          <!-- Cake Shape Options -->
+          <ul>
+            <li>
+              <input type="radio" name="cake_shape-option" id="heart">
+              <label for="heart" class="material-symbols-outlined"><img src="public/icons/heart.svg"
+                  alt="inimă"></label>
+            </li>
+
+            <li>
+              <input type="radio" name="cake_shape-option" id="circle">
+              <label for="circle" class="material-symbols-outlined"><img src="public/icons/circle.svg"
+                  alt="cerc"></label>
+            </li>
+
+            <li>
+              <input type="radio" name="cake_shape-option" id="square">
+              <label for="square" class="material-symbols-outlined"><img src="public/icons/square.svg"
+                  alt="pătrat"></label>
+            </li>
+          </ul>
+
+          <!-- Batter Types -->
+          <div>
+            <select name="batter_types" id="batter_types">
+              <option value="">~ Tip blat ~</option>
+              <option value="sponge_cacao">Pandișpan pufos cu cacao</option>
+              <option value="sponge_white">Pandișpan pufos alb</option>
+              <option value="vanilla">Pufos de vanilie</option>
+              <option value="cacao">Pufos de cacao</option>
+              <option value="honey">Foi cu miere</option>
+              <option value="waffle">Vafe</option>
+            </select>
+          </div>
+
+          <!-- Creame Types -->
+          <div>
+            <select name="creame_types" id="creame_types">
+              <option value="">~ Tip cremă ~</option>
+              <option value="vanilla">Mascarpone</option>
+              <option value="vanilla">Frișcă și cafea</option>
+              <option value="cacao">Smântână cu frișcă</option>
+              <option value="vanilla_cacao">Lapte condensat</option>
+            </select>
+          </div>
+
+          <!-- Toppings -->
+          <div>
+            <label for="toppings">Toppinguri</label>
+
+            <ul>
+              <li>
+                <input type="checkbox" name="toppings" id="milka">
+                <label for="milka">Milka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="toppings" id="oreo">
+                <label for="oreo">Oreo</label>
+              </li>
+              <li>
+                <input type="checkbox" name="toppings" id="raspberries">
+                <label for="raspberries">Zmeură</label>
+              </li>
+              <li>
+                <input type="checkbox" name="toppings" id="strawberries">
+                <label for="strawberries">Căpșuni</label>
+              </li>
+              <li>
+                <input type="checkbox" name="toppings" id="kiwis">
+                <label for="kiwis">Kiwi</label>
+              </li>
+              <li>
+                <input type="checkbox" name="toppings" id="blueberries">
+                <label for="blueberries">Afine</label>
+              </li>
+              <li>
+                <input type="checkbox" name="toppings" id="nuts">
+                <label for="nuts">Nuci</label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Customer Data -->
+          <div>
+            <input type="text" name="name" id="name" placeholder="Nume">
+          </div>
+
+          <div>
+            <input type="text" name="surname" id="surname" placeholder="Prenume">
+          </div>
+
+          <div>
+            <input type="tel" name="phone" id="phone" placeholder="061234567">
+          </div>
+
+          <div>
+            <input type="email" name="email" id="email" placeholder="email@exemplu.com">
+          </div>
+
+          <div>
+            <input type="date" name="delivery-date" id="delivery-date" title="Data livrare">
+          </div>
+
+          <div>
+            <textarea name="special-request" id="special-request" placeholder="Cereri extra..."></textarea>
+          </div>
+
+          <button type="submit">Comandă</button>
+
+        </form>
+
+      </div>
 
     </section>
 
