@@ -50,3 +50,8 @@ table {
 a {
 	text-decoration: none;
 }
+
+img {
+	user-select: none;
+	pointer-events: none;
+}

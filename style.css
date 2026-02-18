@@ -1,13 +1,13 @@
-/* add your CSS here */
 :root {
     /* Colors pallet */
     --color-bg-main: #FDF6EE;
     --color-bg-alt: #F0EBE3;
 
     --color-accent-main: #D95F3B;
+    --color-accent-main-hover: #C04D2A;
     --color-accent-alt: #7BAE6E;
 
-    --color-text-title:#3B2314;
+    --color-text-title: #3B2314;
     --color-text-paragraph: #6B5144;
 
     --color-extra-main: #F2C4B0;
@@ -19,45 +19,34 @@
 }
 
 .section {
-    padding: 0 4rem;
+    padding: 0 2.5rem;
     min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Hero Section */
 .hero__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(2rem, 3vw, 4rem);
-    width: 100%;
-    max-width: 1400px;
+    gap: clamp(2rem, 5vw, 5rem);
+    max-width: 80vw;
 }
 
 .hero__content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-    max-width: min(600px, 100%);
-}
-
-.hero__image-wrapper {
-    flex: 1;
-    display: flex;
+    gap: clamp(1.5rem, 3vw, 3.5rem);
+    max-width: 100%;
+    text-align: center;
     align-items: center;
-    justify-content: end;
-}
-
-.hero__image {
-    width: 100%;
-    max-width: min(500px, 90vw);
-    height: auto;
 }
 
 .hero__title {
-    font-size: clamp(2rem, 10vw + 1rem, 5rem);
+    font-size: clamp(2.75rem, 8vw + 1rem, 6rem);
     font-family: var(--font-main);
     color: var(--color-text-title)
 }
@@ -69,7 +58,7 @@
 
 .hero__description {
     font-style: italic;
-    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+    font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
     font-family: var(--font-main);
     color: var(--color-text-paragraph);
 }
@@ -77,48 +66,84 @@
 .hero__cta {
     background-color: var(--color-accent-main);
     font-family: var(--font-main);
-    font-weight: bold;
     color: var(--color-bg-main);
+    font-weight: bold;
     padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
     font-size: clamp(1rem, 2.5vw, 1.5rem);
-    border-radius: 0.7rem;
+    border-radius: clamp(0.7rem, 1vw, 1rem);
     max-width: fit-content;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .hero__cta:hover {
-    background-color: #c04d2a;
-    transform: translateY(-2px);
+    background-color: var(--color-accent-main-hover);
 }
 
-@media (max-width: 768px) {
+.hero__image-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero__image {
+    width: 100%;
+    max-width: min(700px, 90vw);
+    height: auto;
+}
+
+/* Responsive adjustments for desktop and mobile landscape */
+@media ((min-aspect-ratio: 3/4) and (min-width: 64em)) or (orientation: landscape) {
+    /* Hero section */
     .hero__container {
-        flex-direction: column;
-        gap: clamp(2rem, 5vw, 3rem);
-        padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
+        flex-direction: row;
+        justify-content: space-between;
+        gap: clamp(2rem, 3vw, 6rem);
+        padding: 0;
     }
 
     .hero__content {
-        max-width: 100%;
-        text-align: center;
-        align-items: center;
+        max-width: min(600px, 100%);
+        text-align: left;
+        align-items: flex-start;
     }
 
     .hero__image-wrapper {
-        width: 100%;
-    }
-
-    .hero__title {
-        font-size: clamp(2.75rem, 8vw, 7rem);
-    }
-
-    .hero__description {
-        font-size: clamp(1rem, 3.5vw, 1.25rem);
+        justify-content: end;
+        width: auto;
     }
 }
 
-.hiw {
+/* Responsive adjustments for mobile landscape */
+@media (orientation: landscape) and (max-height: 37em) {
+    /* Hero section */
+    .hero__container {
+        gap: clamp(1rem, 2vw, 2rem);
+    }
+
+    .hero__content {
+        gap: clamp(0.5rem, 1vh, 1rem);
+    }
+
+    .hero__title {
+        font-size: clamp(1.5rem, 5vw, 3rem);
+    }
+
+    .hero__description {
+        font-size: clamp(0.75rem, 1.5vw, 1rem);
+    }
+
+    .hero__cta {
+        padding: clamp(0.5rem, 1vh, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+        font-size: clamp(0.5rem, 2vw, 1rem);
+        border-radius: clamp(0.5rem, 1vh, 0.75rem);
+    }
+
+    .hero__image {
+        max-width: min(350px, 40vw);
+    }
+}
+
+.section--bg-alt {
     background-color: var(--color-bg-alt);
 }
