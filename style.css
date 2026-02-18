@@ -97,11 +97,12 @@
 /* Sections */
 
 .section {
-    padding: 0 2.5rem;
+    padding: 5rem 2.5rem 2rem;
     min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .section--bg-alt {
@@ -110,12 +111,10 @@
 
 .section__title {
     font-family: var(--font-accent);
-    font-size: clamp(1rem, 2vw + 1rem, 3.5rem);
+    font-size: clamp(1.75rem, 5vw + 0.5rem, 3rem);
     color: var(--color-text-title);
-    padding: 4rem 0 0 0;
     width: 100%;
     text-align: center;
-    font-size: clamp(1rem, 20vw, 3rem);
 }
 
 /* Hero Section */
@@ -194,50 +193,87 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    height: 100dvh;
     min-height: 100dvh;
-    padding: 0 1.25rem clamp(1.5rem, 5vw, 4rem);
-    gap: clamp(2rem, 4vw, 3.5rem);
+    max-height: 100dvh;
+    padding: 6rem 1.5rem 2rem;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    box-sizing: border-box;
+    overflow: hidden;
 }
-
 
 .hiw__cards-wrapper {
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 3vw, 1.5rem);
+    gap: clamp(0.75rem, 2vw, 1.25rem);
     width: 100%;
+    max-width: 1200px;
     align-items: stretch;
-    justify-content: space-around;
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 .hiw__card {
-    background-color: var(--color-bg-main);
-    border-radius: clamp(0.75rem, 1.5vw, 2rem);
-    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(1.5rem, 3vw, 2rem);
+    background: linear-gradient(165deg, var(--color-bg-main) 0%, #faf0e6 100%);
+    border-radius: clamp(0.75rem, 1.5vw, 1.25rem);
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 2rem);
     display: flex;
     flex-direction: column;
-    gap: clamp(0.75rem, 2vw, 1.25rem);
+    gap: clamp(0.5rem, 1.5vw, 1rem);
     text-align: center;
     align-items: center;
+    justify-content: center;
     flex: 1 1 0;
+    min-height: 0;
+    box-shadow: 0 6px 24px rgba(59, 35, 20, 0.1), 0 2px 8px rgba(59, 35, 20, 0.07);
+    border-top: 3px solid var(--color-accent-main);
 }
 
 .hiw__card__artwork {
     height: auto;
-    width: clamp(5rem, 15vw, 8rem);
+    width: clamp(3.5rem, 10vw, 6rem);
+    flex-shrink: 1;
+    min-height: 0;
+    filter: drop-shadow(0 2px 6px rgba(59, 35, 20, 0.12));
+}
+
+.hiw__card__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+.hiw__card__step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(2rem, 5vw, 2.5rem);
+    height: clamp(2rem, 5vw, 2.5rem);
+    border-radius: 50%;
+    background-color: var(--color-accent-alt);
+    color: var(--color-bg-main);
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    flex-shrink: 0;
 }
 
 .hiw__card__title {
     font-family: var(--font-main);
-    color: var(--color-text-title);
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--color-accent-main);
+    font-size: clamp(0.95rem, 2vw, 1.35rem);
     font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .hiw__card__description {
     font-family: var(--font-main);
     color: var(--color-text-paragraph);
-    font-size: clamp(0.875rem, 1.5vw, 1rem);
-    line-height: 1.6;
+    font-size: clamp(0.8rem, 1.25vw, 1rem);
+    line-height: 1.5;
+    max-width: 95%;
 }
 
 /* Media Queries */
@@ -307,32 +343,44 @@
         width: auto;
     }
 
-    .section__title {
-        padding: 6rem 0 0 0;
+    .hiw {
+        padding: 6.5rem 2.5rem 2rem;
+    }
+
+    .hiw__card__header {
+        flex-direction: column;
+        gap: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    .hiw__card__step {
+        width: clamp(2.5rem, 4vw, 3.5rem);
+        height: clamp(2.5rem, 4vw, 3.5rem);
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     }
 
     .hiw__cards-wrapper {
         flex-direction: row;
         align-items: stretch;
-        gap: clamp(1rem, 2.5vw, 2rem);
+        gap: clamp(1rem, 2vw, 1.75rem);
     }
 
     .hiw__card {
-        padding: clamp(1.5rem, 2vw, 2.5rem) clamp(2rem, 2.5vw, 3rem);
-        gap: clamp(1rem, 1.5vw, 1.75rem);
+        padding: clamp(1.25rem, 2vw, 2rem) clamp(1.5rem, 2vw, 2.5rem);
+        gap: clamp(0.75rem, 1.25vw, 1.25rem);
+        box-shadow: 0 6px 24px rgba(59, 35, 20, 0.1), 0 2px 6px rgba(59, 35, 20, 0.06);
     }
 
     .hiw__card__artwork {
-        width: clamp(4rem, 8vw, 7rem);
-        max-width: min(7rem, 40%);
+        width: clamp(4rem, 10vw, 9rem);
+        max-width: min(9rem, 40%);
     }
 
     .hiw__card__title {
-        font-size: clamp(1.15rem, 1.5vw, 1.75rem);
+        font-size: clamp(1.1rem, 1.6vw, 1.75rem);
     }
 
     .hiw__card__description {
-        font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+        font-size: clamp(0.9rem, 1.2vw, 1.25rem);
         line-height: 1.65;
         max-width: 90%;
     }
@@ -364,5 +412,42 @@
 
     .hero__image-cake {
         max-width: min(350px, 40vw);
+    }
+
+    .hiw {
+        padding: 4.5rem 1.5rem 1rem;
+        gap: clamp(0.75rem, 2vh, 1.5rem);
+    }
+
+    .hiw__card__step {
+        width: clamp(1.5rem, 3vw, 2rem);
+        height: clamp(1.5rem, 3vw, 2rem);
+        font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    }
+
+    .hiw__cards-wrapper {
+        gap: clamp(0.5rem, 1.5vw, 1rem);
+    }
+
+    .hiw__card {
+        padding: clamp(0.5rem, 1.5vh, 0.9rem) clamp(1rem, 1.5vw, 1.5rem);
+        gap: clamp(0.25rem, 1vh, 0.5rem);
+    }
+
+    .hiw__card__artwork {
+        width: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .hiw__card__title {
+        font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    }
+
+    .hiw__card__description {
+        font-size: clamp(0.7rem, 1vw, 0.9rem);
+        line-height: 1.4;
+    }
+
+    .section__title {
+        font-size: clamp(1.25rem, 4vw, 2rem);
     }
 }
