@@ -71,6 +71,10 @@
     border-top: 1px solid var(--color-accent-main);
 }
 
+.nav__links-wrapper.active {
+    display: flex;
+}
+
 .nav__link {
     font-family: var(--font-main);
     font-size: clamp(0.95rem, 2.5vw, 1.1rem);

@@ -42,9 +42,9 @@
     <nav class="nav nav--mobile">
       <div class="nav__title-wrapper">
         <a href="#hero" class="nav__title">Dulcețime</a>
-        <span class="material-symbols-outlined nav__menu-icon"">menu</span>
+        <span class="material-symbols-outlined nav__menu-icon" id="menuToggle">menu</span>
       </div>
-      <div class="nav__links-wrapper">
+      <div class="nav__links-wrapper" id="navLinks">
         <a href="#hiw" class="nav__link">Cum lucrează?</a>
         <a href="#build-your-own" class="nav__link">Personalizează-ți</a>
         <a href="#gallery" class="nav__link">Galerie</a>
@@ -137,6 +137,31 @@
     </section>
 
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navTitle = document.querySelector('.nav--mobile .nav__title');
+    
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      const links = navLinks.querySelectorAll('.nav__link');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      if (navTitle) {
+        navTitle.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      }
+    }
+  </script>
 
 </body>
 
