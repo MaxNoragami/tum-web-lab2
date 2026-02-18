@@ -12,12 +12,89 @@
     --color-text-paragraph: #6B5144;
 
     --color-extra-main: #F2C4B0;
+    --color-extra-main-blur: #F2C4B033;
     --color-extra-alt: #F5A623;
 
     /* Fonts */
     --font-main: "Merriweather", serif;
     --font-accent: "Story Script", sans-serif;
 }
+
+/* Navigation */
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    position: fixed;
+    top: 2%;
+    width: 85vw;
+    max-width: 1200px;
+    background-color: var(--color-extra-main-blur);
+    backdrop-filter: blur(10px);
+    border-radius: clamp(0.75rem, 1.5vw, 1.25rem);
+    padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 3vw, 2rem);
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    color: var(--color-text-title);
+}
+
+.nav__title-wrapper {
+    color: var(--color-accent-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav__title {
+    font-family: var(--font-accent);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    flex-shrink: 0;
+    color: var(--color-accent-main);
+    cursor: pointer;
+}
+
+.nav__menu-icon {
+    font-size: clamp(1.75rem, 4vw, 2rem);
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav__links-wrapper {
+    display: none;
+    flex-direction: column;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-accent-main);
+}
+
+.nav__links-wrapper.active {
+    display: flex;
+}
+
+.nav__link {
+    font-family: var(--font-main);
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--color-text-title);
+    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+    border-radius: clamp(0.5rem, 1vw, 0.75rem);
+    text-align: center;
+    font-weight: 500;
+}
+
+.nav--mobile {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav--desktop {
+    display: none;
+}
+
+/* Sections */
 
 .section {
     padding: 0 2.5rem;
@@ -27,11 +104,15 @@
     justify-content: center;
 }
 
+.section--bg-alt {
+    background-color: var(--color-bg-alt);
+}
+
+/* Hero Section */
 .hero {
     background: radial-gradient(circle at 20% 20%, var(--color-accent-main-gradient) 0%, transparent 70%);
 }
 
-/* Hero Section */
 .hero__container {
     display: flex;
     flex-direction: column;
@@ -51,7 +132,7 @@
 }
 
 .hero__title {
-    font-size: clamp(2.75rem, 8vw + 1rem, 6rem);
+    font-size: clamp(2.75rem, 8vw + 1rem, 5rem);
     font-family: var(--font-main);
     color: var(--color-text-title)
 }
@@ -88,7 +169,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: max(40%, 10rem);
 }
 
 .hero__image-cake {
@@ -97,10 +178,55 @@
     height: auto;
 }
 
-/* Responsive adjustments for desktop and mobile landscape */
-@media ((min-aspect-ratio: 3/4) and (min-width: 64em)) or (orientation: landscape) {
+/* Media Queries */
 
-    /* Hero section */
+/* Desktop Navigation */
+@media (min-aspect-ratio: 3/4) and (min-width: 64em) {
+    .nav--mobile {
+        display: none;
+    }
+
+    .nav--desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav--desktop .nav__title-wrapper {
+        flex-shrink: 0;
+        width: auto;
+    }
+
+    .nav--desktop .nav__menu-icon {
+        display: none;
+    }
+
+    .nav--desktop .nav__links-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: clamp(1rem, 2vw, 2rem);
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    .nav--desktop .nav__link {
+        padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1.25rem);
+        font-size: clamp(0.9rem, 1vw, 1rem);
+        white-space: nowrap;
+    }
+
+    .nav__title:hover {
+        color: var(--color-accent-main-hover);
+    }
+}
+
+/* Desktop/Tablet Hero Layout - wider screens or any landscape */
+@media ((min-aspect-ratio: 3/4) and (min-width: 64em)) or (orientation: landscape) {
     .hero__container {
         flex-direction: row;
         justify-content: space-between;
@@ -120,10 +246,8 @@
     }
 }
 
-/* Responsive adjustments for mobile landscape */
+/* Mobile Landscape Adjustments - small height screens */
 @media (orientation: landscape) and (max-height: 37em) {
-
-    /* Hero section */
     .hero__container {
         gap: clamp(1rem, 2vw, 2rem);
     }
@@ -149,8 +273,4 @@
     .hero__image-cake {
         max-width: min(350px, 40vw);
     }
-}
-
-.section--bg-alt {
-    background-color: var(--color-bg-alt);
 }
