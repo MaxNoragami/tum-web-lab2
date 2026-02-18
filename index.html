@@ -126,13 +126,13 @@
           <!-- Cake Type -->
           <ul>
             <li>
-              <input type="radio" name="cake_type" id="number">
+              <input type="radio" name="Tip" id="number" value="Număr">
               <label for="number"><span>Număr</span><img src="public/icons/sort-numeric-variant.svg"
                   alt="tip număr"></label>
             </li>
 
             <li>
-              <input type="radio" name="cake_type" id="shape">
+              <input type="radio" name="Tip" id="shape" value="Formă">
               <label for="shape"><span>Formă</span><img src="public/icons/shape-plus.svg" alt="tip formă"></label>
             </li>
           </ul>
@@ -140,19 +140,19 @@
           <!-- Cake Shape Options -->
           <ul>
             <li>
-              <input type="radio" name="cake_shape-option" id="heart">
+              <input type="radio" name="Formă Opțiune" id="heart" value="Inimă">
               <label for="heart" class="material-symbols-outlined"><img src="public/icons/heart.svg"
                   alt="inimă"></label>
             </li>
 
             <li>
-              <input type="radio" name="cake_shape-option" id="circle">
+              <input type="radio" name="Formă Opțiune" id="circle" value="Cerc">
               <label for="circle" class="material-symbols-outlined"><img src="public/icons/circle.svg"
                   alt="cerc"></label>
             </li>
 
             <li>
-              <input type="radio" name="cake_shape-option" id="square">
+              <input type="radio" name="Formă Opțiune" id="square" value="Pătrat">
               <label for="square" class="material-symbols-outlined"><img src="public/icons/square.svg"
                   alt="pătrat"></label>
             </li>
@@ -160,7 +160,7 @@
 
           <!-- Batter Types -->
           <div>
-            <select name="batter_types" id="batter_types">
+            <select name="Tip blat" id="batter_types">
               <option value="">~ Tip blat ~</option>
               <option value="sponge_cacao">Pandișpan pufos cu cacao</option>
               <option value="sponge_white">Pandișpan pufos alb</option>
@@ -173,46 +173,46 @@
 
           <!-- Creame Types -->
           <div>
-            <select name="creame_types" id="creame_types">
+            <select name="Tip cremă" id="creame_types">
               <option value="">~ Tip cremă ~</option>
-              <option value="vanilla">Mascarpone</option>
-              <option value="vanilla">Frișcă și cafea</option>
-              <option value="cacao">Smântână cu frișcă</option>
-              <option value="vanilla_cacao">Lapte condensat</option>
+              <option value="mascarpone">Mascarpone</option>
+              <option value="frișcă_cafea">Frișcă și cafea</option>
+              <option value="smântână_frișcă">Smântână cu frișcă</option>
+              <option value="lapte_condensat">Lapte condensat</option>
             </select>
           </div>
 
           <!-- Toppings -->
           <div>
-            <label for="toppings">Toppinguri</label>
+            <label for="Topping">Toppinguri</label>
 
             <ul>
               <li>
-                <input type="checkbox" name="toppings" id="milka">
+                <input type="checkbox" name="Topping" id="milka" value="Milka">
                 <label for="milka">Milka</label>
               </li>
               <li>
-                <input type="checkbox" name="toppings" id="oreo">
+                <input type="checkbox" name="Topping" id="oreo" value="Oreo">
                 <label for="oreo">Oreo</label>
               </li>
               <li>
-                <input type="checkbox" name="toppings" id="raspberries">
+                <input type="checkbox" name="Topping" id="raspberries" value="Zmeură">
                 <label for="raspberries">Zmeură</label>
               </li>
               <li>
-                <input type="checkbox" name="toppings" id="strawberries">
+                <input type="checkbox" name="Topping" id="strawberries" value="Căpșuni">
                 <label for="strawberries">Căpșuni</label>
               </li>
               <li>
-                <input type="checkbox" name="toppings" id="kiwis">
+                <input type="checkbox" name="Topping" id="kiwis" value="Kiwi">
                 <label for="kiwis">Kiwi</label>
               </li>
               <li>
-                <input type="checkbox" name="toppings" id="blueberries">
+                <input type="checkbox" name="Topping" id="blueberries" value="Afine">
                 <label for="blueberries">Afine</label>
               </li>
               <li>
-                <input type="checkbox" name="toppings" id="nuts">
+                <input type="checkbox" name="Topping" id="nuts" value="Nuci">
                 <label for="nuts">Nuci</label>
               </li>
             </ul>
@@ -220,27 +220,23 @@
 
           <!-- Customer Data -->
           <div>
-            <input type="text" name="name" id="name" placeholder="Nume">
+            <input type="text" name="Nume" id="name" placeholder="Nume">
           </div>
 
           <div>
-            <input type="text" name="surname" id="surname" placeholder="Prenume">
+            <input type="text" name="Prenume" id="surname" placeholder="Prenume">
           </div>
 
           <div>
-            <input type="tel" name="phone" id="phone" placeholder="061234567">
+            <input type="tel" name="Număr de telefon" id="phone" placeholder="061234567">
           </div>
 
           <div>
-            <input type="email" name="email" id="email" placeholder="email@exemplu.com">
+            <input type="date" name="Dată de livrare" id="delivery-date" title="Data livrare">
           </div>
 
           <div>
-            <input type="date" name="delivery-date" id="delivery-date" title="Data livrare">
-          </div>
-
-          <div>
-            <textarea name="special-request" id="special-request" placeholder="Cereri extra..."></textarea>
+            <textarea name="Cereri extra" id="special-request" placeholder="Cereri extra..."></textarea>
           </div>
 
           <button type="submit">Comandă</button>
