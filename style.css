@@ -490,7 +490,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-auto-flow: column;
-    grid-auto-columns: 55%;
+    grid-auto-columns: 80%;
     gap: clamp(0.5rem, 1.5vw, 0.75rem);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -523,6 +523,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    aspect-ratio: 4 / 3;
     pointer-events: auto;
 }
 
