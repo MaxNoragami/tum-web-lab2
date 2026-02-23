@@ -115,9 +115,127 @@
 
     </section>
 
-    <section class="section build-your-own" id="build-your-own">
+    <section class="section byoc" id="build-your-own">
 
       <h2 class="section__title">Personalizează-ți tortul</h2>
+
+      <div class="byoc__container">
+
+        <form class="byoc__form" action="mailto:contact@dulceti.me" method="POST" enctype="text/plain">
+
+          <!-- Cake Shape -->
+          <fieldset class="byoc__fieldset byoc__fieldset--type">
+            <legend class="byoc__legend">Formă tort</legend>
+
+            <div class="byoc__scroll-row">
+              <input type="radio" name="Formă" id="number" value="Număr" class="byoc__radio byoc__radio--shape">
+              <label for="number" class="byoc__shape-label">
+                <img src="public/icons/sort-numeric-variant.svg" alt="număr" class="byoc__icon">
+                <span>Număr</span>
+              </label>
+
+              <input type="radio" name="Formă" id="heart" value="Inimă" class="byoc__radio byoc__radio--shape">
+              <label for="heart" class="byoc__shape-label">
+                <img src="public/icons/heart.svg" alt="inimă" class="byoc__icon">
+                <span>Inimă</span>
+              </label>
+
+              <input type="radio" name="Formă" id="circle" value="Cerc" class="byoc__radio byoc__radio--shape">
+              <label for="circle" class="byoc__shape-label">
+                <img src="public/icons/circle.svg" alt="cerc" class="byoc__icon">
+                <span>Cerc</span>
+              </label>
+
+              <input type="radio" name="Formă" id="square" value="Pătrat" class="byoc__radio byoc__radio--shape">
+              <label for="square" class="byoc__shape-label">
+                <img src="public/icons/square.svg" alt="pătrat" class="byoc__icon">
+                <span>Pătrat</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Batter & Cream -->
+          <fieldset class="byoc__fieldset byoc__fieldset--selects">
+            <legend class="byoc__legend">Blat și Cremă</legend>
+
+            <select name="Tip blat" id="batter_types" class="byoc__select">
+              <option value="">~ Tip blat ~</option>
+              <option value="sponge_cacao">Pandișpan pufos cu cacao</option>
+              <option value="sponge_white">Pandișpan pufos alb</option>
+              <option value="vanilla">Pufos de vanilie</option>
+              <option value="cacao">Pufos de cacao</option>
+              <option value="honey">Foi cu miere</option>
+              <option value="waffle">Vafe</option>
+            </select>
+
+            <select name="Tip cremă" id="creame_types" class="byoc__select">
+              <option value="">~ Tip cremă ~</option>
+              <option value="mascarpone">Mascarpone</option>
+              <option value="frișcă_cafea">Frișcă și cafea</option>
+              <option value="smântână_frișcă">Smântână cu frișcă</option>
+              <option value="lapte_condensat">Lapte condensat</option>
+            </select>
+          </fieldset>
+
+          <!-- Toppings -->
+          <fieldset class="byoc__fieldset byoc__fieldset--toppings">
+            <legend class="byoc__legend">Toppinguri</legend>
+
+            <div class="byoc__scroll-row">
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Milka" class="byoc__checkbox">
+                <span>Milka</span>
+              </label>
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Oreo" class="byoc__checkbox">
+                <span>Oreo</span>
+              </label>
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Zmeură" class="byoc__checkbox">
+                <span>Zmeură</span>
+              </label>
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Căpșuni" class="byoc__checkbox">
+                <span>Căpșuni</span>
+              </label>
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Kiwi" class="byoc__checkbox">
+                <span>Kiwi</span>
+              </label>
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Afine" class="byoc__checkbox">
+                <span>Afine</span>
+              </label>
+              <label class="byoc__topping-label">
+                <input type="checkbox" name="Topping" value="Nuci" class="byoc__checkbox">
+                <span>Nuci</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Customer Info -->
+          <fieldset class="byoc__fieldset byoc__fieldset--customer">
+            <legend class="byoc__legend">Datele tale</legend>
+
+            <div class="byoc__input-row">
+              <input type="text" name="Nume" id="name" placeholder="Nume" class="byoc__input">
+              <input type="text" name="Prenume" id="surname" placeholder="Prenume" class="byoc__input">
+            </div>
+
+            <div class="byoc__input-row">
+              <input type="tel" name="Număr de telefon" id="phone" placeholder="061234567" class="byoc__input">
+              <input type="date" name="Dată de livrare" id="delivery-date" title="Data livrare" class="byoc__input">
+            </div>
+
+            <textarea name="Cereri extra" id="special-request" placeholder="Cereri extra..."
+              class="byoc__textarea"></textarea>
+          </fieldset>
+
+          <button type="submit" class="byoc__submit">Comandă</button>
+
+        </form>
+
+      </div>
 
     </section>
 
