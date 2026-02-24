@@ -98,7 +98,7 @@
 
 .section {
     padding: 5rem 2.5rem 2rem;
-    min-height: 100dvh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,9 +194,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
-    min-height: 100dvh;
-    max-height: 100dvh;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
     padding: 6rem 1.5rem 2rem;
     gap: clamp(1.25rem, 2.5vw, 2rem);
     box-sizing: border-box;
@@ -560,9 +560,9 @@
     flex-direction: column;
     gap: clamp(1rem, 2vw, 1.5rem);
     overflow: hidden;
-    height: 100dvh;
-    min-height: 100dvh;
-    max-height: 100dvh;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
     padding: 5rem 0 1.5rem;
     box-sizing: border-box;
 }
