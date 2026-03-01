@@ -923,11 +923,23 @@
 }
 
 /* Mascot */
-.mascot {
+.mascot-container {
     position: fixed;
     bottom: 0px;
     right: 0px;
     z-index: 1000;
+}
+
+.mascot-img {
     width: clamp(100px, 25vw, 200px);
     height: auto;
+}
+
+.mascot-secondary {
+    width: clamp(50px, 12.5vw, 100px);
+    height: auto;
+    position: absolute;
+    top: clamp(40px, 10vw, 80px);
+    right: 0px;
+    transform: scale(0.8) rotate(10deg);
 }
