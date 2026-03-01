@@ -921,3 +921,11 @@
         padding: 5rem 1.5rem 2rem;
     }
 }
+
+/* Mascot */
+.mascot {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1000;
+}
