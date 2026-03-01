@@ -928,4 +928,6 @@
     bottom: 0px;
     right: 0px;
     z-index: 1000;
+    width: clamp(100px, 25vw, 200px);
+    height: auto;
 }
