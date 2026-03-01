@@ -928,11 +928,14 @@
     bottom: 0px;
     right: 0px;
     z-index: 1000;
+    opacity: 0;
+    animation: mascot-container-appear-ani 1s ease forwards 5s;
 }
 
 .mascot-img {
     width: clamp(100px, 25vw, 200px);
     height: auto;
+    animation: mascot-img-jump-ani 2s ease-in-out alternate infinite;
 }
 
 .mascot-secondary {
@@ -941,5 +944,43 @@
     position: absolute;
     top: clamp(40px, 10vw, 80px);
     right: 0px;
-    transform: scale(0.8) rotate(10deg);
+    animation: mascot-secondary-jump-ani 2s ease-in-out alternate infinite;
+}
+
+@keyframes mascot-container-appear-ani {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mascot-img-jump-ani {
+    0% {
+        transform: scale(1) translate(0);
+    }
+
+    75% {
+        transform: scale(1, 0.80) translate(0, 20px);
+    }
+
+    100% {
+        transform: scale(1, 1.05) translate(0, -20px);
+    }
+}
+
+@keyframes mascot-secondary-jump-ani {
+    0% {
+        transform: scale(0.8) rotate(10deg) translate(0);
+    }
+
+    75% {
+        transform: scale(0.7) rotate(10deg) translate(5px, 20px);
+    }
+
+    100% {
+        transform: scale(0.8) translate(0, -20px);
+    }
 }
