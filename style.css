@@ -947,6 +947,29 @@
     animation: mascot-secondary-jump-ani 2s ease-in-out alternate infinite;
 }
 
+.mascot-container__cta {
+    position: absolute;
+    top: 0px;
+    right: clamp(50px, 12.5vw, 100px);
+    z-index: 1000;
+
+    background-color: var(--color-accent-main);
+    font-family: var(--font-main);
+    color: var(--color-bg-main);
+    font-weight: bold;
+    font-size: clamp(0.2rem, 1.5vw, 0.8rem);
+    padding: clamp(0.2rem, 1.5vw, 0.5rem) clamp(0.4rem, 1.5vw, 0.5rem);
+    border-radius: clamp(0.2rem, 1vw, 0.3rem);
+    max-width: fit-content;
+    white-space: nowrap;
+
+    animation: mascot-container__cta-jump-ani 2s ease-in-out alternate infinite;
+}
+
+.mascot-container__cta:hover {
+    background-color: var(--color-accent-main-hover);
+}
+
 @keyframes mascot-container-appear-ani {
     from {
         opacity: 0;
@@ -982,5 +1005,19 @@
 
     100% {
         transform: scale(0.8) translate(0, -20px);
+    }
+}
+
+@keyframes mascot-container__cta-jump-ani {
+    0% {
+        transform: translate(50%, -15px);
+    }
+
+    75% {
+        transform: translate(50%, 5px);
+    }
+
+    100% {
+        transform: translate(50%, -45px);
     }
 }
