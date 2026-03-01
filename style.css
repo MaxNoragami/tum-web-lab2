@@ -964,6 +964,13 @@
     white-space: nowrap;
 
     animation: mascot-container__cta-jump-ani 2s ease-in-out alternate infinite;
+    opacity: 0;
+}
+
+.mascot-container:hover .mascot-container__cta,
+.mascot-container:active .mascot-container__cta,
+.mascot-container:focus-within .mascot-container__cta {
+    opacity: 1;
 }
 
 .mascot-container__cta:hover {
