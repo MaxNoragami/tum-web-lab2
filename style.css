@@ -957,6 +957,7 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
+    animation: mascot-toggle-btn-float-ani 3s ease-in-out alternate infinite;
 }
 
 .mascot-toggle-btn:hover {
@@ -1004,7 +1005,9 @@
     max-width: fit-content;
     white-space: nowrap;
 
-    animation: mascot-container__cta-jump-ani 2s ease-in-out alternate infinite;
+    animation:
+        mascot-container__cta-jump-ani 2s ease-in-out alternate infinite,
+        mascot-container__cta-wiggle-ani 0.5s ease-in-out alternate infinite;
     opacity: 0;
 }
 
@@ -1058,14 +1061,38 @@
 
 @keyframes mascot-container__cta-jump-ani {
     0% {
-        transform: translate(50%, -15px);
+        translate: 50% -15px;
     }
 
     75% {
-        transform: translate(50%, 5px);
+        translate: 50% 5px;
     }
 
     100% {
-        transform: translate(50%, -45px);
+        translate: 50% -45px;
+    }
+}
+
+@keyframes mascot-container__cta-wiggle-ani {
+    0% {
+        rotate: -5deg;
+    }
+
+    50% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 5deg;
+    }
+}
+
+@keyframes mascot-toggle-btn-float-ani {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
     }
 }
