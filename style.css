@@ -18,6 +18,9 @@
     /* Fonts */
     --font-main: "Merriweather", serif;
     --font-accent: "Story Script", sans-serif;
+
+    /* Animations */
+    --mascot-delay: 2s;
 }
 
 /* Utilities */
@@ -65,6 +68,11 @@
     flex-shrink: 0;
     color: var(--color-accent-main);
     cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav__title:hover {
+    color: var(--color-accent-main-hover);
 }
 
 .nav__menu-icon {
@@ -74,16 +82,26 @@
 }
 
 .nav__links-wrapper {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: clamp(0.75rem, 2vw, 1rem);
-    margin-top: 1rem;
-    padding-top: 1rem;
     border-top: 1px solid var(--color-accent-main);
+
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out, padding-top 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border-color: transparent;
 }
 
 .nav__links-wrapper.active {
-    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-color: var(--color-accent-main);
 }
 
 .nav__link {
@@ -94,6 +112,12 @@
     border-radius: clamp(0.5rem, 1vw, 0.75rem);
     text-align: center;
     font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__link:hover {
+    background-color: var(--color-accent-main-gradient);
+    color: var(--color-accent-main-hover);
 }
 
 .nav--mobile {
@@ -178,6 +202,7 @@
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     border-radius: clamp(0.7rem, 1vw, 1rem);
     max-width: fit-content;
+    transition: background-color 0.2s ease;
 }
 
 .hero__cta:hover {
@@ -196,6 +221,7 @@
     width: 100%;
     max-width: min(700px, 90vw);
     height: auto;
+    animation: hero-image-float-ani 4s ease-in-out alternate infinite;
 }
 
 /* About Me */
@@ -222,6 +248,11 @@
     overflow: hidden;
     box-shadow: 0 6px 24px rgba(59, 35, 20, 0.12), 0 2px 8px rgba(59, 35, 20, 0.08);
     border-top: 3px solid var(--color-accent-main);
+    transition: transform 0.3s ease;
+}
+
+.about-me__image-wrapper:hover {
+    transform: scale(1.02);
 }
 
 .about-me__image {
@@ -316,6 +347,11 @@
     height: 100%;
     object-fit: cover;
     aspect-ratio: 4 / 3;
+    transition: transform 0.3s ease;
+}
+
+.gallery__slide:hover .gallery__image {
+    transform: scale(1.05);
 }
 
 /* How-it-works */
@@ -353,6 +389,11 @@
     min-height: 0;
     box-shadow: 0 6px 24px rgba(59, 35, 20, 0.1), 0 2px 8px rgba(59, 35, 20, 0.07);
     border-top: 3px solid var(--color-accent-main);
+    transition: transform 0.3s ease;
+}
+
+.hiw__card:hover {
+    transform: scale(1.02);
 }
 
 .hiw__artwork {
@@ -469,7 +510,7 @@
     align-items: center;
     gap: 0.4em;
     padding: clamp(0.6rem, 1.5vw, 0.85rem) clamp(0.75rem, 2vw, 1.25rem);
-    border: 2px solid var(--color-extra-main);
+    border: 1.5px solid var(--color-extra-main);
     border-radius: clamp(0.5rem, 1vw, 0.75rem);
     font-family: var(--font-main);
     font-size: clamp(0.8rem, 1.5vw, 0.95rem);
@@ -641,6 +682,7 @@
     padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
     border: 2px solid var(--color-accent-main);
     border-radius: clamp(0.5rem, 1vw, 0.75rem);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .footer__email:hover {
@@ -707,6 +749,11 @@
         border-top: none;
         flex: 1;
         justify-content: flex-end;
+
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+        border-color: transparent;
     }
 
     .nav--desktop .nav__link {
@@ -919,5 +966,222 @@
     .byoc {
         min-height: auto;
         padding: 5rem 1.5rem 2rem;
+    }
+}
+
+/* Mascot */
+.mascot-container {
+    position: fixed;
+    inset: unset;
+    bottom: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    overflow: visible;
+
+    z-index: 1000;
+    opacity: 0;
+    animation: mascot-container-appear-ani 1s ease forwards var(--mascot-delay);
+}
+
+.mascot-toggle-btn {
+    position: fixed;
+    bottom: clamp(1rem, 4vw, 2.5rem);
+    right: clamp(1rem, 4vw, 2.5rem);
+    z-index: 1000;
+    width: clamp(3rem, 10vw, 3.75rem);
+    height: clamp(3rem, 10vw, 3.75rem);
+    border-radius: 50%;
+    background-color: var(--color-accent-main);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
+    transition: background-color 0.2s ease, opacity 1.5s ease-out, scale 0.1s ease-out;
+}
+
+.mascot-toggle-btn:hover {
+    background-color: var(--color-accent-main-hover);
+}
+
+.mascot-toggle-btn:active,
+.mobile-byoc-btn:active {
+    scale: 0.85;
+}
+
+.mascot-toggle-btn img,
+.mobile-byoc-btn img {
+    filter: brightness(0) invert(1);
+    width: clamp(1.5rem, 5vw, 2rem);
+    height: clamp(1.5rem, 5vw, 2rem);
+}
+
+.mobile-byoc-btn {
+    position: fixed;
+    bottom: clamp(1rem, 4vw, 2.5rem);
+    left: clamp(1rem, 4vw, 2.5rem);
+    z-index: 1000;
+    width: clamp(3rem, 10vw, 3.75rem);
+    height: clamp(3rem, 10vw, 3.75rem);
+    border-radius: 50%;
+    background-color: var(--color-accent-main);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.mobile-byoc-btn:hover {
+    background-color: var(--color-accent-main-hover);
+}
+
+@media (min-aspect-ratio: 3/4) and (min-width: 64em),
+(orientation: landscape) {
+    .mobile-byoc-btn {
+        display: none;
+    }
+}
+
+#mascot-popover:popover-open~.mascot-toggle-btn {
+    display: none;
+}
+
+.mascot-img {
+    width: clamp(100px, 25vw, 200px);
+    height: auto;
+    animation: mascot-img-jump-ani 2s ease-in-out alternate infinite;
+}
+
+.mascot-secondary {
+    width: clamp(50px, 12.5vw, 100px);
+    height: auto;
+    position: absolute;
+    top: clamp(40px, 10vw, 80px);
+    right: 0px;
+    animation: mascot-secondary-jump-ani 2s ease-in-out alternate infinite;
+}
+
+.mascot-container__cta {
+    position: absolute;
+    top: 0px;
+    right: clamp(50px, 12.5vw, 100px);
+    z-index: 1000;
+
+    background-color: var(--color-accent-main);
+    font-family: var(--font-main);
+    color: var(--color-bg-main);
+    font-weight: bold;
+    font-size: clamp(0.5rem, 1.5vw, 1rem);
+    padding: clamp(0.2rem, 1.5vw, 0.5rem) clamp(0.4rem, 1.5vw, 0.5rem);
+    border-radius: clamp(0.2rem, 1vw, 0.3rem);
+    max-width: fit-content;
+    white-space: nowrap;
+
+    animation:
+        mascot-container__cta-jump-ani 2s ease-in-out alternate infinite,
+        mascot-container__cta-wiggle-ani 0.5s ease-in-out alternate infinite;
+    opacity: 0;
+}
+
+.mascot-container:hover .mascot-container__cta,
+.mascot-container:active .mascot-container__cta,
+.mascot-container:focus-within .mascot-container__cta {
+    opacity: 1;
+}
+
+.mascot-container__cta:hover {
+    background-color: var(--color-accent-main-hover);
+}
+
+@keyframes mascot-container-appear-ani {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mascot-img-jump-ani {
+    0% {
+        transform: scale(1) translate(0);
+    }
+
+    75% {
+        transform: scale(1, 0.80) translate(0, 20px);
+    }
+
+    100% {
+        transform: scale(1, 1.05) translate(0, -20px);
+    }
+}
+
+@keyframes mascot-secondary-jump-ani {
+    0% {
+        transform: scale(0.8) rotate(10deg) translate(0);
+    }
+
+    75% {
+        transform: scale(0.7) rotate(10deg) translate(5px, 20px);
+    }
+
+    100% {
+        transform: scale(0.8) translate(0, -20px);
+    }
+}
+
+@keyframes mascot-container__cta-jump-ani {
+    0% {
+        translate: 50% -15px;
+    }
+
+    75% {
+        translate: 50% 5px;
+    }
+
+    100% {
+        translate: 50% -45px;
+    }
+}
+
+@keyframes mascot-container__cta-wiggle-ani {
+    0% {
+        rotate: -5deg;
+    }
+
+    50% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 5deg;
+    }
+}
+
+@keyframes mascot-toggle-btn-float-ani {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes hero-image-float-ani {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
     }
 }

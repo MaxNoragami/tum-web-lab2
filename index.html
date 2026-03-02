@@ -381,7 +381,25 @@
 
   </footer>
 
+  <div class="mascot-container" id="mascot-popover" popover="manual">
+    <a href="#build-your-own" class="mascot-container__cta"
+      onclick="document.getElementById('mascot-popover').hidePopover()">Personalizează-mă!</a>
+    <img src="public/mascot/main.png" alt="Mascot" class="mascot-img">
+    <img src="public/mascot/secondary.png" alt="Spatula" class="mascot-secondary">
+  </div>
+
+  <button popovertarget="mascot-popover" popovertargetaction="show" class="mascot-toggle-btn" aria-label="Open mascot">
+    <img src="public/icons/heart.svg" alt="">
+  </button>
+
+  <a href="#build-your-own" class="mobile-byoc-btn" aria-label="Personalizează-ți tortul">
+    <img src="public/icons/cake-variant.svg" alt="">
+  </a>
+
   <script>
+    const mascotPopover = document.getElementById('mascot-popover');
+    if (mascotPopover) mascotPopover.showPopover();
+
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const navTitle = document.querySelector('.nav--mobile .nav__title');
@@ -405,7 +423,6 @@
       }
     }
   </script>
-
 </body>
 
 </html>
