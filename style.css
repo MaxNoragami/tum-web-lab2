@@ -71,6 +71,10 @@
     transition: color 0.2s ease;
 }
 
+.nav__title:hover {
+    color: var(--color-accent-main-hover);
+}
+
 .nav__menu-icon {
     font-size: clamp(1.75rem, 4vw, 2rem);
     cursor: pointer;
@@ -217,6 +221,7 @@
     width: 100%;
     max-width: min(700px, 90vw);
     height: auto;
+    animation: hero-image-float-ani 4s ease-in-out alternate infinite;
 }
 
 /* About Me */
@@ -996,11 +1001,16 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 1.5s ease-out, scale 0.1s ease-out;
 }
 
 .mascot-toggle-btn:hover {
     background-color: var(--color-accent-main-hover);
+}
+
+.mascot-toggle-btn:active,
+.mobile-byoc-btn:active {
+    scale: 0.85;
 }
 
 .mascot-toggle-btn img,
@@ -1163,5 +1173,15 @@
 
     100% {
         transform: translateY(-10px);
+    }
+}
+
+@keyframes hero-image-float-ani {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
     }
 }
