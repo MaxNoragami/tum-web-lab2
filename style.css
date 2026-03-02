@@ -68,6 +68,7 @@
     flex-shrink: 0;
     color: var(--color-accent-main);
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .nav__menu-icon {
@@ -77,16 +78,26 @@
 }
 
 .nav__links-wrapper {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: clamp(0.75rem, 2vw, 1rem);
-    margin-top: 1rem;
-    padding-top: 1rem;
     border-top: 1px solid var(--color-accent-main);
+
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out, padding-top 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border-color: transparent;
 }
 
 .nav__links-wrapper.active {
-    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-color: var(--color-accent-main);
 }
 
 .nav__link {
@@ -97,6 +108,12 @@
     border-radius: clamp(0.5rem, 1vw, 0.75rem);
     text-align: center;
     font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__link:hover {
+    background-color: var(--color-accent-main-gradient);
+    color: var(--color-accent-main-hover);
 }
 
 .nav--mobile {
@@ -181,6 +198,7 @@
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     border-radius: clamp(0.7rem, 1vw, 1rem);
     max-width: fit-content;
+    transition: background-color 0.2s ease;
 }
 
 .hero__cta:hover {
@@ -225,6 +243,11 @@
     overflow: hidden;
     box-shadow: 0 6px 24px rgba(59, 35, 20, 0.12), 0 2px 8px rgba(59, 35, 20, 0.08);
     border-top: 3px solid var(--color-accent-main);
+    transition: transform 0.3s ease;
+}
+
+.about-me__image-wrapper:hover {
+    transform: scale(1.02);
 }
 
 .about-me__image {
@@ -319,6 +342,11 @@
     height: 100%;
     object-fit: cover;
     aspect-ratio: 4 / 3;
+    transition: transform 0.3s ease;
+}
+
+.gallery__slide:hover .gallery__image {
+    transform: scale(1.05);
 }
 
 /* How-it-works */
@@ -356,6 +384,11 @@
     min-height: 0;
     box-shadow: 0 6px 24px rgba(59, 35, 20, 0.1), 0 2px 8px rgba(59, 35, 20, 0.07);
     border-top: 3px solid var(--color-accent-main);
+    transition: transform 0.3s ease;
+}
+
+.hiw__card:hover {
+    transform: scale(1.02);
 }
 
 .hiw__artwork {
@@ -472,7 +505,7 @@
     align-items: center;
     gap: 0.4em;
     padding: clamp(0.6rem, 1.5vw, 0.85rem) clamp(0.75rem, 2vw, 1.25rem);
-    border: 2px solid var(--color-extra-main);
+    border: 1.5px solid var(--color-extra-main);
     border-radius: clamp(0.5rem, 1vw, 0.75rem);
     font-family: var(--font-main);
     font-size: clamp(0.8rem, 1.5vw, 0.95rem);
@@ -644,6 +677,7 @@
     padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
     border: 2px solid var(--color-accent-main);
     border-radius: clamp(0.5rem, 1vw, 0.75rem);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .footer__email:hover {
@@ -710,6 +744,11 @@
         border-top: none;
         flex: 1;
         justify-content: flex-end;
+
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+        border-color: transparent;
     }
 
     .nav--desktop .nav__link {
@@ -957,6 +996,7 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
+    transition: background-color 0.2s ease;
 }
 
 .mascot-toggle-btn:hover {
@@ -985,10 +1025,18 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
+    transition: background-color 0.2s ease;
 }
 
 .mobile-byoc-btn:hover {
     background-color: var(--color-accent-main-hover);
+}
+
+@media (min-aspect-ratio: 3/4) and (min-width: 64em),
+(orientation: landscape) {
+    .mobile-byoc-btn {
+        display: none;
+    }
 }
 
 #mascot-popover:popover-open~.mascot-toggle-btn {
@@ -1115,12 +1163,5 @@
 
     100% {
         transform: translateY(-10px);
-    }
-}
-
-@media (min-aspect-ratio: 3/4) and (min-width: 64em),
-(orientation: landscape) {
-    .mobile-byoc-btn {
-        display: none;
     }
 }
