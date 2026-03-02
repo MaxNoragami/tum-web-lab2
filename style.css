@@ -957,17 +957,38 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
-    animation: mascot-toggle-btn-float-ani 3s ease-in-out alternate infinite;
 }
 
 .mascot-toggle-btn:hover {
     background-color: var(--color-accent-main-hover);
 }
 
-.mascot-toggle-btn img {
+.mascot-toggle-btn img,
+.mobile-byoc-btn img {
     filter: brightness(0) invert(1);
     width: clamp(1.5rem, 5vw, 2rem);
     height: clamp(1.5rem, 5vw, 2rem);
+}
+
+.mobile-byoc-btn {
+    position: fixed;
+    bottom: clamp(1rem, 4vw, 2.5rem);
+    left: clamp(1rem, 4vw, 2.5rem);
+    z-index: 1000;
+    width: clamp(3rem, 10vw, 3.75rem);
+    height: clamp(3rem, 10vw, 3.75rem);
+    border-radius: 50%;
+    background-color: var(--color-accent-main);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 35, 20, 0.2);
+}
+
+.mobile-byoc-btn:hover {
+    background-color: var(--color-accent-main-hover);
 }
 
 #mascot-popover:popover-open~.mascot-toggle-btn {
@@ -1094,5 +1115,12 @@
 
     100% {
         transform: translateY(-10px);
+    }
+}
+
+@media (min-aspect-ratio: 3/4) and (min-width: 64em),
+(orientation: landscape) {
+    .mobile-byoc-btn {
+        display: none;
     }
 }
