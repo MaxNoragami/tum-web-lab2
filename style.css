@@ -2,6 +2,8 @@
 @import "tailwindcss";
 
 @custom-variant desktop (@media (min-aspect-ratio: 3/4) and (min-width: 64em));
+@custom-variant wide (@media ((min-aspect-ratio: 3/4) and (min-width: 64em)) or (orientation: landscape));
+@custom-variant landscape-compact (@media (orientation: landscape) and (max-height: 37em));
 
 @theme {
     /* Colors pallet */
@@ -223,81 +225,6 @@
     width: 100%;
     max-width: min(700px, 90vw);
     height: auto;
-}
-
-/* About Me */
-
-.about-me {
-    flex-direction: column;
-    gap: clamp(1.25rem, 2.5vw, 2rem);
-}
-
-.about-me__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-    max-width: 1100px;
-    width: 100%;
-}
-
-.about-me__image-wrapper {
-    flex-shrink: 0;
-    width: clamp(12rem, 45vw, 18rem);
-    aspect-ratio: 3 / 4;
-    border-radius: clamp(0.75rem, 1.5vw, 1.25rem);
-    overflow: hidden;
-    box-shadow: 0 6px 24px rgba(59, 35, 20, 0.12), 0 2px 8px rgba(59, 35, 20, 0.08);
-    border-top: 3px solid var(--color-accent-main);
-    transition: transform 0.3s ease;
-}
-
-.about-me__image-wrapper:hover {
-    transform: scale(1.02);
-}
-
-.about-me__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.about-me__content {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.75rem, 1.5vw, 1.25rem);
-    text-align: center;
-}
-
-.about-me__greeting {
-    font-family: var(--font-main);
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    font-weight: 700;
-    color: var(--color-text-title);
-}
-
-.about-me__name {
-    font-family: var(--font-accent);
-    color: var(--color-accent-main);
-    font-size: 1.15em;
-}
-
-.about-me__text {
-    font-family: var(--font-main);
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    color: var(--color-text-paragraph);
-    line-height: 1.7;
-}
-
-.about-me__quote {
-    font-family: var(--font-main);
-    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-    font-style: italic;
-    color: var(--color-accent-main);
-    line-height: 1.6;
-    border-left: 3px solid var(--color-accent-alt);
-    padding-left: 0.85rem;
-    margin-top: clamp(0.25rem, 1vw, 0.5rem);
 }
 
 /* Gallery */
@@ -666,22 +593,6 @@
         width: auto;
     }
 
-    /* About Me desktop/tablet */
-    .about-me__container {
-        flex-direction: row;
-        align-items: center;
-        gap: clamp(2rem, 4vw, 4rem);
-    }
-
-    .about-me__image-wrapper {
-        width: clamp(14rem, 22vw, 20rem);
-    }
-
-    .about-me__content {
-        flex: 1;
-        text-align: left;
-    }
-
     /* Gallery desktop/tablet */
     .gallery {
         padding: 6.5rem 0 2rem;
@@ -782,16 +693,6 @@
 
     .hero__image-cake {
         max-width: min(350px, 40vw);
-    }
-
-    /* About Me landscape compact */
-    .about-me {
-        min-height: auto;
-        padding: 5rem 2.5rem 2rem;
-    }
-
-    .about-me__image-wrapper {
-        width: clamp(8rem, 20vw, 14rem);
     }
 
     /* Gallery landscape compact */
