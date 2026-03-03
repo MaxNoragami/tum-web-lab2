@@ -1,4 +1,6 @@
-:root {
+@import "tailwindcss";
+
+@theme {
     /* Colors pallet */
     --color-bg-main: #FDF6EE;
     --color-bg-alt: #F0EBE3;
