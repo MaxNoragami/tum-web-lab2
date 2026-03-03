@@ -1,0 +1,9 @@
+{
+  "name": "tum-web-lab2",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}
