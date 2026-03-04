@@ -2,8 +2,18 @@
   "name": "tum-web-lab2",
   "private": true,
   "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.1",
     "tailwindcss": "^4.2.1"
+  },
+  "dependencies": {
+    "astro": "^5.18.0"
   }
 }
