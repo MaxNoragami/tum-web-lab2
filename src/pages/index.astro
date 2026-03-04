@@ -1,9 +1,8 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log("This runs in your terminal, not the browser!");
-
 import "../styles/global.css";
+
+import hero from "../content/ro/hero.json";
+import global from "../content/ro/global.json";
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
@@ -179,17 +178,17 @@ import "../styles/global.css";
                     <div class="hero__content">
                         <h1 class="hero__title">
                             <span class="hero__title--highlighted">
-                                Dulcețime</span
-                            > - torturi de casă, <span
+                                {hero.title_highlighted_1}</span
+                            >{hero.title_middle}<span
                                 class="hero__title--highlighted"
-                                >pentru tine</span
-                            >.
+                                >{hero.title_highlighted_2}</span
+                            >{hero.title_suffix}
                         </h1>
                         <p class="hero__description">
-                            Fructe proaspete, cremă pufoasă și multă dragoste.
+                            {hero.description}
                         </p>
                         <a href="#build-your-own" class="hero__cta"
-                            >Personalizează-ți tortul</a
+                            >{global.cta_text}</a
                         >
                     </div>
 
@@ -760,7 +759,7 @@ import "../styles/global.css";
                 href="#build-your-own"
                 class="mascot-container__cta animate-mascot-cta-combined"
                 onclick="document.getElementById('mascot-popover').hidePopover()"
-                >Personalizează-mă!</a
+                >{global.cta_text}</a
             >
             <img
                 src="mascot/main.png"
