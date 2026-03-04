@@ -43,38 +43,42 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="reset.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="output.css" />
 </head>
 
 <body>
 
-  <header class="header">
+  <header class="flex justify-center">
 
-    <nav class="nav nav--desktop">
-      <div class="nav__title-wrapper">
-        <a href="#hero" class="nav__title">Dulcețime</a>
+    <!-- Desktop Nav -->
+    <nav class="fixed top-[2%] w-[85vw] max-w-[1200px] bg-extra-main-blur backdrop-blur-[10px] rounded-[clamp(0.75rem,1.5vw,1.25rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1.25rem)] z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.08)] text-text-title hidden desktop:flex desktop:flex-row desktop:justify-between desktop:items-center desktop:gap-8">
+      <div class="shrink-0 text-accent-main flex items-center">
+        <a href="#hero" class="font-accent text-[clamp(1.5rem,4vw,2rem)] text-accent-main cursor-pointer transition-colors duration-200 hover:text-accent-main-hover">Dulcețime</a>
       </div>
-      <div class="nav__links-wrapper">
-        <a href="#about-me" class="nav__link">Despre mine</a>
-        <a href="#gallery" class="nav__link">Galerie</a>
-        <a href="#hiw" class="nav__link">Cum lucrează?</a>
-        <a href="#build-your-own" class="nav__link">Personalizează-ți</a>
-        <a href="#contacts" class="nav__link">Contacte</a>
+      <div class="flex flex-row gap-[clamp(1rem,2vw,2rem)] flex-1 justify-end">
+        <a href="#about-me" class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover">Despre mine</a>
+        <a href="#gallery" class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover">Galerie</a>
+        <a href="#hiw" class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover">Cum lucrează?</a>
+        <a href="#build-your-own" class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover">Personalizează-ți</a>
+        <a href="#contacts" class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover">Contacte</a>
       </div>
     </nav>
 
-    <nav class="nav nav--mobile">
-      <div class="nav__title-wrapper">
-        <a href="#hero" class="nav__title">Dulcețime</a>
-        <span class="material-symbols-outlined nav__menu-icon" id="menuToggle">menu</span>
+    <!-- Mobile Nav -->
+    <nav class="fixed top-[2%] w-[85vw] max-w-[1200px] bg-extra-main-blur backdrop-blur-[10px] rounded-[clamp(0.75rem,1.5vw,1.25rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1.25rem)] z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.08)] text-text-title flex flex-col desktop:hidden">
+      <div class="text-accent-main flex justify-between items-center w-full">
+        <a href="#hero" class="font-accent text-[clamp(1.5rem,4vw,2rem)] shrink-0 text-accent-main cursor-pointer transition-colors duration-200 hover:text-accent-main-hover" onclick="document.getElementById('nav-toggle').checked=false">Dulcețime</a>
+        <label for="nav-toggle" class="text-[clamp(1.75rem,4vw,2rem)] cursor-pointer select-none">
+          <span class="material-symbols-outlined">menu</span>
+        </label>
       </div>
-      <div class="nav__links-wrapper" id="navLinks">
-        <a href="#about-me" class="nav__link">Despre mine</a>
-        <a href="#gallery" class="nav__link">Galerie</a>
-        <a href="#hiw" class="nav__link">Cum lucrează?</a>
-        <a href="#build-your-own" class="nav__link">Personalizează-ți</a>
-        <a href="#contacts" class="nav__link">Contacte</a>
+      <input type="checkbox" id="nav-toggle" class="peer sr-only">
+      <div class="flex flex-col gap-[clamp(0.75rem,2vw,1rem)] border-t border-transparent max-h-0 opacity-0 mt-0 pt-0 overflow-hidden transition-[max-height,opacity,margin-top,padding-top,border-color] duration-300 ease-in-out peer-checked:max-h-[500px] peer-checked:opacity-100 peer-checked:mt-4 peer-checked:pt-4 peer-checked:border-accent-main">
+        <a href="#about-me" class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover" onclick="document.getElementById('nav-toggle').checked=false">Despre mine</a>
+        <a href="#gallery" class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover" onclick="document.getElementById('nav-toggle').checked=false">Galerie</a>
+        <a href="#hiw" class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover" onclick="document.getElementById('nav-toggle').checked=false">Cum lucrează?</a>
+        <a href="#build-your-own" class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover" onclick="document.getElementById('nav-toggle').checked=false">Personalizează-ți</a>
+        <a href="#contacts" class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover" onclick="document.getElementById('nav-toggle').checked=false">Contacte</a>
       </div>
     </nav>
 
@@ -95,35 +99,35 @@
 
         <div class="hero__image-wrapper">
           <img src="public/section-hero/hero_cake.webp" alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
-            width="752" height="760" class="hero__image-cake" fetchpriority="high">
+            width="752" height="760" class="hero__image-cake animate-hero-image-float" fetchpriority="high">
         </div>
       </div>
 
     </section>
 
-    <section class="section section--bg-alt about-me" id="about-me">
+    <section class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]" id="about-me">
       <h2 class="section__title">Despre mine</h2>
-      <div class="about-me__container">
+      <div class="flex flex-col items-center gap-[clamp(1.5rem,3vw,2.5rem)] max-w-[1100px] w-full wide:flex-row wide:items-center wide:gap-[clamp(2rem,4vw,4rem)]">
 
-        <div class="about-me__image-wrapper">
+        <div class="shrink-0 w-[clamp(12rem,45vw,18rem)] aspect-[3/4] rounded-[clamp(0.75rem,1.5vw,1.25rem)] overflow-hidden shadow-[0_6px_24px_rgba(59,35,20,0.12),0_2px_8px_rgba(59,35,20,0.08)] border-t-[3px] border-accent-main transition-transform duration-300 ease hover:scale-[1.02] wide:w-[clamp(14rem,22vw,20rem)] landscape-compact:w-[clamp(8rem,20vw,14rem)]">
           <img src="public/section-about-me/me.webp" width="678" height="1015"
-            alt="Mariana, persoana din spatele torturilor" class="about-me__image" loading="lazy">
+            alt="Mariana, persoana din spatele torturilor" class="w-full h-full object-cover" loading="lazy">
         </div>
 
-        <article class="about-me__content">
-          <h3 class="about-me__greeting">Bună, sunt <span class="about-me__name">Mariana</span> !</h3>
+        <article class="flex flex-col gap-[clamp(0.75rem,1.5vw,1.25rem)] text-center wide:flex-1 wide:text-left">
+          <h3 class="font-main text-[clamp(1.25rem,3vw,1.75rem)] font-bold text-text-title">Bună, sunt <span class="font-accent text-accent-main text-[1.15em]">Mariana</span> !</h3>
 
-          <p class="about-me__quote">
+          <p class="font-main text-[clamp(0.9rem,1.5vw,1.05rem)] italic text-accent-main leading-[1.6] border-l-[3px] border-accent-alt pl-[0.85rem] mt-[clamp(0.25rem,1vw,0.5rem)]">
             „Când pui suflet în ce faci, se simte la primul gust."
           </p>
 
-          <p class="about-me__text">
+          <p class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]">
             De ani fac torturi cu drag, din ingrediente naturale și cu multă atenție la detalii.
             Fiecare tort este o poveste — spune-mi a ta, iar eu o transform în ceva <span
               class="text--accent-main">dulce</span>.
           </p>
 
-          <p class="about-me__text">
+          <p class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]">
             Lucrez cu fructe <span class="text--accent-alt">proaspete</span> de sezon, creme
             <span class="text--accent-alt">naturale</span> și blaturi preparate
             <span class="text--accent-alt">de mână</span>.
@@ -366,26 +370,26 @@
 
   </main>
 
-  <footer class="footer" id="contacts">
+  <footer class="flex flex-col items-center bg-text-title text-bg-main" id="contacts">
 
-    <div class="footer__contacts">
-      <h2 class="footer__title">Contacte</h2>
-      <p class="footer__text">Ai o întrebare sau vrei să comanzi un tort?</p>
-      <a href="mailto:comanda@dulceti.me" class="footer__email">comanda@dulceti.me</a>
+    <div class="flex flex-col items-center gap-[clamp(0.75rem,2vw,1.25rem)] text-center px-[clamp(1.5rem,5vw,3rem)] py-[clamp(3rem,6vw,5rem)] w-full box-border">
+      <h2 class="font-accent text-[clamp(1.75rem,calc(5vw+0.5rem),3rem)] text-bg-main">Contacte</h2>
+      <p class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-extra-main leading-[1.6] max-w-[420px]">Ai o întrebare sau vrei să comanzi un tort?</p>
+      <a href="mailto:comanda@dulceti.me" class="font-main text-[clamp(1rem,2vw,1.25rem)] font-bold text-accent-main px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] border-2 border-accent-main rounded-[clamp(0.5rem,1vw,0.75rem)] transition-colors duration-200 hover:bg-accent-main hover:text-bg-main">comanda@dulceti.me</a>
     </div>
 
-    <div class="footer__bottom">
-      <span class="footer__brand">Dulcețime</span>
-      <span class="footer__copy">&copy; 2026 &lt;3</span>
+    <div class="flex flex-col items-center gap-[clamp(0.4rem,1vw,0.75rem)] px-[clamp(1.5rem,5vw,3rem)] py-[clamp(1.25rem,2.5vw,1.75rem)] border-t border-[rgba(242,196,176,0.2)] w-full box-border text-center">
+      <span class="font-accent text-[clamp(1.25rem,3vw,1.5rem)] text-accent-main">Dulcețime</span>
+      <span class="font-main text-[clamp(0.75rem,1.2vw,0.85rem)] text-extra-main opacity-60">&copy; 2026 &lt;3</span>
     </div>
 
   </footer>
 
-  <div class="mascot-container" id="mascot-popover" popover="manual">
-    <a href="#build-your-own" class="mascot-container__cta"
+  <div class="mascot-container animate-mascot-appear" id="mascot-popover" popover="manual">
+    <a href="#build-your-own" class="mascot-container__cta animate-mascot-cta-combined"
       onclick="document.getElementById('mascot-popover').hidePopover()">Personalizează-mă!</a>
-    <img src="public/mascot/main.png" alt="Mascot" class="mascot-img">
-    <img src="public/mascot/secondary.png" alt="Spatula" class="mascot-secondary">
+    <img src="public/mascot/main.png" alt="Mascot" class="mascot-img animate-mascot-img-jump">
+    <img src="public/mascot/secondary.png" alt="Spatula" class="mascot-secondary animate-mascot-secondary-jump">
   </div>
 
   <button popovertarget="mascot-popover" popovertargetaction="show" class="mascot-toggle-btn" aria-label="Open mascot">
@@ -399,29 +403,6 @@
   <script>
     const mascotPopover = document.getElementById('mascot-popover');
     if (mascotPopover) mascotPopover.showPopover();
-
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const navTitle = document.querySelector('.nav--mobile .nav__title');
-
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-
-      const links = navLinks.querySelectorAll('.nav__link');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-        });
-      });
-
-      if (navTitle) {
-        navTitle.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-        });
-      }
-    }
   </script>
 </body>
 
