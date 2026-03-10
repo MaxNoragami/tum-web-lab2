@@ -1,0 +1,799 @@
+---
+// Welcome to Astro! Everything between these triple-dash code fences
+// is your "component frontmatter". It never runs in the browser.
+console.log("This runs in your terminal, not the browser!");
+
+import "../styles/global.css";
+---
+
+<!-- Below is your "component template." It's just HTML, but with
+    some magic sprinkled in to help you build great templates. -->
+<html lang="ro">
+    <head>
+        <!-- META -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary Meta Tags -->
+        <title>Dulcețime - torturi de casă, pentru tine.</title>
+        <meta
+            name="title"
+            content="Dulcețime - torturi de casă, pentru tine."
+        />
+        <meta
+            name="description"
+            content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dulceti.me/" />
+        <meta
+            property="og:title"
+            content="Dulcețime - torturi de casă, pentru tine."
+        />
+        <meta
+            property="og:description"
+            content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
+        />
+        <meta property="og:image" content="thumbnail.png" />
+
+        <!-- X (Twitter) -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://dulceti.me/" />
+        <meta
+            property="twitter:title"
+            content="Dulcețime - torturi de casă, pentru tine."
+        />
+        <meta
+            property="twitter:description"
+            content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
+        />
+        <meta property="twitter:image" content="thumbnail.png" />
+
+        <!-- FAVICON -->
+        <link rel="icon" href="favicon.png" type="image/png" />
+
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Story+Script&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- SYMBOLS -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu"
+        />
+
+        <!-- STYLES -->
+    </head>
+
+    <body>
+        <header class="flex justify-center">
+            <!-- Desktop Nav -->
+            <nav
+                class="fixed top-[2%] w-[85vw] max-w-[1200px] bg-extra-main-blur backdrop-blur-[10px] rounded-[clamp(0.75rem,1.5vw,1.25rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1.25rem)] z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.08)] text-text-title hidden desktop:flex desktop:flex-row desktop:justify-between desktop:items-center desktop:gap-8"
+            >
+                <div class="shrink-0 text-accent-main flex items-center">
+                    <a
+                        href="#hero"
+                        class="font-accent text-[clamp(1.5rem,4vw,2rem)] text-accent-main cursor-pointer transition-colors duration-200 hover:text-accent-main-hover"
+                        >Dulcețime</a
+                    >
+                </div>
+                <div
+                    class="flex flex-row gap-[clamp(1rem,2vw,2rem)] flex-1 justify-end"
+                >
+                    <a
+                        href="#about-me"
+                        class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        >Despre mine</a
+                    >
+                    <a
+                        href="#gallery"
+                        class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        >Galerie</a
+                    >
+                    <a
+                        href="#hiw"
+                        class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        >Cum lucrează?</a
+                    >
+                    <a
+                        href="#build-your-own"
+                        class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        >Personalizează-ți</a
+                    >
+                    <a
+                        href="#contacts"
+                        class="font-main text-[clamp(0.9rem,1vw,1rem)] text-text-title px-[clamp(0.75rem,1.5vw,1.25rem)] py-[clamp(0.5rem,1vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium whitespace-nowrap transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        >Contacte</a
+                    >
+                </div>
+            </nav>
+
+            <!-- Mobile Nav -->
+            <nav
+                class="fixed top-[2%] w-[85vw] max-w-[1200px] bg-extra-main-blur backdrop-blur-[10px] rounded-[clamp(0.75rem,1.5vw,1.25rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1.25rem)] z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.08)] text-text-title flex flex-col desktop:hidden"
+            >
+                <div
+                    class="text-accent-main flex justify-between items-center w-full"
+                >
+                    <a
+                        href="#hero"
+                        class="font-accent text-[clamp(1.5rem,4vw,2rem)] shrink-0 text-accent-main cursor-pointer transition-colors duration-200 hover:text-accent-main-hover"
+                        onclick="document.getElementById('nav-toggle').checked=false"
+                        >Dulcețime</a
+                    >
+                    <label
+                        for="nav-toggle"
+                        class="text-[clamp(1.75rem,4vw,2rem)] cursor-pointer select-none"
+                    >
+                        <span class="material-symbols-outlined">menu</span>
+                    </label>
+                </div>
+                <input type="checkbox" id="nav-toggle" class="peer sr-only" />
+                <div
+                    class="flex flex-col gap-[clamp(0.75rem,2vw,1rem)] border-t border-transparent max-h-0 opacity-0 mt-0 pt-0 overflow-hidden transition-[max-height,opacity,margin-top,padding-top,border-color] duration-300 ease-in-out peer-checked:max-h-[500px] peer-checked:opacity-100 peer-checked:mt-4 peer-checked:pt-4 peer-checked:border-accent-main"
+                >
+                    <a
+                        href="#about-me"
+                        class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        onclick="document.getElementById('nav-toggle').checked=false"
+                        >Despre mine</a
+                    >
+                    <a
+                        href="#gallery"
+                        class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        onclick="document.getElementById('nav-toggle').checked=false"
+                        >Galerie</a
+                    >
+                    <a
+                        href="#hiw"
+                        class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        onclick="document.getElementById('nav-toggle').checked=false"
+                        >Cum lucrează?</a
+                    >
+                    <a
+                        href="#build-your-own"
+                        class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        onclick="document.getElementById('nav-toggle').checked=false"
+                        >Personalizează-ți</a
+                    >
+                    <a
+                        href="#contacts"
+                        class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+                        onclick="document.getElementById('nav-toggle').checked=false"
+                        >Contacte</a
+                    >
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section hero" id="hero">
+                <div class="hero__container">
+                    <div class="hero__content">
+                        <h1 class="hero__title">
+                            <span class="hero__title--highlighted">
+                                Dulcețime</span
+                            > - torturi de casă, <span
+                                class="hero__title--highlighted"
+                                >pentru tine</span
+                            >.
+                        </h1>
+                        <p class="hero__description">
+                            Fructe proaspete, cremă pufoasă și multă dragoste.
+                        </p>
+                        <a href="#build-your-own" class="hero__cta"
+                            >Personalizează-ți tortul</a
+                        >
+                    </div>
+
+                    <div class="hero__image-wrapper">
+                        <img
+                            src="section-hero/hero_cake.webp"
+                            alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
+                            width="752"
+                            height="760"
+                            class="hero__image-cake animate-hero-image-float"
+                            fetchpriority="high"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]"
+                id="about-me"
+            >
+                <h2 class="section__title">Despre mine</h2>
+                <div
+                    class="flex flex-col items-center gap-[clamp(1.5rem,3vw,2.5rem)] max-w-[1100px] w-full wide:flex-row wide:items-center wide:gap-[clamp(2rem,4vw,4rem)]"
+                >
+                    <div
+                        class="shrink-0 w-[clamp(12rem,45vw,18rem)] aspect-[3/4] rounded-[clamp(0.75rem,1.5vw,1.25rem)] overflow-hidden shadow-[0_6px_24px_rgba(59,35,20,0.12),0_2px_8px_rgba(59,35,20,0.08)] border-t-[3px] border-accent-main transition-transform duration-300 ease hover:scale-[1.02] wide:w-[clamp(14rem,22vw,20rem)] landscape-compact:w-[clamp(8rem,20vw,14rem)]"
+                    >
+                        <img
+                            src="section-about-me/me.webp"
+                            width="678"
+                            height="1015"
+                            alt="Mariana, persoana din spatele torturilor"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+
+                    <article
+                        class="flex flex-col gap-[clamp(0.75rem,1.5vw,1.25rem)] text-center wide:flex-1 wide:text-left"
+                    >
+                        <h3
+                            class="font-main text-[clamp(1.25rem,3vw,1.75rem)] font-bold text-text-title"
+                        >
+                            Bună, sunt <span
+                                class="font-accent text-accent-main text-[1.15em]"
+                                >Mariana</span
+                            > !
+                        </h3>
+
+                        <p
+                            class="font-main text-[clamp(0.9rem,1.5vw,1.05rem)] italic text-accent-main leading-[1.6] border-l-[3px] border-accent-alt pl-[0.85rem] mt-[clamp(0.25rem,1vw,0.5rem)]"
+                        >
+                            „Când pui suflet în ce faci, se simte la primul
+                            gust."
+                        </p>
+
+                        <p
+                            class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
+                        >
+                            De ani fac torturi cu drag, din ingrediente naturale
+                            și cu multă atenție la detalii. Fiecare tort este o
+                            poveste — spune-mi a ta, iar eu o transform în ceva <span
+                                class="text--accent-main">dulce</span
+                            >.
+                        </p>
+
+                        <p
+                            class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
+                        >
+                            Lucrez cu fructe <span class="text--accent-alt"
+                                >proaspete</span
+                            > de sezon, creme
+                            <span class="text--accent-alt">naturale</span> și blaturi
+                            preparate
+                            <span class="text--accent-alt">de mână</span>. Fără
+                            conservanți, fără compromisuri.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section gallery" id="gallery">
+                <h2 class="section__title">Galerie</h2>
+
+                <div class="gallery__carousel">
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake1.webp"
+                            srcset="section-gallery/op/cake1.webp 1052w, section-gallery/cake1.webp 1753w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1753"
+                            height="1114"
+                            alt="Tort decorat în formă de cifra 17"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake2.webp"
+                            srcset="section-gallery/op/cake2.webp 720w, section-gallery/cake2.webp 1200w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1200"
+                            height="1196"
+                            alt="Tort cu imagine imprimată"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake3.webp"
+                            srcset="section-gallery/op/cake3.webp 720w, section-gallery/cake3.webp 1200w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1200"
+                            height="960"
+                            alt="Tort decorat în formă de cifra 30"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake4.webp"
+                            srcset="section-gallery/op/cake4.webp 720w, section-gallery/cake4.webp 1200w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1200"
+                            height="1600"
+                            alt="Tort în formă de cerc cu fructe și mesaj custom"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake5.webp"
+                            srcset="section-gallery/op/cake5.webp 960w, section-gallery/cake5.webp 1600w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1600"
+                            height="1200"
+                            alt="Tort în formă de dreptunghi cu fructe și mesaj custom"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake6.webp"
+                            srcset="section-gallery/op/cake6.webp 624w, section-gallery/cake6.webp 1040w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1040"
+                            height="1217"
+                            alt="Tort în formă de cerc, cu imagine imprimată și fructe de pădure"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake7.webp"
+                            srcset="section-gallery/op/cake7.webp 824w, section-gallery/cake7.webp 1373w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="1373"
+                            height="1338"
+                            alt="Tort decorat în formă de cifra 41"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake8.webp"
+                            srcset="section-gallery/op/cake8.webp 1200w, section-gallery/cake8.webp 2000w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="2000"
+                            height="1500"
+                            alt="Tort decorat în formă de cifra 70"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake9.webp"
+                            srcset="section-gallery/op/cake9.webp 451w, section-gallery/cake9.webp 751w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="751"
+                            height="858"
+                            alt="Tort decorat în formă de cifra 15"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="gallery__slide">
+                        <img
+                            src="section-gallery/cake10.webp"
+                            srcset="section-gallery/op/cake10.webp 449w, section-gallery/cake10.webp 748w"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            width="748"
+                            height="894"
+                            alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
+                            class="gallery__image"
+                            loading="lazy"
+                        />
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section section--bg-alt hiw" id="hiw">
+                <h2 class="section__title">Cum lucrează?</h2>
+
+                <div class="hiw__cards-wrapper">
+                    <article class="hiw__card">
+                        <div class="hiw__header">
+                            <span class="hiw__step">1</span>
+                            <h3 class="hiw__title">Personalizează-ți</h3>
+                        </div>
+                        <img
+                            src="section-hiw/art1.webp"
+                            width="512"
+                            height="512"
+                            alt="Coș de cumpărături"
+                            class="hiw__artwork"
+                        />
+                        <p class="hiw__description">
+                            Alege-ți ingredientele preferate și stilul tortului
+                            tău.
+                        </p>
+                    </article>
+
+                    <article class="hiw__card">
+                        <div class="hiw__header">
+                            <span class="hiw__step">2</span>
+                            <h3 class="hiw__title">Confirmă</h3>
+                        </div>
+                        <img
+                            src="section-hiw/art2.webp"
+                            width="512"
+                            height="512"
+                            alt="Verificare comandă"
+                            class="hiw__artwork"
+                        />
+                        <p class="hiw__description">
+                            Îți verific comanda și încep prepararea.
+                        </p>
+                    </article>
+
+                    <article class="hiw__card">
+                        <div class="hiw__header">
+                            <span class="hiw__step">3</span>
+                            <h3 class="hiw__title">Primește ;P</h3>
+                        </div>
+                        <img
+                            src="section-hiw/art3.webp"
+                            width="512"
+                            height="512"
+                            alt="Desen cu un tort"
+                            class="hiw__artwork"
+                        />
+                        <p class="hiw__description">
+                            Livrez rapid și la timp, iar tu te bucuri de un tort
+                            spectaculos.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section byoc" id="build-your-own">
+                <h2 class="section__title">Personalizează-ți tortul</h2>
+
+                <div class="byoc__container">
+                    <form
+                        class="byoc__form"
+                        action="mailto:comanda@dulceti.me"
+                        method="POST"
+                        enctype="text/plain"
+                    >
+                        <!-- Cake Shape -->
+                        <fieldset class="byoc__fieldset byoc__fieldset--type">
+                            <legend class="byoc__legend">Formă tort</legend>
+
+                            <div class="byoc__scroll-row">
+                                <input
+                                    type="radio"
+                                    name="Forma"
+                                    id="number"
+                                    value="Numar"
+                                    class="byoc__radio byoc__radio--shape"
+                                />
+                                <label for="number" class="byoc__shape-label">
+                                    <img
+                                        src="icons/sort-numeric-variant.svg"
+                                        alt="numar"
+                                        class="byoc__icon"
+                                    />
+                                    <span>Număr</span>
+                                </label>
+
+                                <input
+                                    type="radio"
+                                    name="Forma"
+                                    id="heart"
+                                    value="Inima"
+                                    class="byoc__radio byoc__radio--shape"
+                                />
+                                <label for="heart" class="byoc__shape-label">
+                                    <img
+                                        src="icons/heart.svg"
+                                        alt="inima"
+                                        class="byoc__icon"
+                                    />
+                                    <span>Inimă</span>
+                                </label>
+
+                                <input
+                                    type="radio"
+                                    name="Forma"
+                                    id="circle"
+                                    value="Cerc"
+                                    class="byoc__radio byoc__radio--shape"
+                                />
+                                <label for="circle" class="byoc__shape-label">
+                                    <img
+                                        src="icons/circle.svg"
+                                        alt="cerc"
+                                        class="byoc__icon"
+                                    />
+                                    <span>Cerc</span>
+                                </label>
+
+                                <input
+                                    type="radio"
+                                    name="Forma"
+                                    id="square"
+                                    value="Patrat"
+                                    class="byoc__radio byoc__radio--shape"
+                                />
+                                <label for="square" class="byoc__shape-label">
+                                    <img
+                                        src="icons/square.svg"
+                                        alt="pătrat"
+                                        class="byoc__icon"
+                                    />
+                                    <span>Pătrat</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Batter & Cream -->
+                        <fieldset
+                            class="byoc__fieldset byoc__fieldset--selects"
+                        >
+                            <legend class="byoc__legend">Blat și Cremă</legend>
+
+                            <select
+                                name="Tip blat"
+                                id="batter_types"
+                                class="byoc__select"
+                            >
+                                <option value="">~ Tip blat ~</option>
+                                <option value="pandispan-pufos-cacao"
+                                    >Pandispan pufos cu cacao</option
+                                >
+                                <option value="pandispan-pufos-alb"
+                                    >Pandispan pufos alb</option
+                                >
+                                <option value="pufos-vanilie"
+                                    >Pufos de vanilie</option
+                                >
+                                <option value="pufos-cacao"
+                                    >Pufos de cacao</option
+                                >
+                                <option value="foi-miere">Foi cu miere</option>
+                                <option value="vafe">Vafe</option>
+                            </select>
+
+                            <select
+                                name="Tip crema"
+                                id="creame_types"
+                                class="byoc__select"
+                            >
+                                <option value="">~ Tip cremă ~</option>
+                                <option value="mascarpone">Mascarpone</option>
+                                <option value="frisca-cafea"
+                                    >Frișcă și cafea</option
+                                >
+                                <option value="smantana-frisca"
+                                    >Smântână cu frișcă</option
+                                >
+                                <option value="lapte-condensat"
+                                    >Lapte condensat</option
+                                >
+                            </select>
+                        </fieldset>
+
+                        <!-- Toppings -->
+                        <fieldset
+                            class="byoc__fieldset byoc__fieldset--toppings"
+                        >
+                            <legend class="byoc__legend">Toppinguri</legend>
+
+                            <div class="byoc__scroll-row">
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Milka"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Milka</span>
+                                </label>
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Oreo"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Oreo</span>
+                                </label>
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Zmeura"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Zmeură</span>
+                                </label>
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Capsuni"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Căpșuni</span>
+                                </label>
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Kiwi"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Kiwi</span>
+                                </label>
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Afine"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Afine</span>
+                                </label>
+                                <label class="byoc__topping-label">
+                                    <input
+                                        type="checkbox"
+                                        name="Topping"
+                                        value="Nuci"
+                                        class="byoc__checkbox"
+                                    />
+                                    <span>Nuci</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Customer Info -->
+                        <fieldset
+                            class="byoc__fieldset byoc__fieldset--customer"
+                        >
+                            <legend class="byoc__legend">Datele tale</legend>
+
+                            <div class="byoc__input-row">
+                                <input
+                                    type="text"
+                                    name="Nume"
+                                    id="name"
+                                    placeholder="Nume"
+                                    class="byoc__input"
+                                />
+                                <input
+                                    type="text"
+                                    name="Prenume"
+                                    id="surname"
+                                    placeholder="Prenume"
+                                    class="byoc__input"
+                                />
+                            </div>
+
+                            <div class="byoc__input-row">
+                                <input
+                                    type="tel"
+                                    name="Numar de telefon"
+                                    id="phone"
+                                    placeholder="061234567"
+                                    class="byoc__input"
+                                />
+                                <input
+                                    type="date"
+                                    name="Data de livrare"
+                                    id="delivery-date"
+                                    title="Data livrare"
+                                    class="byoc__input"
+                                />
+                            </div>
+
+                            <textarea
+                                name="Cereri extra"
+                                id="special-request"
+                                placeholder="Cereri extra..."
+                                class="byoc__textarea"></textarea>
+                        </fieldset>
+
+                        <button type="submit" class="byoc__submit"
+                            >Comandă</button
+                        >
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer
+            class="flex flex-col items-center bg-text-title text-bg-main"
+            id="contacts"
+        >
+            <div
+                class="flex flex-col items-center gap-[clamp(0.75rem,2vw,1.25rem)] text-center px-[clamp(1.5rem,5vw,3rem)] py-[clamp(3rem,6vw,5rem)] w-full box-border"
+            >
+                <h2
+                    class="font-accent text-[clamp(1.75rem,calc(5vw+0.5rem),3rem)] text-bg-main"
+                >
+                    Contacte
+                </h2>
+                <p
+                    class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-extra-main leading-[1.6] max-w-[420px]"
+                >
+                    Ai o întrebare sau vrei să comanzi un tort?
+                </p>
+                <a
+                    href="mailto:comanda@dulceti.me"
+                    class="font-main text-[clamp(1rem,2vw,1.25rem)] font-bold text-accent-main px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] border-2 border-accent-main rounded-[clamp(0.5rem,1vw,0.75rem)] transition-colors duration-200 hover:bg-accent-main hover:text-bg-main"
+                    >comanda@dulceti.me</a
+                >
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-[clamp(0.4rem,1vw,0.75rem)] px-[clamp(1.5rem,5vw,3rem)] py-[clamp(1.25rem,2.5vw,1.75rem)] border-t border-[rgba(242,196,176,0.2)] w-full box-border text-center"
+            >
+                <span
+                    class="font-accent text-[clamp(1.25rem,3vw,1.5rem)] text-accent-main"
+                    >Dulcețime</span
+                >
+                <span
+                    class="font-main text-[clamp(0.75rem,1.2vw,0.85rem)] text-extra-main opacity-60"
+                    >&copy; 2026 &lt;3</span
+                >
+            </div>
+        </footer>
+
+        <div
+            class="mascot-container animate-mascot-appear"
+            id="mascot-popover"
+            popover="manual"
+        >
+            <a
+                href="#build-your-own"
+                class="mascot-container__cta animate-mascot-cta-combined"
+                onclick="document.getElementById('mascot-popover').hidePopover()"
+                >Personalizează-mă!</a
+            >
+            <img
+                src="mascot/main.png"
+                alt="Mascot"
+                class="mascot-img animate-mascot-img-jump"
+            />
+            <img
+                src="mascot/secondary.png"
+                alt="Spatula"
+                class="mascot-secondary animate-mascot-secondary-jump"
+            />
+        </div>
+
+        <button
+            popovertarget="mascot-popover"
+            popovertargetaction="show"
+            class="mascot-toggle-btn"
+            aria-label="Open mascot"
+        >
+            <img src="icons/heart.svg" alt="personalizează-ți tortul" />
+        </button>
+
+        <a
+            href="#build-your-own"
+            class="mobile-byoc-btn"
+            aria-label="Personalizează-ți tortul"
+        >
+            <img src="icons/cake-variant.svg" alt="mascotă" />
+        </a>
+    </body>
+</html>
+
+<script is:inline>
+    const mascotPopover = document.getElementById("mascot-popover");
+    if (mascotPopover) mascotPopover.showPopover();
+</script>
