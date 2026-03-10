@@ -26,8 +26,19 @@ singletons:
     file: src/content/{{locale}}/hero.json
     i18n: true
     fields:
-      - { label: Title Highlighted 1, name: title_highlighted_1, widget: string, i18n: true }
-      - { label: Title Middle, name: title_middle, widget: string, i18n: true }
-      - { label: Title Highlighted 2, name: title_highlighted_2, widget: string, i18n: true }
-      - { label: Title Suffix, name: title_suffix, widget: string, i18n: true }
+      - { label: Title, name: title, widget: string, i18n: true, hint: "Wrap words in **double asterisks** to highlight them" }
       - { label: Description, name: description, widget: string, i18n: true }
+
+  - name: about-me
+    label: About Me Section
+    file: src/content/{{locale}}/about-me.json
+    i18n: true
+    fields:
+      - { label: Section Title, name: section_title, widget: string, i18n: true }
+      - { label: Greeting, name: greeting, widget: string, i18n: true, hint: "Wrap name in **double asterisks** to highlight" }
+      - { label: Quote, name: quote, widget: string, i18n: true }
+      - { label: Paragraph 1, name: paragraph_1, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
+      - { label: Paragraph 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
+      - { label: Image, name: image, widget: image, i18n: duplicate }
+      - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
+

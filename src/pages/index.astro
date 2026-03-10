@@ -2,7 +2,9 @@
 import "../styles/global.css";
 
 import hero from "../content/ro/hero.json";
+import aboutMe from "../content/ro/about-me.json";
 import global from "../content/ro/global.json";
+import { highlight } from "../utils/highlight.js";
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
@@ -176,14 +178,13 @@ import global from "../content/ro/global.json";
             <section class="section hero" id="hero">
                 <div class="hero__container">
                     <div class="hero__content">
-                        <h1 class="hero__title">
-                            <span class="hero__title--highlighted">
-                                {hero.title_highlighted_1}</span
-                            >{hero.title_middle}<span
-                                class="hero__title--highlighted"
-                                >{hero.title_highlighted_2}</span
-                            >{hero.title_suffix}
-                        </h1>
+                        <h1
+                            class="hero__title"
+                            set:html={highlight(
+                                hero.title,
+                                "hero__title--highlighted",
+                            )}
+                        />
                         <p class="hero__description">
                             {hero.description}
                         </p>
@@ -209,7 +210,7 @@ import global from "../content/ro/global.json";
                 class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]"
                 id="about-me"
             >
-                <h2 class="section__title">Despre mine</h2>
+                <h2 class="section__title">{aboutMe.section_title}</h2>
                 <div
                     class="flex flex-col items-center gap-[clamp(1.5rem,3vw,2.5rem)] max-w-[1100px] w-full wide:flex-row wide:items-center wide:gap-[clamp(2rem,4vw,4rem)]"
                 >
@@ -217,10 +218,10 @@ import global from "../content/ro/global.json";
                         class="shrink-0 w-[clamp(12rem,45vw,18rem)] aspect-[3/4] rounded-[clamp(0.75rem,1.5vw,1.25rem)] overflow-hidden shadow-[0_6px_24px_rgba(59,35,20,0.12),0_2px_8px_rgba(59,35,20,0.08)] border-t-[3px] border-accent-main transition-transform duration-300 ease hover:scale-[1.02] wide:w-[clamp(14rem,22vw,20rem)] landscape-compact:w-[clamp(8rem,20vw,14rem)]"
                     >
                         <img
-                            src="section-about-me/me.webp"
+                            src={aboutMe.image}
                             width="678"
                             height="1015"
-                            alt="Mariana, persoana din spatele torturilor"
+                            alt={aboutMe.image_alt}
                             class="w-full h-full object-cover"
                             loading="lazy"
                         />
@@ -231,41 +232,33 @@ import global from "../content/ro/global.json";
                     >
                         <h3
                             class="font-main text-[clamp(1.25rem,3vw,1.75rem)] font-bold text-text-title"
-                        >
-                            Bună, sunt <span
-                                class="font-accent text-accent-main text-[1.15em]"
-                                >Mariana</span
-                            > !
-                        </h3>
+                            set:html={highlight(
+                                aboutMe.greeting,
+                                "font-accent text-accent-main text-[1.15em]",
+                            )}
+                        />
 
                         <p
                             class="font-main text-[clamp(0.9rem,1.5vw,1.05rem)] italic text-accent-main leading-[1.6] border-l-[3px] border-accent-alt pl-[0.85rem] mt-[clamp(0.25rem,1vw,0.5rem)]"
                         >
-                            „Când pui suflet în ce faci, se simte la primul
-                            gust."
+                            {aboutMe.quote}
                         </p>
 
                         <p
                             class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
-                        >
-                            De ani fac torturi cu drag, din ingrediente naturale
-                            și cu multă atenție la detalii. Fiecare tort este o
-                            poveste — spune-mi a ta, iar eu o transform în ceva <span
-                                class="text--accent-main">dulce</span
-                            >.
-                        </p>
+                            set:html={highlight(
+                                aboutMe.paragraph_1,
+                                "text--accent-main",
+                            )}
+                        />
 
                         <p
                             class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
-                        >
-                            Lucrez cu fructe <span class="text--accent-alt"
-                                >proaspete</span
-                            > de sezon, creme
-                            <span class="text--accent-alt">naturale</span> și blaturi
-                            preparate
-                            <span class="text--accent-alt">de mână</span>. Fără
-                            conservanți, fără compromisuri.
-                        </p>
+                            set:html={highlight(
+                                aboutMe.paragraph_2,
+                                "text--accent-alt",
+                            )}
+                        />
                     </article>
                 </div>
             </section>
