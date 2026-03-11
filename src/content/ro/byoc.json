@@ -1,0 +1,111 @@
+{
+  "shapes": [
+    {
+      "label": "Număr",
+      "value": "Numar",
+      "icon": "/uploads/icons/sort-numeric-variant.svg"
+    },
+    {
+      "label": "Inimă",
+      "value": "Inima",
+      "icon": "/uploads/icons/heart.svg"
+    },
+    {
+      "label": "Cerc",
+      "value": "Cerc",
+      "icon": "/uploads/icons/circle.svg"
+    },
+    {
+      "label": "Pătrat",
+      "value": "Patrat",
+      "icon": "/uploads/icons/square.svg"
+    },
+    {
+      "label": "Stea",
+      "value": "Stea",
+      "icon": "/uploads/icons/star.svg"
+    }
+  ],
+  "batters": [
+    {
+      "label": "Pandispan pufos cu cacao",
+      "value": "pandispan-pufos-cacao"
+    },
+    {
+      "label": "Pandispan pufos alb",
+      "value": "pandispan-pufos-alb"
+    },
+    {
+      "label": "Pufos de vanilie",
+      "value": "pufos-vanilie"
+    },
+    {
+      "label": "Pufos de cacao",
+      "value": "pufos-cacao"
+    },
+    {
+      "label": "Foi cu miere",
+      "value": "foi-miere"
+    },
+    {
+      "label": "Vafe",
+      "value": "vafe"
+    },
+    {
+      "label": "Pișcot",
+      "value": "piscot"
+    }
+  ],
+  "creams": [
+    {
+      "label": "Mascarpone",
+      "value": "mascarpone"
+    },
+    {
+      "label": "Frișcă și cafea",
+      "value": "frisca-cafea"
+    },
+    {
+      "label": "Smântână cu frișcă",
+      "value": "smantana-frisca"
+    },
+    {
+      "label": "Lapte condensat",
+      "value": "lapte-condensat"
+    }
+  ],
+  "toppings": [
+    {
+      "label": "Milka",
+      "value": "Milka"
+    },
+    {
+      "label": "Oreo",
+      "value": "Oreo"
+    },
+    {
+      "label": "Zmeură",
+      "value": "Zmeura"
+    },
+    {
+      "label": "Căpșuni",
+      "value": "Capsuni"
+    },
+    {
+      "label": "Kiwi",
+      "value": "Kiwi"
+    },
+    {
+      "label": "Afine",
+      "value": "Afine"
+    },
+    {
+      "label": "Nuci",
+      "value": "Nuci"
+    },
+    {
+      "label": "Vafe",
+      "value": "vafe"
+    }
+  ]
+}

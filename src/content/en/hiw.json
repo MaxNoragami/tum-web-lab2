@@ -2,25 +2,25 @@
   "steps": [
     {
       "title": "Customize",
-      "image": "/section-hiw/art1.webp",
+      "image": "/uploads/section-hiw/art1.webp",
       "image_alt": "Shopping cart",
       "description": "Choose your favorite ingredients and cake style."
     },
     {
       "title": "Confirm",
-      "image": "/section-hiw/art2.webp",
+      "image": "/uploads/section-hiw/art2.webp",
       "image_alt": "Order verification",
       "description": "I check your order and start preparing."
     },
     {
       "title": "Receive ;P",
-      "image": "/section-hiw/art3.webp",
+      "image": "/uploads/section-hiw/art3.webp",
       "image_alt": "Drawing of a cake",
       "description": "I deliver quickly and on time, and you enjoy a spectacular cake."
     },
     {
       "title": "Leave Review",
-      "image": "/section-hiw/25-thumbs-up.webp",
+      "image": "/uploads/section-hiw/25-thumbs-up.webp",
       "image_alt": "Happy customer",
       "description": "If you liked it, leave a review!"
     }

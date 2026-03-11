@@ -6,6 +6,7 @@ import aboutMe from "../content/ro/about-me.json";
 import gallery from "../content/ro/gallery.json";
 import hiw from "../content/ro/hiw.json";
 import global from "../content/ro/global.json";
+import byoc from "../content/ro/byoc.json";
 import contacts from "../content/ro/contacts.json";
 import { highlight } from "../utils/highlight.js";
 
@@ -41,7 +42,7 @@ import { highlight } from "../utils/highlight.js";
             property="og:description"
             content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
         />
-        <meta property="og:image" content="thumbnail.png" />
+        <meta property="og:image" content="uploads/thumbnail.png" />
 
         <!-- X (Twitter) -->
         <meta property="twitter:card" content="summary_large_image" />
@@ -54,7 +55,7 @@ import { highlight } from "../utils/highlight.js";
             property="twitter:description"
             content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
         />
-        <meta property="twitter:image" content="thumbnail.png" />
+        <meta property="twitter:image" content="uploads/thumbnail.png" />
 
         <!-- FAVICON -->
         <link rel="icon" href="favicon.png" type="image/png" />
@@ -199,7 +200,7 @@ import { highlight } from "../utils/highlight.js";
 
                     <div class="hero__image-wrapper">
                         <img
-                            src="section-hero/hero_cake.webp"
+                            src="uploads/section-hero/hero_cake.webp"
                             alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
                             width="752"
                             height="760"
@@ -327,200 +328,75 @@ import { highlight } from "../utils/highlight.js";
                         <!-- Cake Shape -->
                         <fieldset class="byoc__fieldset byoc__fieldset--type">
                             <legend class="byoc__legend">Formă tort</legend>
-
                             <div class="byoc__scroll-row">
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="number"
-                                    value="Numar"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="number" class="byoc__shape-label">
-                                    <img
-                                        src="icons/sort-numeric-variant.svg"
-                                        alt="numar"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Număr</span>
-                                </label>
-
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="heart"
-                                    value="Inima"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="heart" class="byoc__shape-label">
-                                    <img
-                                        src="icons/heart.svg"
-                                        alt="inima"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Inimă</span>
-                                </label>
-
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="circle"
-                                    value="Cerc"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="circle" class="byoc__shape-label">
-                                    <img
-                                        src="icons/circle.svg"
-                                        alt="cerc"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Cerc</span>
-                                </label>
-
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="square"
-                                    value="Patrat"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="square" class="byoc__shape-label">
-                                    <img
-                                        src="icons/square.svg"
-                                        alt="pătrat"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Pătrat</span>
-                                </label>
+                                {
+                                    byoc.shapes.map((shape) => (
+                                        <>
+                                            <input
+                                                type="radio"
+                                                name="Forma"
+                                                id={`shape-${shape.value}`}
+                                                value={shape.value}
+                                                class="byoc__radio byoc__radio--shape"
+                                            />
+                                            <label for={`shape-${shape.value}`} class="byoc__shape-label">
+                                                <img
+                                                    src={shape.icon}
+                                                    alt={shape.label}
+                                                    class="byoc__icon"
+                                                />
+                                                <span>{shape.label}</span>
+                                            </label>
+                                        </>
+                                    ))
+                                }
                             </div>
                         </fieldset>
 
                         <!-- Batter & Cream -->
-                        <fieldset
-                            class="byoc__fieldset byoc__fieldset--selects"
-                        >
+                        <fieldset class="byoc__fieldset byoc__fieldset--selects">
                             <legend class="byoc__legend">Blat și Cremă</legend>
-
-                            <select
-                                name="Tip blat"
-                                id="batter_types"
-                                class="byoc__select"
-                            >
+                            <select name="Tip blat" id="batter_types" class="byoc__select">
                                 <option value="">~ Tip blat ~</option>
-                                <option value="pandispan-pufos-cacao"
-                                    >Pandispan pufos cu cacao</option
-                                >
-                                <option value="pandispan-pufos-alb"
-                                    >Pandispan pufos alb</option
-                                >
-                                <option value="pufos-vanilie"
-                                    >Pufos de vanilie</option
-                                >
-                                <option value="pufos-cacao"
-                                    >Pufos de cacao</option
-                                >
-                                <option value="foi-miere">Foi cu miere</option>
-                                <option value="vafe">Vafe</option>
+                                {
+                                    byoc.batters.map((b) => (
+                                        <option value={b.value}>{b.label}</option>
+                                    ))
+                                }
                             </select>
-
-                            <select
-                                name="Tip crema"
-                                id="creame_types"
-                                class="byoc__select"
-                            >
+                            <select name="Tip crema" id="creame_types" class="byoc__select">
                                 <option value="">~ Tip cremă ~</option>
-                                <option value="mascarpone">Mascarpone</option>
-                                <option value="frisca-cafea"
-                                    >Frișcă și cafea</option
-                                >
-                                <option value="smantana-frisca"
-                                    >Smântână cu frișcă</option
-                                >
-                                <option value="lapte-condensat"
-                                    >Lapte condensat</option
-                                >
+                                {
+                                    byoc.creams.map((c) => (
+                                        <option value={c.value}>{c.label}</option>
+                                    ))
+                                }
                             </select>
                         </fieldset>
 
                         <!-- Toppings -->
-                        <fieldset
-                            class="byoc__fieldset byoc__fieldset--toppings"
-                        >
+                        <fieldset class="byoc__fieldset byoc__fieldset--toppings">
                             <legend class="byoc__legend">Toppinguri</legend>
-
                             <div class="byoc__scroll-row">
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Milka"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Milka</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Oreo"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Oreo</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Zmeura"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Zmeură</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Capsuni"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Căpșuni</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Kiwi"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Kiwi</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Afine"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Afine</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Nuci"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Nuci</span>
-                                </label>
+                                {
+                                    byoc.toppings.map((t) => (
+                                        <label class="byoc__topping-label">
+                                            <input
+                                                type="checkbox"
+                                                name="Topping"
+                                                value={t.value}
+                                                class="byoc__checkbox"
+                                            />
+                                            <span>{t.label}</span>
+                                        </label>
+                                    ))
+                                }
                             </div>
                         </fieldset>
 
                         <!-- Customer Info -->
-                        <fieldset
-                            class="byoc__fieldset byoc__fieldset--customer"
-                        >
+                        <fieldset class="byoc__fieldset byoc__fieldset--customer">
                             <legend class="byoc__legend">Datele tale</legend>
-
                             <div class="byoc__input-row">
                                 <input
                                     type="text"
@@ -537,7 +413,6 @@ import { highlight } from "../utils/highlight.js";
                                     class="byoc__input"
                                 />
                             </div>
-
                             <div class="byoc__input-row">
                                 <input
                                     type="tel"
@@ -554,7 +429,6 @@ import { highlight } from "../utils/highlight.js";
                                     class="byoc__input"
                                 />
                             </div>
-
                             <textarea
                                 name="Cereri extra"
                                 id="special-request"
@@ -562,9 +436,7 @@ import { highlight } from "../utils/highlight.js";
                                 class="byoc__textarea"></textarea>
                         </fieldset>
 
-                        <button type="submit" class="byoc__submit"
-                            >Comandă</button
-                        >
+                        <button type="submit" class="byoc__submit">Comandă</button>
                     </form>
                 </div>
             </section>
@@ -637,7 +509,7 @@ import { highlight } from "../utils/highlight.js";
             class="mascot-toggle-btn"
             aria-label="Open mascot"
         >
-            <img src="icons/heart.svg" alt="personalizează-ți tortul" />
+            <img src="uploads/icons/heart.svg" alt="personalizează-ți tortul" />
         </button>
 
         <a
@@ -645,7 +517,7 @@ import { highlight } from "../utils/highlight.js";
             class="mobile-byoc-btn"
             aria-label="Personalizează-ți tortul"
         >
-            <img src="icons/cake-variant.svg" alt="mascotă" />
+            <img src="uploads/icons/cake-variant.svg" alt="mascotă" />
         </a>
     </body>
 </html>
