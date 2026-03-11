@@ -1,0 +1,23 @@
+{
+  "steps": [
+    {
+      "title": "Personalizează-ți",
+      "image": "/section-hiw/art1.webp",
+      "image_alt": "Coș de cumpărături",
+      "description": "Alege-ți ingredientele preferate și stilul tortului tău."
+    },
+    {
+      "title": "Confirmă",
+      "image": "/section-hiw/art2.webp",
+      "image_alt": "Verificare comandă",
+      "description": "Îți verific comanda și încep prepararea."
+    },
+    {
+      "title": "Primește ;P",
+      "image": "/section-hiw/art3.webp",
+      "image_alt": "Desen cu un tort",
+      "description": "Livrez rapid și la timp, iar tu te bucuri de un tort spectaculos."
+    }
+  ],
+  "section_title": "Cum lucrează?"
+}

@@ -55,13 +55,41 @@ singletons:
     public_folder: /section-about-me
     i18n: true
     fields:
-      - { label: Section Title, name: section_title, widget: string, i18n: true }
       - { label: Greeting, name: greeting, widget: string, i18n: true, hint: "Wrap name in **double asterisks** to highlight" }
       - { label: Quote, name: quote, widget: string, i18n: true }
       - { label: Paragraph 1, name: paragraph_1, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
       - { label: Paragraph 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
       - { label: Image, name: image, widget: image, i18n: duplicate }
       - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
+
+  - name: hiw
+    label: How It Works Section
+    file: src/content/{{locale}}/hiw.json
+    media_folder: /public/section-hiw
+    public_folder: /section-hiw
+    i18n: true
+    fields:
+      - label: Steps
+        name: steps
+        widget: list
+        i18n: true
+        fields:
+          - { label: Title, name: title, widget: string, i18n: true }
+          - label: Artwork
+            name: image
+            widget: image
+            i18n: duplicate
+            media_libraries:
+              default:
+                config:
+                  transformations:
+                    raster_image:
+                      format: webp
+                      quality: 75
+                      width: 512
+                      height: 512
+          - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
+          - { label: Description, name: description, widget: string, i18n: true }
 
   - name: gallery
     label: Gallery Section
@@ -70,7 +98,6 @@ singletons:
     public_folder: /section-gallery
     i18n: true
     fields:
-      - { label: Section Title, name: section_title, widget: string, i18n: true }
       - label: Images
         name: images
         widget: list

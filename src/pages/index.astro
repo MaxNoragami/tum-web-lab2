@@ -4,6 +4,7 @@ import "../styles/global.css";
 import hero from "../content/ro/hero.json";
 import aboutMe from "../content/ro/about-me.json";
 import gallery from "../content/ro/gallery.json";
+import hiw from "../content/ro/hiw.json";
 import global from "../content/ro/global.json";
 import { highlight } from "../utils/highlight.js";
 
@@ -212,7 +213,7 @@ import { highlight } from "../utils/highlight.js";
                 class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]"
                 id="about-me"
             >
-                <h2 class="section__title">{aboutMe.section_title}</h2>
+                <h2 class="section__title">Despre mine</h2>
                 <div
                     class="flex flex-col items-center gap-[clamp(1.5rem,3vw,2.5rem)] max-w-[1100px] w-full wide:flex-row wide:items-center wide:gap-[clamp(2rem,4vw,4rem)]"
                 >
@@ -266,7 +267,7 @@ import { highlight } from "../utils/highlight.js";
             </section>
 
             <section class="section gallery" id="gallery">
-                <h2 class="section__title">{gallery.section_title}</h2>
+                <h2 class="section__title">Galerie</h2>
 
                 <div class="gallery__carousel">
                     {
@@ -288,58 +289,27 @@ import { highlight } from "../utils/highlight.js";
                 <h2 class="section__title">Cum lucrează?</h2>
 
                 <div class="hiw__cards-wrapper">
-                    <article class="hiw__card">
-                        <div class="hiw__header">
-                            <span class="hiw__step">1</span>
-                            <h3 class="hiw__title">Personalizează-ți</h3>
-                        </div>
-                        <img
-                            src="section-hiw/art1.webp"
-                            width="512"
-                            height="512"
-                            alt="Coș de cumpărături"
-                            class="hiw__artwork"
-                        />
-                        <p class="hiw__description">
-                            Alege-ți ingredientele preferate și stilul tortului
-                            tău.
-                        </p>
-                    </article>
-
-                    <article class="hiw__card">
-                        <div class="hiw__header">
-                            <span class="hiw__step">2</span>
-                            <h3 class="hiw__title">Confirmă</h3>
-                        </div>
-                        <img
-                            src="section-hiw/art2.webp"
-                            width="512"
-                            height="512"
-                            alt="Verificare comandă"
-                            class="hiw__artwork"
-                        />
-                        <p class="hiw__description">
-                            Îți verific comanda și încep prepararea.
-                        </p>
-                    </article>
-
-                    <article class="hiw__card">
-                        <div class="hiw__header">
-                            <span class="hiw__step">3</span>
-                            <h3 class="hiw__title">Primește ;P</h3>
-                        </div>
-                        <img
-                            src="section-hiw/art3.webp"
-                            width="512"
-                            height="512"
-                            alt="Desen cu un tort"
-                            class="hiw__artwork"
-                        />
-                        <p class="hiw__description">
-                            Livrez rapid și la timp, iar tu te bucuri de un tort
-                            spectaculos.
-                        </p>
-                    </article>
+                    {
+                        hiw.steps.map((step, i) => (
+                            <article class="hiw__card">
+                                <div class="hiw__header">
+                                    <span class="hiw__step">{i + 1}</span>
+                                    <h3 class="hiw__title">{step.title}</h3>
+                                </div>
+                                <img
+                                    src={step.image}
+                                    width="512"
+                                    height="512"
+                                    alt={step.image_alt}
+                                    class="hiw__artwork"
+                                    loading="lazy"
+                                />
+                                <p class="hiw__description">
+                                    {step.description}
+                                </p>
+                            </article>
+                        ))
+                    }
                 </div>
             </section>
 
