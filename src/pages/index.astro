@@ -6,7 +6,7 @@ import aboutMe from "../content/ro/about-me.json";
 import gallery from "../content/ro/gallery.json";
 import global from "../content/ro/global.json";
 import { highlight } from "../utils/highlight.js";
-import { getOptimizedSrc } from "../utils/image.js";
+
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
@@ -270,29 +270,16 @@ import { getOptimizedSrc } from "../utils/image.js";
 
                 <div class="gallery__carousel">
                     {
-                        gallery.images.map((img) => {
-                            const opSrc = getOptimizedSrc(img.src);
-                            return (
-                                <figure class="gallery__slide">
-                                    <img
-                                        src={img.src}
-                                        srcset={
-                                            opSrc
-                                                ? `${opSrc} 720w, ${img.src} 1200w`
-                                                : undefined
-                                        }
-                                        sizes={
-                                            opSrc
-                                                ? "(max-width: 768px) 100vw, 50vw"
-                                                : undefined
-                                        }
-                                        alt={img.alt}
-                                        class="gallery__image"
-                                        loading="lazy"
-                                    />
-                                </figure>
-                            );
-                        })
+                        gallery.images.map((img) => (
+                            <figure class="gallery__slide">
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    class="gallery__image"
+                                    loading="lazy"
+                                />
+                            </figure>
+                        ))
                     }
                 </div>
             </section>

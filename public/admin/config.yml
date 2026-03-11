@@ -13,6 +13,23 @@ i18n:
 media_folder: public
 public_folder: /
 
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1200
+        svg:
+          optimize: true
+
 singletons:
   - name: global
     label: Global
