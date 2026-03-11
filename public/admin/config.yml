@@ -37,6 +37,7 @@ singletons:
     i18n: true
     fields:
       - { label: CTA Text, name: cta_text, widget: string, i18n: true }
+      - { label: Email Address, name: email, widget: string, i18n: false }
 
   - name: hero
     label: Hero Section
@@ -61,6 +62,21 @@ singletons:
       - { label: Paragraph 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
       - { label: Image, name: image, widget: image, i18n: duplicate }
       - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
+
+  - name: gallery
+    label: Gallery Section
+    file: src/content/{{locale}}/gallery.json
+    media_folder: /public/section-gallery
+    public_folder: /section-gallery
+    i18n: true
+    fields:
+      - label: Images
+        name: images
+        widget: list
+        i18n: true
+        fields:
+          - { label: Image, name: src, widget: image, i18n: duplicate }
+          - { label: Alt Text, name: alt, widget: string, i18n: true }
 
   - name: hiw
     label: How It Works Section
@@ -91,18 +107,10 @@ singletons:
           - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
           - { label: Description, name: description, widget: string, i18n: true }
 
-  - name: gallery
-    label: Gallery Section
-    file: src/content/{{locale}}/gallery.json
-    media_folder: /public/section-gallery
-    public_folder: /section-gallery
+  - name: contacts
+    label: Contacts Section
+    file: src/content/{{locale}}/contacts.json
     i18n: true
     fields:
-      - label: Images
-        name: images
-        widget: list
-        i18n: true
-        fields:
-          - { label: Image, name: src, widget: image, i18n: duplicate }
-          - { label: Alt Text, name: alt, widget: string, i18n: true }
-
+      - { label: Contact Message, name: contact_message, widget: string, i18n: true }
+    

@@ -6,6 +6,7 @@ import aboutMe from "../content/ro/about-me.json";
 import gallery from "../content/ro/gallery.json";
 import hiw from "../content/ro/hiw.json";
 import global from "../content/ro/global.json";
+import contacts from "../content/ro/contacts.json";
 import { highlight } from "../utils/highlight.js";
 
 ---
@@ -319,7 +320,7 @@ import { highlight } from "../utils/highlight.js";
                 <div class="byoc__container">
                     <form
                         class="byoc__form"
-                        action="mailto:comanda@dulceti.me"
+                        action={`mailto:${global.email}`}
                         method="POST"
                         enctype="text/plain"
                     >
@@ -584,12 +585,12 @@ import { highlight } from "../utils/highlight.js";
                 <p
                     class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-extra-main leading-[1.6] max-w-[420px]"
                 >
-                    Ai o întrebare sau vrei să comanzi un tort?
+                    {contacts.contact_message}
                 </p>
                 <a
-                    href="mailto:comanda@dulceti.me"
+                    href={`mailto:${global.email}`}
                     class="font-main text-[clamp(1rem,2vw,1.25rem)] font-bold text-accent-main px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] border-2 border-accent-main rounded-[clamp(0.5rem,1vw,0.75rem)] transition-colors duration-200 hover:bg-accent-main hover:text-bg-main"
-                    >comanda@dulceti.me</a
+                    >{global.email}</a
                 >
             </div>
 
@@ -602,7 +603,7 @@ import { highlight } from "../utils/highlight.js";
                 >
                 <span
                     class="font-main text-[clamp(0.75rem,1.2vw,0.85rem)] text-extra-main opacity-60"
-                    >&copy; 2026 &lt;3</span
+                    >&copy; {new Date().getFullYear()} &lt;3</span
                 >
             </div>
         </footer>
