@@ -3,8 +3,10 @@ import "../styles/global.css";
 
 import hero from "../content/ro/hero.json";
 import aboutMe from "../content/ro/about-me.json";
+import gallery from "../content/ro/gallery.json";
 import global from "../content/ro/global.json";
 import { highlight } from "../utils/highlight.js";
+import { getOptimizedSrc } from "../utils/image.js";
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
@@ -264,129 +266,34 @@ import { highlight } from "../utils/highlight.js";
             </section>
 
             <section class="section gallery" id="gallery">
-                <h2 class="section__title">Galerie</h2>
+                <h2 class="section__title">{gallery.section_title}</h2>
 
                 <div class="gallery__carousel">
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake1.webp"
-                            srcset="section-gallery/op/cake1.webp 1052w, section-gallery/cake1.webp 1753w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1753"
-                            height="1114"
-                            alt="Tort decorat în formă de cifra 17"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake2.webp"
-                            srcset="section-gallery/op/cake2.webp 720w, section-gallery/cake2.webp 1200w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1200"
-                            height="1196"
-                            alt="Tort cu imagine imprimată"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake3.webp"
-                            srcset="section-gallery/op/cake3.webp 720w, section-gallery/cake3.webp 1200w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1200"
-                            height="960"
-                            alt="Tort decorat în formă de cifra 30"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake4.webp"
-                            srcset="section-gallery/op/cake4.webp 720w, section-gallery/cake4.webp 1200w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1200"
-                            height="1600"
-                            alt="Tort în formă de cerc cu fructe și mesaj custom"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake5.webp"
-                            srcset="section-gallery/op/cake5.webp 960w, section-gallery/cake5.webp 1600w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1600"
-                            height="1200"
-                            alt="Tort în formă de dreptunghi cu fructe și mesaj custom"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake6.webp"
-                            srcset="section-gallery/op/cake6.webp 624w, section-gallery/cake6.webp 1040w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1040"
-                            height="1217"
-                            alt="Tort în formă de cerc, cu imagine imprimată și fructe de pădure"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake7.webp"
-                            srcset="section-gallery/op/cake7.webp 824w, section-gallery/cake7.webp 1373w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1373"
-                            height="1338"
-                            alt="Tort decorat în formă de cifra 41"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake8.webp"
-                            srcset="section-gallery/op/cake8.webp 1200w, section-gallery/cake8.webp 2000w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="2000"
-                            height="1500"
-                            alt="Tort decorat în formă de cifra 70"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake9.webp"
-                            srcset="section-gallery/op/cake9.webp 451w, section-gallery/cake9.webp 751w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="751"
-                            height="858"
-                            alt="Tort decorat în formă de cifra 15"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake10.webp"
-                            srcset="section-gallery/op/cake10.webp 449w, section-gallery/cake10.webp 748w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="748"
-                            height="894"
-                            alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
+                    {
+                        gallery.images.map((img) => {
+                            const opSrc = getOptimizedSrc(img.src);
+                            return (
+                                <figure class="gallery__slide">
+                                    <img
+                                        src={img.src}
+                                        srcset={
+                                            opSrc
+                                                ? `${opSrc} 720w, ${img.src} 1200w`
+                                                : undefined
+                                        }
+                                        sizes={
+                                            opSrc
+                                                ? "(max-width: 768px) 100vw, 50vw"
+                                                : undefined
+                                        }
+                                        alt={img.alt}
+                                        class="gallery__image"
+                                        loading="lazy"
+                                    />
+                                </figure>
+                            );
+                        })
+                    }
                 </div>
             </section>
 

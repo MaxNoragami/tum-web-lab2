@@ -10,8 +10,8 @@ i18n:
   locales: [ro, en]
   default_locale: ro
 
-media_folder: public/images
-public_folder: /images
+media_folder: public
+public_folder: /
 
 singletons:
   - name: global
@@ -24,6 +24,8 @@ singletons:
   - name: hero
     label: Hero Section
     file: src/content/{{locale}}/hero.json
+    media_folder: /public/section-hero
+    public_folder: /section-hero
     i18n: true
     fields:
       - { label: Title, name: title, widget: string, i18n: true, hint: "Wrap words in **double asterisks** to highlight them" }
@@ -32,6 +34,8 @@ singletons:
   - name: about-me
     label: About Me Section
     file: src/content/{{locale}}/about-me.json
+    media_folder: /public/section-about-me
+    public_folder: /section-about-me
     i18n: true
     fields:
       - { label: Section Title, name: section_title, widget: string, i18n: true }
@@ -41,4 +45,20 @@ singletons:
       - { label: Paragraph 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
       - { label: Image, name: image, widget: image, i18n: duplicate }
       - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
+
+  - name: gallery
+    label: Gallery Section
+    file: src/content/{{locale}}/gallery.json
+    media_folder: /public/section-gallery
+    public_folder: /section-gallery
+    i18n: true
+    fields:
+      - { label: Section Title, name: section_title, widget: string, i18n: true }
+      - label: Images
+        name: images
+        widget: list
+        i18n: true
+        fields:
+          - { label: Image, name: src, widget: image, i18n: duplicate }
+          - { label: Alt Text, name: alt, widget: string, i18n: true }
 
