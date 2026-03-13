@@ -3,7 +3,8 @@
 backend:
   name: github
   repo: MaxNoragami/tum-web-lab2
-  branch: main
+  branch: master
+  skip_ci: false
 
 i18n:
   structure: multiple_folders
