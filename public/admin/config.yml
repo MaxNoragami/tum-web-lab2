@@ -37,61 +37,61 @@ singletons:
     i18n: true
     fields:
       - { label: CTA Text, name: cta_text, widget: string, i18n: true }
-      - { label: Email Address, name: email, widget: string, i18n: false }
+      - { label: Adresă Email, name: email, widget: string, i18n: false }
 
   - name: hero
-    label: Hero Section
+    label: Secțiune Hero
     file: src/content/{{locale}}/hero.json
     media_folder: /public/uploads/section-hero
     public_folder: /uploads/section-hero
     i18n: true
     fields:
-      - { label: Title, name: title, widget: string, i18n: true, hint: "Wrap words in **double asterisks** to highlight them" }
-      - { label: Description, name: description, widget: string, i18n: true }
+      - { label: Titlu, name: title, widget: string, i18n: true, hint: "Wrap words in **double asterisks** to highlight them" }
+      - { label: Descriere, name: description, widget: string, i18n: true }
 
   - name: about-me
-    label: About Me Section
+    label: Secțiune Despre Mine
     file: src/content/{{locale}}/about-me.json
     media_folder: /public/uploads/section-about-me
     public_folder: /uploads/section-about-me
     i18n: true
     fields:
-      - { label: Greeting, name: greeting, widget: string, i18n: true, hint: "Wrap name in **double asterisks** to highlight" }
-      - { label: Quote, name: quote, widget: string, i18n: true }
-      - { label: Paragraph 1, name: paragraph_1, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
-      - { label: Paragraph 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
-      - { label: Image, name: image, widget: image, i18n: duplicate }
-      - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
+      - { label: Salut, name: greeting, widget: string, i18n: true, hint: "Wrap name in **double asterisks** to highlight" }
+      - { label: Citat, name: quote, widget: string, i18n: true }
+      - { label: Paragraf 1, name: paragraph_1, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
+      - { label: Paragraf 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
+      - { label: Imagine, name: image, widget: image, i18n: duplicate }
+      - { label: Text Alternativ Imagine, name: image_alt, widget: string, i18n: true }
 
   - name: gallery
-    label: Gallery Section
+    label: Secțiune Galerie
     file: src/content/{{locale}}/gallery.json
     media_folder: /public/uploads/section-gallery
     public_folder: /uploads/section-gallery
     i18n: true
     fields:
-      - label: Images
+      - label: Imagini
         name: images
         widget: list
         i18n: true
         fields:
-          - { label: Image, name: src, widget: image, i18n: duplicate }
-          - { label: Alt Text, name: alt, widget: string, i18n: true }
+          - { label: Imagine, name: src, widget: image, i18n: duplicate }
+          - { label: Text Alternativ Imagine, name: alt, widget: string, i18n: true }
 
   - name: hiw
-    label: How It Works Section
+    label: Secțiune Cum Lucrează
     file: src/content/{{locale}}/hiw.json
     media_folder: /public/uploads/section-hiw
     public_folder: /uploads/section-hiw
     i18n: true
     fields:
-      - label: Steps
+      - label: Pași
         name: steps
         widget: list
         i18n: true
         fields:
-          - { label: Title, name: title, widget: string, i18n: true }
-          - label: Artwork
+          - { label: Titlu, name: title, widget: string, i18n: true }
+          - label: Imagine
             name: image
             widget: image
             i18n: duplicate
@@ -104,54 +104,54 @@ singletons:
                       quality: 75
                       width: 512
                       height: 512
-          - { label: Image Alt Text, name: image_alt, widget: string, i18n: true }
-          - { label: Description, name: description, widget: string, i18n: true }
+          - { label: Text Alternativ Imagine, name: image_alt, widget: string, i18n: true }
+          - { label: Descriere, name: description, widget: string, i18n: true }
 
   - name: byoc
-    label: Build Your Own Cake
+    label: Secțiune Personalizare Tort
     file: src/content/{{locale}}/byoc.json
     i18n: true
     fields:
-      - label: Shapes
+      - label: Forme
         name: shapes
         widget: list
         i18n: duplicate
         fields:
-          - { label: Label, name: label, widget: string, i18n: true }
-          - { label: Value, name: value, widget: string, i18n: false }
-          - label: Icon
+          - { label: Etichetă Formă, name: label, widget: string, i18n: true }
+          - { label: Valoare Formă, name: value, widget: string, i18n: false }
+          - label: Pictogramă
             name: icon
             widget: image
             i18n: duplicate
             media_folder: /public/uploads/icons
             public_folder: /uploads/icons
             accept: 'image/svg+xml,.svg'
-      - label: Batters
+      - label: Blaturi
         name: batters
         widget: list
         i18n: duplicate
         fields:
-          - { label: Label, name: label, widget: string, i18n: true }
-          - { label: Value, name: value, widget: string, i18n: false }
-      - label: Creams
+          - { label: Etichetă Blat, name: label, widget: string, i18n: true }
+          - { label: Valoare Blat, name: value, widget: string, i18n: false }
+      - label: Creme
         name: creams
         widget: list
         i18n: duplicate
         fields:
-          - { label: Label, name: label, widget: string, i18n: true }
-          - { label: Value, name: value, widget: string, i18n: false }
-      - label: Toppings
+          - { label: Etichetă Cremă, name: label, widget: string, i18n: true }
+          - { label: Valoare Cremă, name: value, widget: string, i18n: false }
+      - label: Topping-uri
         name: toppings
         widget: list
         i18n: duplicate
         fields:
-          - { label: Label, name: label, widget: string, i18n: true }
-          - { label: Value, name: value, widget: string, i18n: false }
+          - { label: Etichetă Topping, name: label, widget: string, i18n: true }
+          - { label: Valoare Topping, name: value, widget: string, i18n: false }
 
   - name: contacts
-    label: Contacts Section
+    label: Secțiune Contacte
     file: src/content/{{locale}}/contacts.json
     i18n: true
     fields:
-      - { label: Contact Message, name: contact_message, widget: string, i18n: true }
+      - { label: Mesaj Contact, name: contact_message, widget: string, i18n: true }
     
