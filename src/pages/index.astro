@@ -1,9 +1,15 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log("This runs in your terminal, not the browser!");
-
 import "../styles/global.css";
+
+import hero from "../content/ro/hero.json";
+import aboutMe from "../content/ro/about-me.json";
+import gallery from "../content/ro/gallery.json";
+import hiw from "../content/ro/hiw.json";
+import global from "../content/ro/global.json";
+import byoc from "../content/ro/byoc.json";
+import contacts from "../content/ro/contacts.json";
+import { highlight } from "../utils/highlight.js";
+
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
@@ -36,7 +42,7 @@ import "../styles/global.css";
             property="og:description"
             content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
         />
-        <meta property="og:image" content="thumbnail.png" />
+        <meta property="og:image" content="uploads/thumbnail.png" />
 
         <!-- X (Twitter) -->
         <meta property="twitter:card" content="summary_large_image" />
@@ -49,7 +55,7 @@ import "../styles/global.css";
             property="twitter:description"
             content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
         />
-        <meta property="twitter:image" content="thumbnail.png" />
+        <meta property="twitter:image" content="uploads/thumbnail.png" />
 
         <!-- FAVICON -->
         <link rel="icon" href="favicon.png" type="image/png" />
@@ -177,25 +183,24 @@ import "../styles/global.css";
             <section class="section hero" id="hero">
                 <div class="hero__container">
                     <div class="hero__content">
-                        <h1 class="hero__title">
-                            <span class="hero__title--highlighted">
-                                Dulcețime</span
-                            > - torturi de casă, <span
-                                class="hero__title--highlighted"
-                                >pentru tine</span
-                            >.
-                        </h1>
+                        <h1
+                            class="hero__title"
+                            set:html={highlight(
+                                hero.title,
+                                "hero__title--highlighted",
+                            )}
+                        />
                         <p class="hero__description">
-                            Fructe proaspete, cremă pufoasă și multă dragoste.
+                            {hero.description}
                         </p>
                         <a href="#build-your-own" class="hero__cta"
-                            >Personalizează-ți tortul</a
+                            >{global.cta_text}</a
                         >
                     </div>
 
                     <div class="hero__image-wrapper">
                         <img
-                            src="section-hero/hero_cake.webp"
+                            src="uploads/section-hero/hero_cake.webp"
                             alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
                             width="752"
                             height="760"
@@ -218,10 +223,10 @@ import "../styles/global.css";
                         class="shrink-0 w-[clamp(12rem,45vw,18rem)] aspect-[3/4] rounded-[clamp(0.75rem,1.5vw,1.25rem)] overflow-hidden shadow-[0_6px_24px_rgba(59,35,20,0.12),0_2px_8px_rgba(59,35,20,0.08)] border-t-[3px] border-accent-main transition-transform duration-300 ease hover:scale-[1.02] wide:w-[clamp(14rem,22vw,20rem)] landscape-compact:w-[clamp(8rem,20vw,14rem)]"
                     >
                         <img
-                            src="section-about-me/me.webp"
+                            src={aboutMe.image}
                             width="678"
                             height="1015"
-                            alt="Mariana, persoana din spatele torturilor"
+                            alt={aboutMe.image_alt}
                             class="w-full h-full object-cover"
                             loading="lazy"
                         />
@@ -232,41 +237,33 @@ import "../styles/global.css";
                     >
                         <h3
                             class="font-main text-[clamp(1.25rem,3vw,1.75rem)] font-bold text-text-title"
-                        >
-                            Bună, sunt <span
-                                class="font-accent text-accent-main text-[1.15em]"
-                                >Mariana</span
-                            > !
-                        </h3>
+                            set:html={highlight(
+                                aboutMe.greeting,
+                                "font-accent text-accent-main text-[1.15em]",
+                            )}
+                        />
 
                         <p
                             class="font-main text-[clamp(0.9rem,1.5vw,1.05rem)] italic text-accent-main leading-[1.6] border-l-[3px] border-accent-alt pl-[0.85rem] mt-[clamp(0.25rem,1vw,0.5rem)]"
                         >
-                            „Când pui suflet în ce faci, se simte la primul
-                            gust."
+                            {aboutMe.quote}
                         </p>
 
                         <p
                             class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
-                        >
-                            De ani fac torturi cu drag, din ingrediente naturale
-                            și cu multă atenție la detalii. Fiecare tort este o
-                            poveste — spune-mi a ta, iar eu o transform în ceva <span
-                                class="text--accent-main">dulce</span
-                            >.
-                        </p>
+                            set:html={highlight(
+                                aboutMe.paragraph_1,
+                                "text--accent-main",
+                            )}
+                        />
 
                         <p
                             class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
-                        >
-                            Lucrez cu fructe <span class="text--accent-alt"
-                                >proaspete</span
-                            > de sezon, creme
-                            <span class="text--accent-alt">naturale</span> și blaturi
-                            preparate
-                            <span class="text--accent-alt">de mână</span>. Fără
-                            conservanți, fără compromisuri.
-                        </p>
+                            set:html={highlight(
+                                aboutMe.paragraph_2,
+                                "text--accent-alt",
+                            )}
+                        />
                     </article>
                 </div>
             </section>
@@ -275,126 +272,18 @@ import "../styles/global.css";
                 <h2 class="section__title">Galerie</h2>
 
                 <div class="gallery__carousel">
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake1.webp"
-                            srcset="section-gallery/op/cake1.webp 1052w, section-gallery/cake1.webp 1753w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1753"
-                            height="1114"
-                            alt="Tort decorat în formă de cifra 17"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake2.webp"
-                            srcset="section-gallery/op/cake2.webp 720w, section-gallery/cake2.webp 1200w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1200"
-                            height="1196"
-                            alt="Tort cu imagine imprimată"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake3.webp"
-                            srcset="section-gallery/op/cake3.webp 720w, section-gallery/cake3.webp 1200w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1200"
-                            height="960"
-                            alt="Tort decorat în formă de cifra 30"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake4.webp"
-                            srcset="section-gallery/op/cake4.webp 720w, section-gallery/cake4.webp 1200w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1200"
-                            height="1600"
-                            alt="Tort în formă de cerc cu fructe și mesaj custom"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake5.webp"
-                            srcset="section-gallery/op/cake5.webp 960w, section-gallery/cake5.webp 1600w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1600"
-                            height="1200"
-                            alt="Tort în formă de dreptunghi cu fructe și mesaj custom"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake6.webp"
-                            srcset="section-gallery/op/cake6.webp 624w, section-gallery/cake6.webp 1040w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1040"
-                            height="1217"
-                            alt="Tort în formă de cerc, cu imagine imprimată și fructe de pădure"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake7.webp"
-                            srcset="section-gallery/op/cake7.webp 824w, section-gallery/cake7.webp 1373w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="1373"
-                            height="1338"
-                            alt="Tort decorat în formă de cifra 41"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake8.webp"
-                            srcset="section-gallery/op/cake8.webp 1200w, section-gallery/cake8.webp 2000w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="2000"
-                            height="1500"
-                            alt="Tort decorat în formă de cifra 70"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake9.webp"
-                            srcset="section-gallery/op/cake9.webp 451w, section-gallery/cake9.webp 751w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="751"
-                            height="858"
-                            alt="Tort decorat în formă de cifra 15"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
-                    <figure class="gallery__slide">
-                        <img
-                            src="section-gallery/cake10.webp"
-                            srcset="section-gallery/op/cake10.webp 449w, section-gallery/cake10.webp 748w"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            width="748"
-                            height="894"
-                            alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
-                            class="gallery__image"
-                            loading="lazy"
-                        />
-                    </figure>
+                    {
+                        gallery.images.map((img) => (
+                            <figure class="gallery__slide">
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    class="gallery__image"
+                                    loading="lazy"
+                                />
+                            </figure>
+                        ))
+                    }
                 </div>
             </section>
 
@@ -402,58 +291,27 @@ import "../styles/global.css";
                 <h2 class="section__title">Cum lucrează?</h2>
 
                 <div class="hiw__cards-wrapper">
-                    <article class="hiw__card">
-                        <div class="hiw__header">
-                            <span class="hiw__step">1</span>
-                            <h3 class="hiw__title">Personalizează-ți</h3>
-                        </div>
-                        <img
-                            src="section-hiw/art1.webp"
-                            width="512"
-                            height="512"
-                            alt="Coș de cumpărături"
-                            class="hiw__artwork"
-                        />
-                        <p class="hiw__description">
-                            Alege-ți ingredientele preferate și stilul tortului
-                            tău.
-                        </p>
-                    </article>
-
-                    <article class="hiw__card">
-                        <div class="hiw__header">
-                            <span class="hiw__step">2</span>
-                            <h3 class="hiw__title">Confirmă</h3>
-                        </div>
-                        <img
-                            src="section-hiw/art2.webp"
-                            width="512"
-                            height="512"
-                            alt="Verificare comandă"
-                            class="hiw__artwork"
-                        />
-                        <p class="hiw__description">
-                            Îți verific comanda și încep prepararea.
-                        </p>
-                    </article>
-
-                    <article class="hiw__card">
-                        <div class="hiw__header">
-                            <span class="hiw__step">3</span>
-                            <h3 class="hiw__title">Primește ;P</h3>
-                        </div>
-                        <img
-                            src="section-hiw/art3.webp"
-                            width="512"
-                            height="512"
-                            alt="Desen cu un tort"
-                            class="hiw__artwork"
-                        />
-                        <p class="hiw__description">
-                            Livrez rapid și la timp, iar tu te bucuri de un tort
-                            spectaculos.
-                        </p>
-                    </article>
+                    {
+                        hiw.steps.map((step, i) => (
+                            <article class="hiw__card">
+                                <div class="hiw__header">
+                                    <span class="hiw__step">{i + 1}</span>
+                                    <h3 class="hiw__title">{step.title}</h3>
+                                </div>
+                                <img
+                                    src={step.image}
+                                    width="512"
+                                    height="512"
+                                    alt={step.image_alt}
+                                    class="hiw__artwork"
+                                    loading="lazy"
+                                />
+                                <p class="hiw__description">
+                                    {step.description}
+                                </p>
+                            </article>
+                        ))
+                    }
                 </div>
             </section>
 
@@ -463,207 +321,82 @@ import "../styles/global.css";
                 <div class="byoc__container">
                     <form
                         class="byoc__form"
-                        action="mailto:comanda@dulceti.me"
+                        action={`mailto:${global.email}`}
                         method="POST"
                         enctype="text/plain"
                     >
                         <!-- Cake Shape -->
                         <fieldset class="byoc__fieldset byoc__fieldset--type">
                             <legend class="byoc__legend">Formă tort</legend>
-
                             <div class="byoc__scroll-row">
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="number"
-                                    value="Numar"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="number" class="byoc__shape-label">
-                                    <img
-                                        src="icons/sort-numeric-variant.svg"
-                                        alt="numar"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Număr</span>
-                                </label>
-
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="heart"
-                                    value="Inima"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="heart" class="byoc__shape-label">
-                                    <img
-                                        src="icons/heart.svg"
-                                        alt="inima"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Inimă</span>
-                                </label>
-
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="circle"
-                                    value="Cerc"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="circle" class="byoc__shape-label">
-                                    <img
-                                        src="icons/circle.svg"
-                                        alt="cerc"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Cerc</span>
-                                </label>
-
-                                <input
-                                    type="radio"
-                                    name="Forma"
-                                    id="square"
-                                    value="Patrat"
-                                    class="byoc__radio byoc__radio--shape"
-                                />
-                                <label for="square" class="byoc__shape-label">
-                                    <img
-                                        src="icons/square.svg"
-                                        alt="pătrat"
-                                        class="byoc__icon"
-                                    />
-                                    <span>Pătrat</span>
-                                </label>
+                                {
+                                    byoc.shapes.map((shape) => (
+                                        <>
+                                            <input
+                                                type="radio"
+                                                name="Forma"
+                                                id={`shape-${shape.value}`}
+                                                value={shape.value}
+                                                class="byoc__radio byoc__radio--shape"
+                                            />
+                                            <label for={`shape-${shape.value}`} class="byoc__shape-label">
+                                                <img
+                                                    src={shape.icon}
+                                                    alt={shape.label}
+                                                    class="byoc__icon"
+                                                />
+                                                <span>{shape.label}</span>
+                                            </label>
+                                        </>
+                                    ))
+                                }
                             </div>
                         </fieldset>
 
                         <!-- Batter & Cream -->
-                        <fieldset
-                            class="byoc__fieldset byoc__fieldset--selects"
-                        >
+                        <fieldset class="byoc__fieldset byoc__fieldset--selects">
                             <legend class="byoc__legend">Blat și Cremă</legend>
-
-                            <select
-                                name="Tip blat"
-                                id="batter_types"
-                                class="byoc__select"
-                            >
+                            <select name="Tip blat" id="batter_types" class="byoc__select">
                                 <option value="">~ Tip blat ~</option>
-                                <option value="pandispan-pufos-cacao"
-                                    >Pandispan pufos cu cacao</option
-                                >
-                                <option value="pandispan-pufos-alb"
-                                    >Pandispan pufos alb</option
-                                >
-                                <option value="pufos-vanilie"
-                                    >Pufos de vanilie</option
-                                >
-                                <option value="pufos-cacao"
-                                    >Pufos de cacao</option
-                                >
-                                <option value="foi-miere">Foi cu miere</option>
-                                <option value="vafe">Vafe</option>
+                                {
+                                    byoc.batters.map((b) => (
+                                        <option value={b.value}>{b.label}</option>
+                                    ))
+                                }
                             </select>
-
-                            <select
-                                name="Tip crema"
-                                id="creame_types"
-                                class="byoc__select"
-                            >
+                            <select name="Tip crema" id="creame_types" class="byoc__select">
                                 <option value="">~ Tip cremă ~</option>
-                                <option value="mascarpone">Mascarpone</option>
-                                <option value="frisca-cafea"
-                                    >Frișcă și cafea</option
-                                >
-                                <option value="smantana-frisca"
-                                    >Smântână cu frișcă</option
-                                >
-                                <option value="lapte-condensat"
-                                    >Lapte condensat</option
-                                >
+                                {
+                                    byoc.creams.map((c) => (
+                                        <option value={c.value}>{c.label}</option>
+                                    ))
+                                }
                             </select>
                         </fieldset>
 
                         <!-- Toppings -->
-                        <fieldset
-                            class="byoc__fieldset byoc__fieldset--toppings"
-                        >
+                        <fieldset class="byoc__fieldset byoc__fieldset--toppings">
                             <legend class="byoc__legend">Toppinguri</legend>
-
                             <div class="byoc__scroll-row">
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Milka"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Milka</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Oreo"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Oreo</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Zmeura"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Zmeură</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Capsuni"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Căpșuni</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Kiwi"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Kiwi</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Afine"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Afine</span>
-                                </label>
-                                <label class="byoc__topping-label">
-                                    <input
-                                        type="checkbox"
-                                        name="Topping"
-                                        value="Nuci"
-                                        class="byoc__checkbox"
-                                    />
-                                    <span>Nuci</span>
-                                </label>
+                                {
+                                    byoc.toppings.map((t) => (
+                                        <label class="byoc__topping-label">
+                                            <input
+                                                type="checkbox"
+                                                name="Topping"
+                                                value={t.value}
+                                                class="byoc__checkbox"
+                                            />
+                                            <span>{t.label}</span>
+                                        </label>
+                                    ))
+                                }
                             </div>
                         </fieldset>
 
                         <!-- Customer Info -->
-                        <fieldset
-                            class="byoc__fieldset byoc__fieldset--customer"
-                        >
+                        <fieldset class="byoc__fieldset byoc__fieldset--customer">
                             <legend class="byoc__legend">Datele tale</legend>
-
                             <div class="byoc__input-row">
                                 <input
                                     type="text"
@@ -680,7 +413,6 @@ import "../styles/global.css";
                                     class="byoc__input"
                                 />
                             </div>
-
                             <div class="byoc__input-row">
                                 <input
                                     type="tel"
@@ -697,7 +429,6 @@ import "../styles/global.css";
                                     class="byoc__input"
                                 />
                             </div>
-
                             <textarea
                                 name="Cereri extra"
                                 id="special-request"
@@ -705,9 +436,7 @@ import "../styles/global.css";
                                 class="byoc__textarea"></textarea>
                         </fieldset>
 
-                        <button type="submit" class="byoc__submit"
-                            >Comandă</button
-                        >
+                        <button type="submit" class="byoc__submit">Comandă</button>
                     </form>
                 </div>
             </section>
@@ -728,12 +457,12 @@ import "../styles/global.css";
                 <p
                     class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-extra-main leading-[1.6] max-w-[420px]"
                 >
-                    Ai o întrebare sau vrei să comanzi un tort?
+                    {contacts.contact_message}
                 </p>
                 <a
-                    href="mailto:comanda@dulceti.me"
+                    href={`mailto:${global.email}`}
                     class="font-main text-[clamp(1rem,2vw,1.25rem)] font-bold text-accent-main px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] border-2 border-accent-main rounded-[clamp(0.5rem,1vw,0.75rem)] transition-colors duration-200 hover:bg-accent-main hover:text-bg-main"
-                    >comanda@dulceti.me</a
+                    >{global.email}</a
                 >
             </div>
 
@@ -746,7 +475,7 @@ import "../styles/global.css";
                 >
                 <span
                     class="font-main text-[clamp(0.75rem,1.2vw,0.85rem)] text-extra-main opacity-60"
-                    >&copy; 2026 &lt;3</span
+                    >&copy; {new Date().getFullYear()} &lt;3</span
                 >
             </div>
         </footer>
@@ -760,7 +489,7 @@ import "../styles/global.css";
                 href="#build-your-own"
                 class="mascot-container__cta animate-mascot-cta-combined"
                 onclick="document.getElementById('mascot-popover').hidePopover()"
-                >Personalizează-mă!</a
+                >{global.cta_text}</a
             >
             <img
                 src="mascot/main.png"
@@ -780,7 +509,7 @@ import "../styles/global.css";
             class="mascot-toggle-btn"
             aria-label="Open mascot"
         >
-            <img src="icons/heart.svg" alt="personalizează-ți tortul" />
+            <img src="uploads/icons/heart.svg" alt="personalizează-ți tortul" />
         </button>
 
         <a
@@ -788,7 +517,7 @@ import "../styles/global.css";
             class="mobile-byoc-btn"
             aria-label="Personalizează-ți tortul"
         >
-            <img src="icons/cake-variant.svg" alt="mascotă" />
+            <img src="uploads/icons/cake-variant.svg" alt="mascotă" />
         </a>
     </body>
 </html>

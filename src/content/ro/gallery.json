@@ -1,0 +1,45 @@
+{
+  "section_title": "Galerie",
+  "images": [
+    {
+      "src": "/uploads/section-gallery/cake1.webp",
+      "alt": "Tort decorat în formă de cifra 17"
+    },
+    {
+      "src": "/uploads/section-gallery/cake2.webp",
+      "alt": "Tort cu imagine imprimată"
+    },
+    {
+      "src": "/uploads/section-gallery/cake3.webp",
+      "alt": "Tort decorat în formă de cifra 30"
+    },
+    {
+      "src": "/uploads/section-gallery/cake4.webp",
+      "alt": "Tort în formă de cerc cu fructe și mesaj custom"
+    },
+    {
+      "src": "/uploads/section-gallery/cake5.webp",
+      "alt": "Tort în formă de dreptunghi cu fructe și mesaj custom"
+    },
+    {
+      "src": "/uploads/section-gallery/cake6.webp",
+      "alt": "Tort în formă de cerc, cu imagine imprimată și fructe de pădure"
+    },
+    {
+      "src": "/uploads/section-gallery/cake7.webp",
+      "alt": "Tort decorat în formă de cifra 41"
+    },
+    {
+      "src": "/uploads/section-gallery/cake8.webp",
+      "alt": "Tort decorat în formă de cifra 70"
+    },
+    {
+      "src": "/uploads/section-gallery/cake9.webp",
+      "alt": "Tort decorat în formă de cifra 15"
+    },
+    {
+      "src": "/uploads/section-gallery/cake10.webp",
+      "alt": "Tort cu fructe de pădure și ciocolată în formă de inimă"
+    }
+  ]
+}

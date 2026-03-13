@@ -1,0 +1,53 @@
+{
+  "section_title": "Gallery",
+  "images": [
+    {
+      "src": "/uploads/section-gallery/cake1.webp",
+      "alt": "Cake decorated in the shape of number 17"
+    },
+    {
+      "src": "/uploads/section-gallery/cake2.webp",
+      "alt": "Cake with printed image"
+    },
+    {
+      "src": "/uploads/section-gallery/cake3.webp",
+      "alt": "Cake decorated in the shape of number 30"
+    },
+    {
+      "src": "/uploads/section-gallery/cake4.webp",
+      "alt": "Round cake with fruits and custom message"
+    },
+    {
+      "src": "/uploads/section-gallery/cake5.webp",
+      "alt": "Rectangular cake with fruits and custom message"
+    },
+    {
+      "src": "/uploads/section-gallery/cake6.webp",
+      "alt": "Round cake with printed image and berries"
+    },
+    {
+      "src": "/uploads/section-gallery/cake7.webp",
+      "alt": "Cake decorated in the shape of number 41"
+    },
+    {
+      "src": "/uploads/section-gallery/cake8.webp",
+      "alt": "Cake decorated in the shape of number 70"
+    },
+    {
+      "src": "/uploads/section-gallery/cake9.webp",
+      "alt": "Cake decorated in the shape of number 15"
+    },
+    {
+      "src": "/uploads/section-gallery/cake10.webp",
+      "alt": "Cake with berries and chocolate in heart shape"
+    },
+    {
+      "src": "/uploads/section-gallery/photo_2026-03-11_10-13-27.webp",
+      "alt": "Tiramisu cake with a number print"
+    },
+    {
+      "src": "",
+      "alt": "Tiramisu layers"
+    }
+  ]
+}

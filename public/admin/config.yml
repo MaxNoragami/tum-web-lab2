@@ -1,0 +1,157 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: MaxNoragami/tum-web-lab2
+  branch: main
+
+i18n:
+  structure: multiple_folders
+  locales: [ro, en]
+  default_locale: ro
+
+media_folder: public/uploads
+public_folder: /
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1200
+        svg:
+          optimize: true
+
+singletons:
+  - name: global
+    label: Global
+    file: src/content/{{locale}}/global.json
+    i18n: true
+    fields:
+      - { label: CTA Text, name: cta_text, widget: string, i18n: true }
+      - { label: Adresă Email, name: email, widget: string, i18n: false }
+
+  - name: hero
+    label: Secțiune Hero
+    file: src/content/{{locale}}/hero.json
+    media_folder: /public/uploads/section-hero
+    public_folder: /uploads/section-hero
+    i18n: true
+    fields:
+      - { label: Titlu, name: title, widget: string, i18n: true, hint: "Wrap words in **double asterisks** to highlight them" }
+      - { label: Descriere, name: description, widget: string, i18n: true }
+
+  - name: about-me
+    label: Secțiune Despre Mine
+    file: src/content/{{locale}}/about-me.json
+    media_folder: /public/uploads/section-about-me
+    public_folder: /uploads/section-about-me
+    i18n: true
+    fields:
+      - { label: Salut, name: greeting, widget: string, i18n: true, hint: "Wrap name in **double asterisks** to highlight" }
+      - { label: Citat, name: quote, widget: string, i18n: true }
+      - { label: Paragraf 1, name: paragraph_1, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
+      - { label: Paragraf 2, name: paragraph_2, widget: text, i18n: true, hint: "Wrap words in **double asterisks** to highlight" }
+      - { label: Imagine, name: image, widget: image, i18n: duplicate }
+      - { label: Text Alternativ Imagine, name: image_alt, widget: string, i18n: true }
+
+  - name: gallery
+    label: Secțiune Galerie
+    file: src/content/{{locale}}/gallery.json
+    media_folder: /public/uploads/section-gallery
+    public_folder: /uploads/section-gallery
+    i18n: true
+    fields:
+      - label: Imagini
+        name: images
+        widget: list
+        i18n: true
+        fields:
+          - { label: Imagine, name: src, widget: image, i18n: duplicate }
+          - { label: Text Alternativ Imagine, name: alt, widget: string, i18n: true }
+
+  - name: hiw
+    label: Secțiune Cum Lucrează
+    file: src/content/{{locale}}/hiw.json
+    media_folder: /public/uploads/section-hiw
+    public_folder: /uploads/section-hiw
+    i18n: true
+    fields:
+      - label: Pași
+        name: steps
+        widget: list
+        i18n: true
+        fields:
+          - { label: Titlu, name: title, widget: string, i18n: true }
+          - label: Imagine
+            name: image
+            widget: image
+            i18n: duplicate
+            media_libraries:
+              default:
+                config:
+                  transformations:
+                    raster_image:
+                      format: webp
+                      quality: 75
+                      width: 512
+                      height: 512
+          - { label: Text Alternativ Imagine, name: image_alt, widget: string, i18n: true }
+          - { label: Descriere, name: description, widget: string, i18n: true }
+
+  - name: byoc
+    label: Secțiune Personalizare Tort
+    file: src/content/{{locale}}/byoc.json
+    i18n: true
+    fields:
+      - label: Forme
+        name: shapes
+        widget: list
+        i18n: duplicate
+        fields:
+          - { label: Etichetă Formă, name: label, widget: string, i18n: true }
+          - { label: Valoare Formă, name: value, widget: string, i18n: false }
+          - label: Pictogramă
+            name: icon
+            widget: image
+            i18n: duplicate
+            media_folder: /public/uploads/icons
+            public_folder: /uploads/icons
+            accept: 'image/svg+xml,.svg'
+      - label: Blaturi
+        name: batters
+        widget: list
+        i18n: duplicate
+        fields:
+          - { label: Etichetă Blat, name: label, widget: string, i18n: true }
+          - { label: Valoare Blat, name: value, widget: string, i18n: false }
+      - label: Creme
+        name: creams
+        widget: list
+        i18n: duplicate
+        fields:
+          - { label: Etichetă Cremă, name: label, widget: string, i18n: true }
+          - { label: Valoare Cremă, name: value, widget: string, i18n: false }
+      - label: Topping-uri
+        name: toppings
+        widget: list
+        i18n: duplicate
+        fields:
+          - { label: Etichetă Topping, name: label, widget: string, i18n: true }
+          - { label: Valoare Topping, name: value, widget: string, i18n: false }
+
+  - name: contacts
+    label: Secțiune Contacte
+    file: src/content/{{locale}}/contacts.json
+    i18n: true
+    fields:
+      - { label: Mesaj Contact, name: contact_message, widget: string, i18n: true }
+    

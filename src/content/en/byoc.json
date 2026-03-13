@@ -1,0 +1,110 @@
+{
+  "shapes": [
+    {
+      "label": "Number",
+      "value": "Numar",
+      "icon": "/uploads/icons/sort-numeric-variant.svg"
+    },
+    {
+      "label": "Heart",
+      "value": "Inima",
+      "icon": "/uploads/icons/heart.svg"
+    },
+    {
+      "label": "Circle",
+      "value": "Cerc",
+      "icon": "/uploads/icons/circle.svg"
+    },
+    {
+      "label": "Square",
+      "value": "Patrat",
+      "icon": "/uploads/icons/square.svg"
+    },
+    {
+      "label": "Star",
+      "icon": "/uploads/icons/star.svg"
+    }
+  ],
+  "batters": [
+    {
+      "label": "Fluffy cocoa sponge",
+      "value": "pandispan-pufos-cacao"
+    },
+    {
+      "label": "Fluffy white sponge",
+      "value": "pandispan-pufos-alb"
+    },
+    {
+      "label": "Vanilla sponge",
+      "value": "pufos-vanilie"
+    },
+    {
+      "label": "Cocoa sponge",
+      "value": "pufos-cacao"
+    },
+    {
+      "label": "Honey layers",
+      "value": "foi-miere"
+    },
+    {
+      "label": "Waffles",
+      "value": "vafe"
+    },
+    {
+      "label": "Ladyfingers",
+      "value": ""
+    }
+  ],
+  "creams": [
+    {
+      "label": "Mascarpone",
+      "value": "mascarpone"
+    },
+    {
+      "label": "Whipped cream & coffee",
+      "value": "frisca-cafea"
+    },
+    {
+      "label": "Sour cream & whipped cream",
+      "value": "smantana-frisca"
+    },
+    {
+      "label": "Condensed milk",
+      "value": "lapte-condensat"
+    }
+  ],
+  "toppings": [
+    {
+      "label": "Milka",
+      "value": "Milka"
+    },
+    {
+      "label": "Oreo",
+      "value": "Oreo"
+    },
+    {
+      "label": "Raspberries",
+      "value": "Zmeura"
+    },
+    {
+      "label": "Strawberries",
+      "value": "Capsuni"
+    },
+    {
+      "label": "Kiwi",
+      "value": "Kiwi"
+    },
+    {
+      "label": "Blueberries",
+      "value": "Afine"
+    },
+    {
+      "label": "Walnuts",
+      "value": "Nuci"
+    },
+    {
+      "label": "Waffles",
+      "value": ""
+    }
+  ]
+}
