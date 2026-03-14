@@ -1,0 +1,112 @@
+---
+import byoc from "../content/ro/byoc.json";
+import global from "../content/ro/global.json";
+import ByocShape from "./ByocShape.astro";
+import ByocTopping from "./ByocTopping.astro";
+---
+
+<section class="section byoc" id="build-your-own">
+    <h2 class="section__title">Personalizează-ți tortul</h2>
+
+    <div class="byoc__container">
+        <form
+            class="byoc__form"
+            action={`mailto:${global.email}`}
+            method="POST"
+            enctype="text/plain"
+        >
+            <!-- Cake Shape -->
+            <fieldset class="byoc__fieldset byoc__fieldset--type">
+                <legend class="byoc__legend">Formă tort</legend>
+                <div class="byoc__scroll-row">
+                    {
+                        byoc.shapes.map((shape) => (
+                            <ByocShape 
+                                value={shape.value} 
+                                icon={shape.icon} 
+                                label={shape.label} 
+                            />
+                        ))
+                    }
+                </div>
+            </fieldset>
+
+            <!-- Batter & Cream -->
+            <fieldset class="byoc__fieldset byoc__fieldset--selects">
+                <legend class="byoc__legend">Blat și Cremă</legend>
+                <select name="Tip blat" id="batter_types" class="byoc__select">
+                    <option value="">~ Tip blat ~</option>
+                    {
+                        byoc.batters.map((b) => (
+                            <option value={b.value}>{b.label}</option>
+                        ))
+                    }
+                </select>
+                <select name="Tip crema" id="creame_types" class="byoc__select">
+                    <option value="">~ Tip cremă ~</option>
+                    {
+                        byoc.creams.map((c) => (
+                            <option value={c.value}>{c.label}</option>
+                        ))
+                    }
+                </select>
+            </fieldset>
+
+            <!-- Toppings -->
+            <fieldset class="byoc__fieldset byoc__fieldset--toppings">
+                <legend class="byoc__legend">Toppinguri</legend>
+                <div class="byoc__scroll-row">
+                    {
+                        byoc.toppings.map((t) => (
+                            <ByocTopping value={t.value} label={t.label} />
+                        ))
+                    }
+                </div>
+            </fieldset>
+
+            <!-- Customer Info -->
+            <fieldset class="byoc__fieldset byoc__fieldset--customer">
+                <legend class="byoc__legend">Datele tale</legend>
+                <div class="byoc__input-row">
+                    <input
+                        type="text"
+                        name="Nume"
+                        id="name"
+                        placeholder="Nume"
+                        class="byoc__input"
+                    />
+                    <input
+                        type="text"
+                        name="Prenume"
+                        id="surname"
+                        placeholder="Prenume"
+                        class="byoc__input"
+                    />
+                </div>
+                <div class="byoc__input-row">
+                    <input
+                        type="tel"
+                        name="Numar de telefon"
+                        id="phone"
+                        placeholder="061234567"
+                        class="byoc__input"
+                    />
+                    <input
+                        type="date"
+                        name="Data de livrare"
+                        id="delivery-date"
+                        title="Data livrare"
+                        class="byoc__input"
+                    />
+                </div>
+                <textarea
+                    name="Cereri extra"
+                    id="special-request"
+                    placeholder="Cereri extra..."
+                    class="byoc__textarea"></textarea>
+            </fieldset>
+
+            <button type="submit" class="byoc__submit">Comandă</button>
+        </form>
+    </div>
+</section>

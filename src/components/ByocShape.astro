@@ -1,0 +1,21 @@
+---
+interface Props {
+    value: string;
+    icon: string;
+    label: string;
+}
+
+const { value, icon, label } = Astro.props;
+---
+
+<input
+    type="radio"
+    name="Forma"
+    id={`shape-${value}`}
+    value={value}
+    class="byoc__radio byoc__radio--shape"
+/>
+<label for={`shape-${value}`} class="byoc__shape-label">
+    <img src={icon} alt={label} class="byoc__icon" />
+    <span>{label}</span>
+</label>
