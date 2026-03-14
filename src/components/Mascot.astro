@@ -1,17 +1,26 @@
 ---
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
 import MascotPopover from "./MascotPopover.astro";
 import MascotTrigger from "./MascotTrigger.astro";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { global } = getI18N(lang);
 ---
 
-<MascotPopover />
-<MascotTrigger id="mascot-popover" />
+<MascotPopover lang={lang} />
+<MascotTrigger id="mascot-popover" ctaText={global.mascot_cta_text} />
 
 <a
     href="#build-your-own"
     class="mobile-byoc-btn"
-    aria-label="Personalizează-ți tortul"
+    aria-label={global.mascot_cta_text}
 >
-    <img src="uploads/icons/cake-variant.svg" alt="mascotă" />
+    <img src="uploads/icons/cake-variant.svg" alt={global.mascot_cta_text} />
 </a>
 
 <script is:inline>

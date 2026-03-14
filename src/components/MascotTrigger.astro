@@ -1,16 +1,17 @@
 ---
 interface Props {
     id: string;
+    ctaText: string;
 }
 
-const { id } = Astro.props;
+const { id, ctaText } = Astro.props;
 ---
 
 <button
     popovertarget={id}
     popovertargetaction="show"
     class="mascot-toggle-btn"
-    aria-label="Open mascot"
+    aria-label={ctaText}
 >
-    <img src="uploads/icons/heart.svg" alt="personalizează-ți tortul" />
+    <img src="uploads/icons/heart.svg" alt={ctaText} />
 </button>

@@ -1,4 +1,10 @@
 {
-  "cta_text": "Customize your cake",
+  "nav_about": "About me",
+  "nav_gallery": "Gallery",
+  "nav_hiw": "How it works?",
+  "nav_byoc": "Build your own",
+  "nav_contacts": "Contacts",
+  "cta_text": "Build your own",
+  "mascot_cta_text": "Customize me!",
   "email": "comanda@dulceti.me"
 }

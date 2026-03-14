@@ -1,6 +1,13 @@
 ---
-import contacts from "../content/ro/contacts.json";
-import global from "../content/ro/global.json";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { contacts, global } = getI18N(lang);
 ---
 
 <footer
@@ -13,7 +20,7 @@ import global from "../content/ro/global.json";
         <h2
             class="font-accent text-[clamp(1.75rem,calc(5vw+0.5rem),3rem)] text-bg-main"
         >
-            Contacte
+            {global.nav_contacts}
         </h2>
         <p
             class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-extra-main leading-[1.6] max-w-[420px]"

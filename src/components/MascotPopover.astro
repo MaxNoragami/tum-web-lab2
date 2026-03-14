@@ -1,5 +1,13 @@
 ---
-import global from "../content/ro/global.json";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { global } = getI18N(lang);
 ---
 
 <div
@@ -11,7 +19,7 @@ import global from "../content/ro/global.json";
         href="#build-your-own"
         class="mascot-container__cta animate-mascot-cta-combined"
         onclick="document.getElementById('mascot-popover').hidePopover()"
-        >{global.cta_text}</a
+        >{global.mascot_cta_text}</a
     >
     <img
         src="mascot/main.png"

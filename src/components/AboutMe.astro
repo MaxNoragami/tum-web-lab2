@@ -1,13 +1,21 @@
 ---
-import aboutMe from "../content/ro/about-me.json";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
 import { highlight } from "../utils/highlight.js";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { aboutMe, global } = getI18N(lang);
 ---
 
 <section
     class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]"
     id="about-me"
 >
-    <h2 class="section__title">Despre mine</h2>
+    <h2 class="section__title">{global.nav_about}</h2>
     <div
         class="flex flex-col items-center gap-[clamp(1.5rem,3vw,2.5rem)] max-w-[1100px] w-full wide:flex-row wide:items-center wide:gap-[clamp(2rem,4vw,4rem)]"
     >
@@ -43,18 +51,12 @@ import { highlight } from "../utils/highlight.js";
 
             <p
                 class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
-                set:html={highlight(
-                    aboutMe.paragraph_1,
-                    "text--accent-main",
-                )}
+                set:html={highlight(aboutMe.paragraph_1, "text--accent-main")}
             />
 
             <p
                 class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
-                set:html={highlight(
-                    aboutMe.paragraph_2,
-                    "text--accent-alt",
-                )}
+                set:html={highlight(aboutMe.paragraph_2, "text--accent-alt")}
             />
         </article>
     </div>

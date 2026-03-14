@@ -1,7 +1,14 @@
 ---
-import hero from "../content/ro/hero.json";
-import global from "../content/ro/global.json";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
 import { highlight } from "../utils/highlight.js";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { hero, global } = getI18N(lang);
 ---
 
 <section class="section hero" id="hero">
@@ -20,7 +27,7 @@ import { highlight } from "../utils/highlight.js";
         <div class="hero__image-wrapper">
             <img
                 src="uploads/section-hero/hero_cake.webp"
-                alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
+                alt={hero.image_alt}
                 width="752"
                 height="760"
                 class="hero__image-cake animate-hero-image-float"

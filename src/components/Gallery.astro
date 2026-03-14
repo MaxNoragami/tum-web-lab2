@@ -1,10 +1,18 @@
 ---
-import gallery from "../content/ro/gallery.json";
 import GalleryItem from "./GalleryItem.astro";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { gallery, global } = getI18N(lang);
 ---
 
 <section class="section gallery" id="gallery">
-    <h2 class="section__title">Galerie</h2>
+    <h2 class="section__title">{global.nav_gallery}</h2>
 
     <div class="gallery__carousel">
         {

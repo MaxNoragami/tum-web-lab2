@@ -1,16 +1,17 @@
 ---
 interface Props {
+    inputName: string;
     value: string;
     label: string;
 }
 
-const { value, label } = Astro.props;
+const { inputName, value, label } = Astro.props;
 ---
 
 <label class="byoc__topping-label">
     <input
         type="checkbox"
-        name="Topping"
+        name={inputName}
         value={value}
         class="byoc__checkbox"
     />

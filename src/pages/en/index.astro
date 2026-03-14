@@ -1,22 +1,22 @@
 ---
-import "../styles/global.css";
+import "../../styles/global.css";
 
-import Hero from "../components/Hero.astro";
-import AboutMe from "../components/AboutMe.astro";
-import Gallery from "../components/Gallery.astro";
-import HowItWorks from "../components/HowItWorks.astro";
-import BuildYourOwn from "../components/BuildYourOwn.astro";
-import global from "../content/ro/global.json";
-import Contacts from "../components/Contacts.astro";
-import Mascot from "../components/Mascot.astro";
-import DesktopNav from "../components/DesktopNav.astro";
-import MobileNav from "../components/MobileNav.astro";
-import { highlight } from "../utils/highlight.js";
+import Hero from "../../components/Hero.astro";
+import AboutMe from "../../components/AboutMe.astro";
+import Gallery from "../../components/Gallery.astro";
+import HowItWorks from "../../components/HowItWorks.astro";
+import BuildYourOwn from "../../components/BuildYourOwn.astro";
+import global from "../../content/en/global.json";
+import Contacts from "../../components/Contacts.astro";
+import Mascot from "../../components/Mascot.astro";
+import DesktopNav from "../../components/DesktopNav.astro";
+import MobileNav from "../../components/MobileNav.astro";
+import { highlight } from "../../utils/highlight.js";
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
     some magic sprinkled in to help you build great templates. -->
-<html lang="ro">
+<html lang="en">
     <head>
         <!-- META -->
         <meta charset="UTF-8" />
@@ -81,19 +81,19 @@ import { highlight } from "../utils/highlight.js";
 
     <body>
         <header class="flex justify-center">
-            <DesktopNav lang="ro" />
-            <MobileNav lang="ro" />
+            <DesktopNav lang="en" />
+            <MobileNav lang="en" />
         </header>
 
         <main>
-            <Hero lang="ro" />
-            <AboutMe lang="ro" />
-            <Gallery lang="ro" />
-            <HowItWorks lang="ro" />
-            <BuildYourOwn lang="ro" />
+            <Hero lang="en" />
+            <AboutMe lang="en" />
+            <Gallery lang="en" />
+            <HowItWorks lang="en" />
+            <BuildYourOwn lang="en" />
         </main>
 
-        <Contacts lang="ro" />
-        <Mascot lang="ro" />
+        <Contacts lang="en" />
+        <Mascot lang="en" />
     </body>
 </html>

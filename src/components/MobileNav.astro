@@ -1,0 +1,72 @@
+---
+import LanguageToggle from "./LanguageToggle.astro";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { global } = getI18N(lang);
+---
+
+<nav
+    class="fixed top-[2%] w-[85vw] max-w-[1200px] bg-extra-main-blur backdrop-blur-[10px] rounded-[clamp(0.75rem,1.5vw,1.25rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.75rem,2vw,1.25rem)] z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.08)] text-text-title flex flex-col desktop:hidden"
+>
+    <div class="text-accent-main flex justify-between items-center w-full">
+        <a
+            href="#hero"
+            class="font-accent text-[clamp(1.5rem,4vw,2rem)] shrink-0 text-accent-main cursor-pointer transition-colors duration-200 hover:text-accent-main-hover"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            >Dulcețime</a
+        >
+
+        <div class="flex items-center gap-[clamp(0.75rem,2vw,1.25rem)]">
+            <LanguageToggle isMobile={true} />
+            <label
+                for="nav-toggle"
+                class="text-[clamp(1.75rem,4vw,2rem)] cursor-pointer select-none flex items-center"
+            >
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+        </div>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="peer sr-only" />
+
+    <div
+        class="flex flex-col gap-[clamp(0.75rem,2vw,1rem)] border-t border-transparent max-h-0 opacity-0 mt-0 pt-0 overflow-hidden transition-[max-height,opacity,margin-top,padding-top,border-color] duration-300 ease-in-out peer-checked:max-h-[500px] peer-checked:opacity-100 peer-checked:mt-4 peer-checked:pt-4 peer-checked:border-accent-main"
+    >
+        <a
+            href="#about-me"
+            class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            >{global.nav_about}</a
+        >
+        <a
+            href="#gallery"
+            class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            >{global.nav_gallery}</a
+        >
+        <a
+            href="#hiw"
+            class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            >{global.nav_hiw}</a
+        >
+        <a
+            href="#build-your-own"
+            class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            >{global.nav_byoc}</a
+        >
+        <a
+            href="#contacts"
+            class="font-main text-[clamp(0.95rem,2.5vw,1.1rem)] text-text-title px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-[clamp(0.5rem,1vw,0.75rem)] text-center font-medium transition-colors duration-200 hover:bg-accent-main-gradient hover:text-accent-main-hover"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            >{global.nav_contacts}</a
+        >
+    </div>
+</nav>
