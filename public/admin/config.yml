@@ -5,6 +5,7 @@ backend:
   repo: MaxNoragami/tum-web-lab2
   branch: master
   skip_ci: false
+  base_url: https://sveltia-cms-auth.maxcraftmd.workers.dev
 
 i18n:
   structure: multiple_folders
