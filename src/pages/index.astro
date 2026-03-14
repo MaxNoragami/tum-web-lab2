@@ -3,7 +3,7 @@ import "../styles/global.css";
 
 import Hero from "../components/Hero.astro";
 import AboutMe from "../components/AboutMe.astro";
-import gallery from "../content/ro/gallery.json";
+import Gallery from "../components/Gallery.astro";
 import hiw from "../content/ro/hiw.json";
 import global from "../content/ro/global.json";
 import byoc from "../content/ro/byoc.json";
@@ -184,24 +184,7 @@ import { highlight } from "../utils/highlight.js";
 
             <AboutMe />
 
-            <section class="section gallery" id="gallery">
-                <h2 class="section__title">Galerie</h2>
-
-                <div class="gallery__carousel">
-                    {
-                        gallery.images.map((img) => (
-                            <figure class="gallery__slide">
-                                <img
-                                    src={img.src}
-                                    alt={img.alt}
-                                    class="gallery__image"
-                                    loading="lazy"
-                                />
-                            </figure>
-                        ))
-                    }
-                </div>
-            </section>
+            <Gallery />
 
             <section class="section section--bg-alt hiw" id="hiw">
                 <h2 class="section__title">Cum lucrează?</h2>

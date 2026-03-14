@@ -1,0 +1,16 @@
+---
+import gallery from "../content/ro/gallery.json";
+import GalleryItem from "./GalleryItem.astro";
+---
+
+<section class="section gallery" id="gallery">
+    <h2 class="section__title">Galerie</h2>
+
+    <div class="gallery__carousel">
+        {
+            gallery.images.map((img) => (
+                <GalleryItem src={img.src} alt={img.alt} />
+            ))
+        }
+    </div>
+</section>

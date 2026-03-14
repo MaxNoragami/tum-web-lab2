@@ -1,0 +1,17 @@
+---
+interface Props {
+    src: string;
+    alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<figure class="gallery__slide">
+    <img
+        src={src}
+        alt={alt}
+        class="gallery__image"
+        loading="lazy"
+    />
+</figure>
