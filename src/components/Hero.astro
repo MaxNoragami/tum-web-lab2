@@ -1,0 +1,36 @@
+---
+import hero from "../content/ro/hero.json";
+import global from "../content/ro/global.json";
+import { highlight } from "../utils/highlight.js";
+---
+
+<section class="section hero" id="hero">
+    <div class="hero__container">
+        <div class="hero__content">
+            <h1
+                class="hero__title"
+                set:html={highlight(
+                    hero.title,
+                    "hero__title--highlighted",
+                )}
+            />
+            <p class="hero__description">
+                {hero.description}
+            </p>
+            <a href="#build-your-own" class="hero__cta"
+                >{global.cta_text}</a
+            >
+        </div>
+
+        <div class="hero__image-wrapper">
+            <img
+                src="uploads/section-hero/hero_cake.webp"
+                alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
+                width="752"
+                height="760"
+                class="hero__image-cake animate-hero-image-float"
+                fetchpriority="high"
+            />
+        </div>
+    </div>
+</section>

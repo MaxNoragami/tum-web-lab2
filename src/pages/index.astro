@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-import hero from "../content/ro/hero.json";
+import Hero from "../components/Hero.astro";
 import aboutMe from "../content/ro/about-me.json";
 import gallery from "../content/ro/gallery.json";
 import hiw from "../content/ro/hiw.json";
@@ -180,36 +180,7 @@ import { highlight } from "../utils/highlight.js";
         </header>
 
         <main>
-            <section class="section hero" id="hero">
-                <div class="hero__container">
-                    <div class="hero__content">
-                        <h1
-                            class="hero__title"
-                            set:html={highlight(
-                                hero.title,
-                                "hero__title--highlighted",
-                            )}
-                        />
-                        <p class="hero__description">
-                            {hero.description}
-                        </p>
-                        <a href="#build-your-own" class="hero__cta"
-                            >{global.cta_text}</a
-                        >
-                    </div>
-
-                    <div class="hero__image-wrapper">
-                        <img
-                            src="uploads/section-hero/hero_cake.webp"
-                            alt="Tort cu fructe de pădure și ciocolată în formă de inimă"
-                            width="752"
-                            height="760"
-                            class="hero__image-cake animate-hero-image-float"
-                            fetchpriority="high"
-                        />
-                    </div>
-                </div>
-            </section>
+            <Hero />
 
             <section
                 class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]"
