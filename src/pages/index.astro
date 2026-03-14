@@ -8,6 +8,7 @@ import HowItWorks from "../components/HowItWorks.astro";
 import BuildYourOwn from "../components/BuildYourOwn.astro";
 import global from "../content/ro/global.json";
 import Contacts from "../components/Contacts.astro";
+import Mascot from "../components/Mascot.astro";
 import { highlight } from "../utils/highlight.js";
 
 ---
@@ -192,50 +193,6 @@ import { highlight } from "../utils/highlight.js";
         </main>
 
         <Contacts />
-
-        <div
-            class="mascot-container animate-mascot-appear"
-            id="mascot-popover"
-            popover="manual"
-        >
-            <a
-                href="#build-your-own"
-                class="mascot-container__cta animate-mascot-cta-combined"
-                onclick="document.getElementById('mascot-popover').hidePopover()"
-                >{global.cta_text}</a
-            >
-            <img
-                src="mascot/main.png"
-                alt="Mascot"
-                class="mascot-img animate-mascot-img-jump"
-            />
-            <img
-                src="mascot/secondary.png"
-                alt="Spatula"
-                class="mascot-secondary animate-mascot-secondary-jump"
-            />
-        </div>
-
-        <button
-            popovertarget="mascot-popover"
-            popovertargetaction="show"
-            class="mascot-toggle-btn"
-            aria-label="Open mascot"
-        >
-            <img src="uploads/icons/heart.svg" alt="personalizează-ți tortul" />
-        </button>
-
-        <a
-            href="#build-your-own"
-            class="mobile-byoc-btn"
-            aria-label="Personalizează-ți tortul"
-        >
-            <img src="uploads/icons/cake-variant.svg" alt="mascotă" />
-        </a>
+        <Mascot />
     </body>
 </html>
-
-<script is:inline>
-    const mascotPopover = document.getElementById("mascot-popover");
-    if (mascotPopover) mascotPopover.showPopover();
-</script>

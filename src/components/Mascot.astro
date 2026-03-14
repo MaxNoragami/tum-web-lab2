@@ -1,0 +1,20 @@
+---
+import MascotPopover from "./MascotPopover.astro";
+import MascotTrigger from "./MascotTrigger.astro";
+---
+
+<MascotPopover />
+<MascotTrigger id="mascot-popover" />
+
+<a
+    href="#build-your-own"
+    class="mobile-byoc-btn"
+    aria-label="Personalizează-ți tortul"
+>
+    <img src="uploads/icons/cake-variant.svg" alt="mascotă" />
+</a>
+
+<script is:inline>
+    const mascotPopover = document.getElementById("mascot-popover");
+    if (mascotPopover) mascotPopover.showPopover();
+</script>

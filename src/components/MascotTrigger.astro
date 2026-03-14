@@ -1,0 +1,16 @@
+---
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<button
+    popovertarget={id}
+    popovertargetaction="show"
+    class="mascot-toggle-btn"
+    aria-label="Open mascot"
+>
+    <img src="uploads/icons/heart.svg" alt="personalizează-ți tortul" />
+</button>
