@@ -1,0 +1,82 @@
+---
+import "../styles/global.css";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { global } = getI18N(lang);
+
+const siteUrl = "https://dulceti.me";
+const pageUrl = lang === "en" ? `${siteUrl}/en/` : `${siteUrl}/`;
+const ogImageUrl = `${siteUrl}/uploads/thumbnail.png`;
+const brandName = "Dulcețime";
+const brandAltName = "Dulcetime";
+
+const schema = JSON.stringify([
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: brandName,
+        alternateName: brandAltName,
+        url: siteUrl,
+        inLanguage: lang,
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: brandName,
+        alternateName: brandAltName,
+        url: siteUrl,
+        logo: `${siteUrl}/favicon.png`,
+    },
+]);
+---
+
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>{global.meta_title}</title>
+        <meta name="title" content={global.meta_title} />
+        <meta name="description" content={global.meta_description} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:site_name" content={brandName} />
+        <meta property="og:title" content={global.meta_title} />
+        <meta property="og:description" content={global.meta_description} />
+        <meta property="og:image" content={ogImageUrl} />
+
+        <meta name="application-name" content={brandName} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={pageUrl} />
+        <meta property="twitter:title" content={global.meta_title} />
+        <meta property="twitter:description" content={global.meta_description} />
+        <meta property="twitter:image" content={ogImageUrl} />
+
+        <link rel="canonical" href={pageUrl} />
+        <script type="application/ld+json" set:html={schema} />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Story+Script&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu"
+        />
+    </head>
+
+    <body>
+        <slot />
+    </body>
+</html>

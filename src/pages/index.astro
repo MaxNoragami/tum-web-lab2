@@ -1,85 +1,17 @@
 ---
-import "../styles/global.css";
-
+import BasePageLayout from "../layouts/BasePageLayout.astro";
 import Hero from "../components/Hero.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Gallery from "../components/Gallery.astro";
 import HowItWorks from "../components/HowItWorks.astro";
 import BuildYourOwn from "../components/BuildYourOwn.astro";
-import global from "../content/ro/global.json";
 import Contacts from "../components/Contacts.astro";
 import Mascot from "../components/Mascot.astro";
 import DesktopNav from "../components/DesktopNav.astro";
 import MobileNav from "../components/MobileNav.astro";
-import { highlight } from "../utils/highlight.js";
 ---
 
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->
-<html lang="ro">
-    <head>
-        <!-- META -->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!-- Primary Meta Tags -->
-        <title>Dulcețime - torturi de casă, pentru tine.</title>
-        <meta
-            name="title"
-            content="Dulcețime - torturi de casă, pentru tine."
-        />
-        <meta
-            name="description"
-            content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
-        />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dulceti.me/" />
-        <meta
-            property="og:title"
-            content="Dulcețime - torturi de casă, pentru tine."
-        />
-        <meta
-            property="og:description"
-            content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
-        />
-        <meta property="og:image" content="uploads/thumbnail.png" />
-
-        <!-- X (Twitter) -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://dulceti.me/" />
-        <meta
-            property="twitter:title"
-            content="Dulcețime - torturi de casă, pentru tine."
-        />
-        <meta
-            property="twitter:description"
-            content="Torturi de casă la comandă, în diverse forme, din diferite blaturi. Preparat cu fructe proaspete, cremă pufoasă și cu multă dragoste!"
-        />
-        <meta property="twitter:image" content="uploads/thumbnail.png" />
-
-        <!-- FAVICON -->
-        <link rel="icon" href="favicon.png" type="image/png" />
-
-        <!-- FONTS -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Story+Script&display=swap"
-            rel="stylesheet"
-        />
-
-        <!-- SYMBOLS -->
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu"
-        />
-
-        <!-- STYLES -->
-    </head>
-
-    <body>
+<BasePageLayout lang="ro">
         <header class="flex justify-center">
             <DesktopNav lang="ro" />
             <MobileNav lang="ro" />
@@ -95,5 +27,4 @@ import { highlight } from "../utils/highlight.js";
 
         <Contacts lang="ro" />
         <Mascot lang="ro" />
-    </body>
-</html>
+</BasePageLayout>
