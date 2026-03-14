@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
     inputName: string;
     value: string;
@@ -17,6 +19,13 @@ const { inputName, value, icon, label } = Astro.props;
     class="byoc__radio byoc__radio--shape"
 />
 <label for={`shape-${value}`} class="byoc__shape-label">
-    <img src={icon} alt={label} class="byoc__icon" />
+    <Image
+        src={icon}
+        alt={label}
+        class="byoc__icon"
+        width={28}
+        height={28}
+        loading="lazy"
+    />
     <span>{label}</span>
 </label>

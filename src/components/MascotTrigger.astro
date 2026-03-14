@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
     id: string;
     ctaText: string;
@@ -13,5 +15,11 @@ const { id, ctaText } = Astro.props;
     class="mascot-toggle-btn"
     aria-label={ctaText}
 >
-    <img src="uploads/icons/heart.svg" alt={ctaText} />
+    <Image
+        src="/uploads/icons/heart.svg"
+        alt={ctaText}
+        width={28}
+        height={28}
+        loading="eager"
+    />
 </button>
