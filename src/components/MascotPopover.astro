@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { global } = getI18N(lang);
+---
+
+<div
+    class="mascot-container animate-mascot-appear"
+    id="mascot-popover"
+    popover="manual"
+>
+    <a
+        href="#build-your-own"
+        class="mascot-container__cta animate-mascot-cta-combined"
+        onclick="document.getElementById('mascot-popover').hidePopover()"
+        >{global.mascot_cta_text}</a
+    >
+    <Image
+        src="/mascot/main.png"
+        alt="Mascot"
+        class="mascot-img animate-mascot-img-jump"
+        width={400}
+        height={400}
+        loading="eager"
+    />
+    <Image
+        src="/mascot/secondary.png"
+        alt="Phone"
+        class="mascot-secondary animate-mascot-secondary-jump"
+        width={200}
+        height={200}
+        loading="eager"
+    />
+</div>

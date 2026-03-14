@@ -1,4 +1,28 @@
 {
+  "ui": {
+    "section_title": "Personalizează-ți tortul",
+    "shape_legend": "Formă tort",
+    "batter_cream_legend": "Blat și Cremă",
+    "batter_select_name": "Tip blat",
+    "batter_placeholder": "~ Tip blat ~",
+    "cream_select_name": "Tip cremă",
+    "cream_placeholder": "~ Tip cremă ~",
+    "toppings_legend": "Toppinguri",
+    "topping_input_name": "Topping",
+    "customer_legend": "Datele tale",
+    "name_input_name": "Nume",
+    "name_placeholder": "Nume",
+    "surname_input_name": "Prenume",
+    "surname_placeholder": "Prenume",
+    "phone_input_name": "Număr de telefon",
+    "phone_placeholder": "061234567",
+    "delivery_date_input_name": "Data de livrare",
+    "delivery_date_title": "Data livrare",
+    "delivery_date_placeholder": "zz/ll/aaaa",
+    "special_request_input_name": "Cereri extra",
+    "special_request_placeholder": "Cereri extra...",
+    "submit_text": "Comandă"
+  },
   "shapes": [
     {
       "label": "Număr",

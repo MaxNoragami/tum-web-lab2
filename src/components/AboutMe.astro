@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+import { highlight } from "../utils/highlight.js";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { aboutMe, global } = getI18N(lang);
+---
+
+<section
+    class="section section--bg-alt flex-col gap-[clamp(1.25rem,2.5vw,2rem)] landscape-compact:min-h-[auto] landscape-compact:p-[5rem_2.5rem_2rem]"
+    id="about-me"
+>
+    <h2 class="section__title">{global.nav_about}</h2>
+    <div
+        class="flex flex-col items-center gap-[clamp(1.5rem,3vw,2.5rem)] max-w-[1100px] w-full wide:flex-row wide:items-center wide:gap-[clamp(2rem,4vw,4rem)]"
+    >
+        <div
+            class="shrink-0 w-[clamp(12rem,45vw,18rem)] aspect-[3/4] rounded-[clamp(0.75rem,1.5vw,1.25rem)] overflow-hidden shadow-[0_6px_24px_rgba(59,35,20,0.12),0_2px_8px_rgba(59,35,20,0.08)] border-t-[3px] border-accent-main transition-transform duration-300 ease hover:scale-[1.02] wide:w-[clamp(14rem,22vw,20rem)] landscape-compact:w-[clamp(8rem,20vw,14rem)]"
+        >
+            <Image
+                src={aboutMe.image}
+                width="678"
+                height="1015"
+                alt={aboutMe.image_alt}
+                class="w-full h-full object-cover"
+                loading="lazy"
+            />
+        </div>
+
+        <article
+            class="flex flex-col gap-[clamp(0.75rem,1.5vw,1.25rem)] text-center wide:flex-1 wide:text-left"
+        >
+            <h3
+                class="font-main text-[clamp(1.25rem,3vw,1.75rem)] font-bold text-text-title"
+                set:html={highlight(
+                    aboutMe.greeting,
+                    "font-accent text-accent-main text-[1.15em]",
+                )}
+            />
+
+            <p
+                class="font-main text-[clamp(0.9rem,1.5vw,1.05rem)] italic text-accent-main leading-[1.6] border-l-[3px] border-accent-alt pl-[0.85rem] mt-[clamp(0.25rem,1vw,0.5rem)]"
+            >
+                {aboutMe.quote}
+            </p>
+
+            <p
+                class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
+                set:html={highlight(aboutMe.paragraph_1, "text--accent-main")}
+            />
+
+            <p
+                class="font-main text-[clamp(0.9rem,1.5vw,1.1rem)] text-text-paragraph leading-[1.7]"
+                set:html={highlight(aboutMe.paragraph_2, "text--accent-alt")}
+            />
+        </article>
+    </div>
+</section>

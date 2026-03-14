@@ -1,0 +1,30 @@
+---
+import HowItWorksItem from "./HowItWorksItem.astro";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { hiw, global } = getI18N(lang);
+---
+
+<section class="section section--bg-alt hiw" id="hiw">
+    <h2 class="section__title">{global.nav_hiw}</h2>
+
+    <div class="hiw__cards-wrapper">
+        {
+            hiw.steps.map((step, i) => (
+                <HowItWorksItem
+                    title={step.title}
+                    description={step.description}
+                    image={step.image}
+                    imageAlt={step.image_alt}
+                    stepNumber={i + 1}
+                />
+            ))
+        }
+    </div>
+</section>

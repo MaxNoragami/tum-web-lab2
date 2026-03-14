@@ -1,0 +1,125 @@
+---
+import ByocShape from "./ByocShape.astro";
+import ByocTopping from "./ByocTopping.astro";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { byoc, global } = getI18N(lang);
+---
+
+<section class="section byoc" id="build-your-own">
+    <h2 class="section__title">{byoc.ui.section_title}</h2>
+
+    <div class="byoc__container">
+        <form
+            class="byoc__form"
+            action={`mailto:${global.email}`}
+            method="POST"
+            enctype="text/plain"
+        >
+            <!-- Cake Shape -->
+            <fieldset class="byoc__fieldset byoc__fieldset--type">
+                <legend class="byoc__legend">{byoc.ui.shape_legend}</legend>
+                <div class="byoc__scroll-row">
+                    {
+                        byoc.shapes.map((shape) => (
+                            <ByocShape
+                                inputName={byoc.ui.shape_legend}
+                                value={shape.value}
+                                icon={shape.icon}
+                                label={shape.label}
+                            />
+                        ))
+                    }
+                </div>
+            </fieldset>
+
+            <!-- Batter & Cream -->
+            <fieldset class="byoc__fieldset byoc__fieldset--selects">
+                <legend class="byoc__legend">{byoc.ui.batter_cream_legend}</legend>
+                <select name={byoc.ui.batter_select_name} id="batter_types" class="byoc__select">
+                    <option value="">{byoc.ui.batter_placeholder}</option>
+                    {
+                        byoc.batters.map((b) => (
+                            <option value={b.value}>{b.label}</option>
+                        ))
+                    }
+                </select>
+                <select name={byoc.ui.cream_select_name} id="creame_types" class="byoc__select">
+                    <option value="">{byoc.ui.cream_placeholder}</option>
+                    {
+                        byoc.creams.map((c) => (
+                            <option value={c.value}>{c.label}</option>
+                        ))
+                    }
+                </select>
+            </fieldset>
+
+            <!-- Toppings -->
+            <fieldset class="byoc__fieldset byoc__fieldset--toppings">
+                <legend class="byoc__legend">{byoc.ui.toppings_legend}</legend>
+                <div class="byoc__scroll-row">
+                    {
+                        byoc.toppings.map((t) => (
+                            <ByocTopping inputName={byoc.ui.topping_input_name} value={t.value} label={t.label} />
+                        ))
+                    }
+                </div>
+            </fieldset>
+
+            <!-- Customer Info -->
+            <fieldset class="byoc__fieldset byoc__fieldset--customer">
+                <legend class="byoc__legend">{byoc.ui.customer_legend}</legend>
+                <div class="byoc__input-row">
+                    <input
+                        type="text"
+                        name={byoc.ui.name_input_name}
+                        id="name"
+                        placeholder={byoc.ui.name_placeholder}
+                        class="byoc__input"
+                    />
+                    <input
+                        type="text"
+                        name={byoc.ui.surname_input_name}
+                        id="surname"
+                        placeholder={byoc.ui.surname_placeholder}
+                        class="byoc__input"
+                    />
+                </div>
+                <div class="byoc__input-row">
+                    <input
+                        type="tel"
+                        name={byoc.ui.phone_input_name}
+                        id="phone"
+                        placeholder={byoc.ui.phone_placeholder}
+                        class="byoc__input"
+                    />
+                    <input
+                        type="text"
+                        name={byoc.ui.delivery_date_input_name}
+                        id="delivery-date"
+                        title={byoc.ui.delivery_date_title}
+                        placeholder={byoc.ui.delivery_date_placeholder}
+                        inputmode="none"
+                        autocomplete="off"
+                        onfocus="this.type='date'"
+                        onblur="if (!this.value) this.type='text'"
+                        class="byoc__input"
+                    />
+                </div>
+                <textarea
+                    name={byoc.ui.special_request_input_name}
+                    id="special-request"
+                    placeholder={byoc.ui.special_request_placeholder}
+                    class="byoc__textarea"></textarea>
+            </fieldset>
+
+            <button type="submit" class="byoc__submit">{byoc.ui.submit_text}</button>
+        </form>
+    </div>
+</section>

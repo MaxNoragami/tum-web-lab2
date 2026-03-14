@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import { getI18N } from "../utils/i18n";
+import type { Lang } from "../utils/i18n";
+import { highlight } from "../utils/highlight.js";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const { hero, global } = getI18N(lang);
+---
+
+<section class="section hero" id="hero">
+    <div class="hero__container">
+        <div class="hero__content">
+            <h1
+                class="hero__title"
+                set:html={highlight(hero.title, "hero__title--highlighted")}
+            />
+            <p class="hero__description">
+                {hero.description}
+            </p>
+            <a href="#build-your-own" class="hero__cta">{global.cta_text}</a>
+        </div>
+
+        <div class="hero__image-wrapper">
+            <Image
+                src="/uploads/section-hero/hero_cake.webp"
+                alt={hero.image_alt}
+                width="752"
+                height="760"
+                class="hero__image-cake animate-hero-image-float"
+                loading="eager"
+                fetchpriority="high"
+            />
+        </div>
+    </div>
+</section>

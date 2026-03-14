@@ -1,0 +1,30 @@
+---
+import BasePageLayout from "../../layouts/BasePageLayout.astro";
+import Hero from "../../components/Hero.astro";
+import AboutMe from "../../components/AboutMe.astro";
+import Gallery from "../../components/Gallery.astro";
+import HowItWorks from "../../components/HowItWorks.astro";
+import BuildYourOwn from "../../components/BuildYourOwn.astro";
+import Contacts from "../../components/Contacts.astro";
+import Mascot from "../../components/Mascot.astro";
+import DesktopNav from "../../components/DesktopNav.astro";
+import MobileNav from "../../components/MobileNav.astro";
+---
+
+<BasePageLayout lang="en">
+        <header class="flex justify-center">
+            <DesktopNav lang="en" />
+            <MobileNav lang="en" />
+        </header>
+
+        <main>
+            <Hero lang="en" />
+            <AboutMe lang="en" />
+            <Gallery lang="en" />
+            <HowItWorks lang="en" />
+            <BuildYourOwn lang="en" />
+        </main>
+
+        <Contacts lang="en" />
+        <Mascot lang="en" />
+</BasePageLayout>

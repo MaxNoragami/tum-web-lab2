@@ -1,4 +1,28 @@
 {
+  "ui": {
+    "section_title": "Build your own cake",
+    "shape_legend": "Cake shape",
+    "batter_cream_legend": "Batters and cream",
+    "batter_select_name": "Batter type",
+    "batter_placeholder": "~ Batter type ~",
+    "cream_select_name": "Cream type",
+    "cream_placeholder": "~ Cream type ~",
+    "toppings_legend": "Toppings",
+    "topping_input_name": "Topping",
+    "customer_legend": "Your details",
+    "name_input_name": "First name",
+    "name_placeholder": "First name",
+    "surname_input_name": "Last name",
+    "surname_placeholder": "Last name",
+    "phone_input_name": "Phone number",
+    "phone_placeholder": "061234567",
+    "delivery_date_input_name": "Delivery date",
+    "delivery_date_title": "Delivery date",
+    "delivery_date_placeholder": "mm/dd/yyyy",
+    "special_request_input_name": "Special requests",
+    "special_request_placeholder": "Special requests...",
+    "submit_text": "Place order"
+  },
   "shapes": [
     {
       "label": "Number",
@@ -22,6 +46,7 @@
     },
     {
       "label": "Star",
+      "value": "Stea",
       "icon": "/uploads/icons/star.svg"
     }
   ],
@@ -52,7 +77,7 @@
     },
     {
       "label": "Ladyfingers",
-      "value": ""
+      "value": "piscot"
     }
   ],
   "creams": [
@@ -104,7 +129,7 @@
     },
     {
       "label": "Waffles",
-      "value": ""
+      "value": "vafe"
     }
   ]
 }
