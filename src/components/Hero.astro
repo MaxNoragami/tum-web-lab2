@@ -9,17 +9,12 @@ import { highlight } from "../utils/highlight.js";
         <div class="hero__content">
             <h1
                 class="hero__title"
-                set:html={highlight(
-                    hero.title,
-                    "hero__title--highlighted",
-                )}
+                set:html={highlight(hero.title, "hero__title--highlighted")}
             />
             <p class="hero__description">
                 {hero.description}
             </p>
-            <a href="#build-your-own" class="hero__cta"
-                >{global.cta_text}</a
-            >
+            <a href="#build-your-own" class="hero__cta">{global.cta_text}</a>
         </div>
 
         <div class="hero__image-wrapper">
