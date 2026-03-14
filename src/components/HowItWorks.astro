@@ -1,0 +1,22 @@
+---
+import hiw from "../content/ro/hiw.json";
+import HowItWorksItem from "./HowItWorksItem.astro";
+---
+
+<section class="section section--bg-alt hiw" id="hiw">
+    <h2 class="section__title">Cum lucrează?</h2>
+
+    <div class="hiw__cards-wrapper">
+        {
+            hiw.steps.map((step, i) => (
+                <HowItWorksItem
+                    title={step.title}
+                    description={step.description}
+                    image={step.image}
+                    imageAlt={step.image_alt}
+                    stepNumber={i + 1}
+                />
+            ))
+        }
+    </div>
+</section>

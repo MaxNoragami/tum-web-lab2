@@ -4,7 +4,7 @@ import "../styles/global.css";
 import Hero from "../components/Hero.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Gallery from "../components/Gallery.astro";
-import hiw from "../content/ro/hiw.json";
+import HowItWorks from "../components/HowItWorks.astro";
 import global from "../content/ro/global.json";
 import byoc from "../content/ro/byoc.json";
 import contacts from "../content/ro/contacts.json";
@@ -186,33 +186,7 @@ import { highlight } from "../utils/highlight.js";
 
             <Gallery />
 
-            <section class="section section--bg-alt hiw" id="hiw">
-                <h2 class="section__title">Cum lucrează?</h2>
-
-                <div class="hiw__cards-wrapper">
-                    {
-                        hiw.steps.map((step, i) => (
-                            <article class="hiw__card">
-                                <div class="hiw__header">
-                                    <span class="hiw__step">{i + 1}</span>
-                                    <h3 class="hiw__title">{step.title}</h3>
-                                </div>
-                                <img
-                                    src={step.image}
-                                    width="512"
-                                    height="512"
-                                    alt={step.image_alt}
-                                    class="hiw__artwork"
-                                    loading="lazy"
-                                />
-                                <p class="hiw__description">
-                                    {step.description}
-                                </p>
-                            </article>
-                        ))
-                    }
-                </div>
-            </section>
+            <HowItWorks />
 
             <section class="section byoc" id="build-your-own">
                 <h2 class="section__title">Personalizează-ți tortul</h2>

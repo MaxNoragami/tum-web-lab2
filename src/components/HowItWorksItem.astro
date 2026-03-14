@@ -1,0 +1,29 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    stepNumber: number;
+}
+
+const { title, description, image, imageAlt, stepNumber } = Astro.props;
+---
+
+<article class="hiw__card">
+    <div class="hiw__header">
+        <span class="hiw__step">{stepNumber}</span>
+        <h3 class="hiw__title">{title}</h3>
+    </div>
+    <img
+        src={image}
+        width="512"
+        height="512"
+        alt={imageAlt}
+        class="hiw__artwork"
+        loading="lazy"
+    />
+    <p class="hiw__description">
+        {description}
+    </p>
+</article>
